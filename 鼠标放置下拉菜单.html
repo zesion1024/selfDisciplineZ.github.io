@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			div{
+				width: 600px;
+				height: 40px;
+				margin: 0 auto;
+			}
+			div ul{
+				font-size: 18px;
+				font-family: "微软雅黑";
+				line-height: 40px;
+				list-style-type: none;
+			}
+			div ul li {
+				float: left;
+				padding-right: 40px;
+				text-align: center;
+				color: black;
+			}
+			div ul li ul li{
+				float: none;
+				line-height: 30px;
+				text-align: left;
+			}
+			div ul li ul{
+				position: absolute;
+				display: none;
+			}
+			div ul li:hover ul{
+				display: block
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+		<ul>
+			<li>首页</li>
+			<li>学习中心
+				<ul>
+					<li>学习中心</li>
+					<li>学习中心</li>
+					<li>学习中心</li>
+				</ul>
+			</li>
+		</ul>
+		</div>
+	</body>
+</html>
