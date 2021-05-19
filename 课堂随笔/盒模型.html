@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<p>随堂内容：
+			<br />  1、四个盒模型，每个盒模型外边距不能相同；
+			<br />  2、两个盒模型添加背景色，两个盒模型添加背景图；
+			<br />  3、每个盒模型边框样式不能相同；
+			<br />  4、添加背景图的盒模型需要体现图片定位在元素内不同位置；
+		</p>
+		<div class="oneDiv">
+			我是元素内容
+		</div>
+		<p>我是一个P标签</p>
+		<div class="twoDiv">
+			第二个DIV
+		</div>
+	</body>
+	<style type="text/css">
+		/* body{
+			background-image: url(Groupies.jpg);
+		} */
+		.twoDiv{
+			width: 500px;
+			height: 600px;
+			border: 3px solid #8A2BE2;
+			background-color: #FF0000;
+			background-image: url(Groupies.jpg);
+			background-repeat: no-repeat;
+			background-position: 15px 20px;
+			background: ;
+		}
+		.oneDiv{
+			width: 150px;
+			height: 50px;
+			border: 1px solid red;
+			padding: 15px 20px 15px 20px;/* 上 右 下 左 */
+			margin-top:30px;
+			margin: 50px 50px;/* 上下 左右 */
+		}
+	</style>
+</html>

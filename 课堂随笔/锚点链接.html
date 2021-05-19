@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 点击之前的样式 */
+			a:link{
+				color: black;
+				text-decoration: none;
+			}
+			/* 点击之后的样式 */
+			a:visited{
+				color: red;
+			}
+			/* 鼠标悬浮在a标签上的时候 */
+			a:hover{
+				color: coral;
+				background-color: #00FF00;
+			}
+			/* 鼠标点击不放 */
+			a:active{
+				background-color: #8A2BE2;
+				color: #ffffff;
+			}
+			.divMargin{
+				margin-bottom: 200px;
+				width: 400px;
+				height: 300px;
+				border: 1px solid #8A2BE2;
+			}
+			#one{
+				margin-top: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="#one">跳转到当前页面的盒子一</a>
+		<br />
+		<a href="#two">跳转到当前页面的盒子二</a>
+		<br />
+		<a href="#three">跳转到当前页面的盒子三</a>
+		
+		
+		<div class="divMargin" id="one">
+			盒子1
+		</div>
+		<div class="divMargin" id="two">
+			盒子2
+		</div>
+		<div class="divMargin" id="three">
+			盒子3
+		</div>
+		
+	</body>
+</html>

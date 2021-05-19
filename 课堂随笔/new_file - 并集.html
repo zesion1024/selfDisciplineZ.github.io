@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- <link href="css.css" type="text/css" rel="stylesheet" /> -->
+	</head>
+	<body>
+		<p class="aStyle">
+			<a class="nStyle">P标签包裹内的a标签</a>
+			<a>P标签包裹内的第二个a标签</a>
+		</p>
+		<h3 class="threeStyle">
+			<p>
+				<a>我是第三层A标签</a>
+			</p>
+		</h3>
+		<h3>
+			<a>第二层a标签</a>
+		</h3>
+		<h3 class="titleStyle titleStyleTwo">H3标签</h3>
+		<h2 id="hStyle">我 是 H2 标 签</h2>
+		<h5 class="fontStyle">我是测试文字溢出处理的H5标签，文字内容过长部分省略号表示</h5>
+	</body>
+	<style type="text/css">			
+		/* 并集选择器 */
+		p,h3,#hStyle,.fontStyle{
+			color: #D2691E;
+		}
+	</style>
+
+</html>

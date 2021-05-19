@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- <link href="css.css" type="text/css" rel="stylesheet" /> -->
+	</head>
+	<body>
+		<h3 class="threeStyle">
+			<a>我是第二层A标签</a>
+			<p class="TwoStyle">
+				<a>我是第三层A标签</a>
+			</p>
+		</h3>
+	</body>
+	<style type="text/css">	
+		/* 子元素选择器 */
+		h3>a{
+			color: #FF0000;
+		}
+		h3>p>a{
+			color: aquamarine;
+		}
+		h3>.TwoStyle>a{
+			font-size: 25px;
+		}
+		.threeStyle>.TwoStyle>a{
+			font-family: "华文琥珀";
+		}
+	</style>
+</html>

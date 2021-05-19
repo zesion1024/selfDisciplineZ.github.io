@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.clear{
+				clear: both;
+			}
+			ul{
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			p{
+				margin: 0;
+				padding: 0;
+			}
+			.content{
+				position: relative;
+			}
+			.content>ul{
+				width: 120px;
+				border: 1px solid #FF0000;
+			}
+			.content>ul>li{
+				padding: 10px 20px;
+				border-bottom: 1px solid #8A2BE2;
+			}
+			.content>ul>li:last-child{
+				border: 0;
+			}
+			
+			.twoList{
+				width: 400px;
+				border: 1px solid  #7FFFD4;
+				position: absolute;
+				top: 0;
+				left: 120px;
+				display: none;
+			}
+			.twoList .twoListDiv{
+				float: left;
+				margin: 20px 15px;
+			}
+			
+			/* 二级菜单效果实现 */
+			.content>ul>li:hover{
+				cursor: pointer;/* 鼠标样式变更 */
+			}
+			.content>ul>li:hover .twoList{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<!-- 一级菜单 -->
+			<ul>
+				<li>
+					分类一
+					<!-- 二级菜单 -->
+					<ul class="twoList">
+						<li class="twoListDiv">
+							<p>类别一</p>
+							<hr />
+							<span>保湿</span>
+							<span>|</span>
+							<span>补水</span>
+							<span>|</span>
+							<span>洁面</span>
+							<span>|</span>
+							<span>乳液</span>
+						</li>
+						<li class="twoListDiv">
+							<p>类别二</p>
+							<hr />
+							<span>保湿</span>
+							<span>|</span>
+							<span>补水</span>
+							<span>|</span>
+							<span>洁面</span>
+							<span>|</span>
+							<span>乳液</span>
+						</li>
+						<div class="clear"></div>
+					</ul>
+				</li>
+				<li>
+					分类二
+					<!-- 二级菜单 -->
+					<ul class="twoList">
+						<li class="twoListDiv">
+							<p>类别三</p>
+							<hr />
+							<span>保湿</span>
+							<span>|</span>
+							<span>补水</span>
+							<span>|</span>
+							<span>洁面</span>
+							<span>|</span>
+							<span>乳液</span>
+						</li>
+						<li class="twoListDiv">
+							<p>类别四</p>
+							<hr />
+							<span>保湿</span>
+							<span>|</span>
+							<span>补水</span>
+							<span>|</span>
+							<span>洁面</span>
+							<span>|</span>
+							<span>乳液</span>
+						</li>
+						<div class="clear"></div>
+					</ul>
+				</li>
+				<li>
+					分类三
+					<!-- 二级菜单 -->
+					<ul class="twoList">
+						<li class="twoListDiv">
+							<p>类别五</p>
+							<hr />
+							<span>保湿</span>
+							<span>|</span>
+							<span>补水</span>
+							<span>|</span>
+							<span>洁面</span>
+							<span>|</span>
+							<span>乳液</span>
+						</li>
+						<li class="twoListDiv">
+							<p>类别六</p>
+							<hr />
+							<span>保湿</span>
+							<span>|</span>
+							<span>补水</span>
+							<span>|</span>
+							<span>洁面</span>
+							<span>|</span>
+							<span>乳液</span>
+						</li>
+						<div class="clear"></div>
+					</ul>
+				</li>
+				<li>
+					分类四
+					<!-- 二级菜单 -->
+					<ul class="twoList">
+						<li class="twoListDiv">
+							<p>类别七</p>
+							<hr />
+							<span>保湿</span>
+							<span>|</span>
+							<span>补水</span>
+							<span>|</span>
+							<span>洁面</span>
+							<span>|</span>
+							<span>乳液</span>
+						</li>
+						<li class="twoListDiv">
+							<p>类别八</p>
+							<hr />
+							<span>保湿</span>
+							<span>|</span>
+							<span>补水</span>
+							<span>|</span>
+							<span>洁面</span>
+							<span>|</span>
+							<span>乳液</span>
+						</li>
+						<div class="clear"></div>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

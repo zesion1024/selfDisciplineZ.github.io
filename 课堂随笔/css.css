@@ -1,0 +1,34 @@
+#hStyle{
+	color: blueviolet;
+	font-family: "微软雅黑","黑体";
+	font-weight: normal;/* 文字加粗 */
+	font-size: 50px;
+	text-align: center;
+	text-shadow:15px 10px 10px red;
+}
+.fontStyle{
+	width: 135px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.titleStyle{
+	width: 100%;/* 元素宽度 */
+	height: 50px;/* 元素高度 */
+	color: chocolate;
+	background-color: blanchedalmond;/* 元素背景色 */
+	font-size: 18px;
+	line-height: 50px;/*行高*/
+	text-decoration: overline;
+}
+.titleStyleTwo{
+	font-weight: normal;/* 文字加粗 */
+	margin-left: 40px;/* 外边距 */
+	padding-left: 35px;/* 内边距 */
+}
+p{
+	color: aqua;/* 字体颜色 */
+	font-size: 25px;/* 字体大小（字号） */
+	font-family: "黑体";/* 字体样式（字体） */
+	text-align: center;/* 文字居中 */
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>定位</title>
+		<style type="text/css">
+			body{
+				height: 1500px;
+			}
+			.oneDiv{
+				width: 100px;
+				height: 60px;
+				background-color: #7FFFD4;
+				position: relative;
+				top: 30px;
+				left: 20px;
+				z-index: 10;
+			}
+			.twoDiv{
+				width: 100px;
+				height: 60px;
+				background-color: #8A2BE2;
+				position: absolute;
+				top: -20px;
+				right: -30px;
+				z-index: 1;
+			}
+			.father{
+				width: 300px;
+				height: 200px;
+				margin-top: 50px;
+				background-color: #FF0000;
+				position: relative;
+				z-index: 9;
+			}
+			.fourDiv{
+				width: 80px;
+				height:100px;
+				background-color:  #0000FF;
+				position: fixed;
+				bottom: 30px;
+				right: 25px;
+			} 
+		</style>
+	</head>
+	<body>
+		<div class="oneDiv">元素一</div>
+		<div class="father">
+			<div class="twoDiv">元素二</div>
+		</div>
+		<div class="fourDiv">固定定位</div>
+		
+		
+		
+		
+		
+	</body>
+</html>
