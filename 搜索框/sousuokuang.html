@@ -9,6 +9,7 @@
 				height: 40px; 
 				border: none;
 			}
+			/* 第一个盒子包含手机图标和移动新媒体 */
 			.s-box-1{
 				width: 100px;
 				height: 40px;
@@ -17,23 +18,26 @@
 				float: left;
 				border: none;
 			}
-			
+			/* 第二个盒子中国搜索框，搜索栏和搜索图标*/
 			.s-box-2{
 				width: 223px;
 				height: 40px;
 				border: solid 1px #cccccc;
 				float: left;
 			}
+			/* 设置移动新媒体的居中和字体 */
 			.sousuo-max-box .s-box-1 span{
 				float: right;
 				text-align: center;
 				font-size: 13px;
 			}
+			/* 手机图标 */
 			.sousuo-max-box .s-box-1 img{
 				margin-top: 10px;
 				float: right;
 				margin-right: 10px;
 			}
+			/* 中国搜索盒子大小 */
 			.liebiao{
 				height: 40px;
 				font-size: 15px;
@@ -43,6 +47,7 @@
 				float: left;
 				outline: none;
 			}
+			/* 搜索栏大小 */
 			.sousuo{
 				width: 100px;
 				height: 35px;
@@ -50,10 +55,16 @@
 				float: left;
 				outline: none;
 			}
+			/* 搜索图标格式 */
 			.tupian{
 				text-align: center;
 				line-height: 40px;
 				margin: 0 auto;
+			}
+			.sousuo-max-box .s-box-2 form .liebiao ul li{
+				height: 100px;
+				padding-right: 40px;
+				font-size: 20px;
 			}
 		</style>
 	</head>
@@ -66,8 +77,12 @@
 			<div class="s-box-2">
 				<form>
 					<select class="liebiao">
-						<option>中国搜索</option>
-						<option>站内搜索</option>	
+						<ul>
+							<li>
+								<option>中国搜索</option>
+								<option>站内搜索</option>
+							</li>
+						</ul>	
 					</select>
 					<input class="sousuo" type="text"/>
 				</form>
