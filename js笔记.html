@@ -193,33 +193,175 @@
 			// 	console.log(i);
 			// }
 			
-			var yue = 100;
-			var a = '';
-			a = prompt('请输入您要的操作:' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出');
-			while(a == ''){
-				a = prompt('输入有误,重新输入' + '请输入您要的操作:' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出')
-			}
-			if(a == '1'){
-				var cun = prompt('请输入存款额度:');
-				yue += (Number(cun));
-				alert('存款成功');
-				a = prompt('请输入您要的操作:' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出');
-			}
-			if(a == '2'){
-				var qu = prompt('请输入取款额度');
-				yue -= (Number(qu));
-				alert('取款成功');
-				a = prompt('请输入您要的操作:' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出');
-			}
-			if(a == '3'){
-				alert('你的余额为:' + yue);
-				a = prompt('请输入您要的操作:' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出');
-			}
-			if(a == '4'){
-				alert('正在退出');
-				alert('退出成功');
-			}
+				// 简易ATM,1.0版本有BUG
+			// var yue = 100;
+			// var a = '';
+			// a = prompt('请输入您要的操作:' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出');
+			// while(a == ''){
+			// 	a = prompt('输入有误,重新输入' + '请输入您要的操作:' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出')
+			// }
+			// if(a == '1'){
+			// 	var cun = prompt('请输入存款额度:');
+			// 	yue += (Number(cun));
+			// 	alert('存款成功');
+			// 	a = prompt('请输入您要的操作:' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出');
+			// }
+			// if(a == '2'){
+			// 	var qu = prompt('请输入取款额度');
+			// 	yue -= (Number(qu));
+			// 	alert('取款成功');
+			// 	a = prompt('请输入您要的操作:' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出');
+			// }
+			// if(a == '3'){
+			// 	alert('你的余额为:' + yue);
+			// 	a = prompt('请输入您要的操作:' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出');
+			// }
+			// if(a == '4'){
+			// 	alert('正在退出');
+			// 	alert('退出成功');
+			// }
 			
+				// 简易ATM,2.0无BUG
+			// var num =100;
+			// while(true){
+			// var str = prompt('请输入您要的操作:'+'\n'+ '1.存钱' +'\n'+ '2.取钱' +'\n'+ '3.显示余额' + '\n'+ '4.退出' )
+			// if(str == '4'){
+			// 	alert('退出完成');
+			// 	break;
+			// }
+			// switch(str){
+			// 	case '1':
+			// 	var score = prompt('请您输入存的钱数:')
+			// 	num += parseFloat(score)
+			// 	alert('成功,您目前余额为:' + num)
+			// 	continue;
+			// 	case '2':
+			// 	var score = prompt('请您输入取的钱数:')
+			// 	num -= parseFloat(score)
+			// 	alert('成功,您目前余额为:' + num)
+			// 	continue;
+			// 	case '3':
+			// 	alert('您目前余额为:' + num)
+			// 	continue;
+			//     }
+			// }
+			
+				// 数组
+			// var a = ['小黑','小黄','小白','小蓝','小绿'];
+			// console.log(a[1]);
+			
+				// 遍历数组;将数组从头到尾依次访问一遍
+				// a . length 动态检测数组元素的个数,不用一个个数
+			// var a = ['小黑','小黄','小白','小蓝','小绿','123'];
+			// for(var i = 0;i < a.length; i++){
+			// 	console.log(a[i]);
+			// }
+			
+				// 数组案例,求一列数组的和，平均数
+			// var a = [2,6,1,7,4];
+			// var sum = 0;
+			// var pingjun = 0;
+			// for(var i = 0;i < a.length; i++){
+			// 	sum += a[i];
+			// }
+			// pingjun = sum / a.length;
+			// console.log(sum,pingjun);
+			
+				// 数组案例;求最大值
+			// var a = [2,6,1,77,52,25,7];
+			// var max = a[0];
+			// for(var i = 0; i < a.length; i++){
+			// 	if(a[i]>max){
+			// 		max = a[i];
+			// 	}
+			// }
+			// console.log('该数列中最大值是:' + max);
+			
+				// 数组案例;求一列数组中最小值	
+			// var a = [2,6,1,77,52,25,7,0];
+			// var mix = a[0];	//将一列数组中的第一个值先赋给mix
+			// for(var i = 0; i < a.length; i++){	//外层循环数组中的每一个值
+			// 	if(a[i]<mix){	//将循环的数组与mix里面的值进行对比
+			// 		mix = a[i];		//如果数组的值比mix里面的值小就将它赋给mix
+			// 	}
+			// }
+			// console.log('该数组中最小值是:' + mix);
+			
+				// 数组案例;新建数组,将1~10存放到里面
+			// var a = [];
+			// for(var i = 0; i < 11; i++){
+			// 	a[i] = i;
+			// }
+			// console.log(a);
+			
+				// 数组案例;将数组[2,0,6,1,77,0,52,0,25,7]中大于10的元素选出来,放入新的数组
+			// var num = [2,0,6,1,77,0,52,0,25,7,11];
+			// var num1 = [];
+			// for(var i = 0; i < num.length; i++){
+			// 	if(num[i] > 10){
+			// 		num1 += num[i] + '\n';
+			// 	}
+			// }
+			// console.log(num1);
+			
+				// 函数
+				//return终止函数,下面的代码不会执行，返回值只能返回一个值。如果有两个，只能返回最后一个值，但是可以返回数组。
+			// 1 声明函数
+			// function getsum(){
+			// 	var sum = 0;
+			// 	for (var i = 0; i <= 100; i++){
+			// 		sum += i;
+			// 	}
+			// 	console.log(sum);
+			// }
+			// // 2调用函数
+			// getsum()
+			
+				// 形参和实参
+			// function getsum (num1,num2){
+			// 	console.log(num1,num2);
+			// 	console.log(num1 + num2);
+			// }
+			// getsum(1,2);
+			
+				// 利用函数求任意两个数之间的和
+			// var sum = 0;
+			// function getsum(num1,num2){
+			// 	for(var i = num1; i <= num2; i++){
+			// 		sum += i;
+			// 	}
+			// 	console.log(sum);
+			// }
+			// getsum(1,100);
+			// getsum(1,50);
+			
+				// 利用return返回参数计算两个数的最大值
+			// function a(num1,num2){
+			// 	return num1 > num2 ? num1 : num2;
+			// }
+			// console.log(a(2,5));
+			// console.log(a(10,5));
+			
+				// 利用return返回参数求数组中的最大值
+			// function amax(a){
+			// 	var max = 0;
+			// 	for(var i = 0; i < a.length; i++){
+			// 		if(a[i] > max){
+			// 			max = a[i];
+			// 		}
+			// 	}
+			// 	return max;
+			// }
+			// console.log(amax([5,2,99,101,67,77]));
+			
+				//return求两个数的加减乘除结果
+			// function jg(num1,num2){
+			// 	return[num1+num2,num1-num2,num1*num2,num1/num2,];
+			// }
+			// console.log(jg(1,2));		//第一种输出方式
+			// var te = jg(1,2);		//第二种输出方式（常用）
+			// console.log(te)		//第二种输出方式（常用）
+		
 		</script>
 	</head>
 	<body>
