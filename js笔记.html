@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			// prompt('输入')
+			// alert('输出')
+			// console.log(16313);
+			
+			// var age = prompt('年龄');
+			// alert('你已经' + age +'岁了');
+			
+			// var nianfen = prompt('请输入出生年份');
+			// var age = 2021 - nianfen;
+			// alert('你今年' + age + '岁了');
+			
+			// ！！！！数据转换
+				// 第一种方法转换后直接输出
+			// var num1 = prompt ('请输入一个数字');
+			// var num2 = prompt ('请输入一个数字');
+			// // var jieguo =parseFloat(num1) + parseFloat(num2);
+			// // alert('你输入的结果是:' + jieguo);
+				// 第二种直接输出
+			// alert(num1*1 + num2*1);
+				// 第三种直接输出
+			// //alert(parseFloat(num1) + parseFloat(num2))
+			
+			// var num1 = prompt('姓名');
+			// var num2 = prompt('年龄');
+			// var num3 = prompt('性别');
+			// alert('姓名:' + num1 +'\n' + '年龄:' + (Number(num2)) + '\n' + '性别:' + num3);
+			
+				//！！！！if判断
+			// var i = prompt('请输入分数')
+			// // if (i >= 90){
+			// // 	alert('A')
+			// // }else if (i >= 80){
+			// // 	alert('B')
+			// // }else if (i >= 70){
+			// // 	alert('C')
+			// // }else if (i >= 60){
+			// // 	alert('D')
+			// // }else {
+			// // 	alert('E')
+			// // }
+			// if (i>=90 && i<=100){
+			// 	alert('哈哈哈')
+			// }else{
+			// 	alert('呵呵呵')
+			// }
+			
+				// !!!!三元运算符
+			// var i = prompt('数字')
+			// var j = i < 10 ? '0' + i : i;
+			// alert(j);
+			
+				// !!!!!!switch 判断
+			// var i = prompt('名称');
+			// switch (i) {
+			// 	case '苹果':
+			// 		alert('3元/斤');
+			// 		break;
+			// 	case '香蕉':
+			// 		alert('5元/斤');
+			// 		break;
+			// 	case '桃子':
+			// 		alert('4元/斤');
+			// 		break;
+			// 	default:
+			// 		alert('无');
+			// }
+			
+				// for循环
+			// for(var i = 1; i <= 100; i++){
+			// 	console.log('你好');
+			// }
+				// for循环执行不同代码
+			// for(i = 1; i <= 100;i++){
+			// 	console.log('我今年' + i + '岁了');
+			// }
+
+				//！！！ 输入班级人数输入人数成绩并累加计算总成绩和平均成绩
+			// var renshu = prompt('输入人数');		//班级人数
+			// var sum = 0;		//总得分
+			// var pinjun = 0; 	//平均分
+			// for (i = 1; i <= renshu; i++){
+			// 	var chengji = prompt('请输入第' + i +'个学生成绩');
+			// 	sum = sum + parseFloat(chengji);	//每次输入一个成绩就加到sum里面
+			// }
+			// pinjun = sum / renshu; 		//求平均树
+			// alert('班级总分是:' + sum); 
+			// alert('班级平均分是:' + pinjun);
+			
+				// 打印5行5列的*
+			// var str = '';
+			// 	// 输出打印5行
+			// for(var i = 1; i <= 5; i++){
+			// 	// 每行输出打印5个
+			// 	for(var j = 1; j <= 5; j++){
+			// 		str = str + '*';
+			// 	}
+			// 	str = str + '\n'
+			// }
+			// console.log(str);
+			
+			// 	// 输入任意行和列并打印出
+			// var hang = prompt('请输入行数');
+			// var lie = prompt('请输入列数');
+			// var str = '';
+			// for(var i = 1; i <= hang; i++){
+			// 	for(var j = 1; j <= lie; j++){
+			// 		str += '*';	
+			// 	}
+			// 	str += '\n';
+			// }
+			// console.log(str);
+			
+				// 倒立三角形
+			// var str = '';
+			// for (var i = 1; i <= 10; i++){
+			// 	for (var j = i; j <= 10; j++){
+			// 		str += '*';
+			// 	}
+			// 	str += '\n'
+			// }
+			// console.log(str);
+			
+				//！！！！ 九九乘法表
+			// var str = '';
+			// for(var i = 1; i <= 9; i++){
+			// 	for(var j = 1; j <= i; j++){
+			// 		// str += '*'
+			// 		str += j + '*' + i + '=' + i * j + '\t';   将i * j 的结果赋值给j + '*' + i
+			// 	}
+			// 	str += '\n';
+			// }
+			// console.log(str);
+			
+				// while循环
+			// var num = 1
+			// while(num <= 100){
+			// 	console.log('你好');
+			// 	num++;		一定要加这行代码,不然会死循环,不要轻易尝试
+			// }
+			
+				// while循环案例
+			// var age = 1;
+			// while(age <= 100){
+			// 	console.log('你已经' + age + '岁了');
+			// 	age++;
+			// }
+			
+				// while 案例 （1）
+			// var i = prompt('你好吗');
+			// while(i !== '好'){
+			// 	i = prompt('你好吗');
+			// }
+			// alert('你好');
+
+				// while 案例 （2）
+			// var y = prompt('请输入用户名');
+			// var m = prompt('请输入密码');
+			// while(y !== 'zheng' && m !== 123456){
+			// 	y = prompt('输入有误，请重新输入账号');
+			// 	m = prompt('输入有误，请重新输入密码');
+			// }
+			// alert('登陆成功');
+			
+				// continue关键字中断本次循环，其余继续
+			// for(var i = 1; i <= 10; i++){
+			// 	if (i ==3){
+			// 		continue;
+			// 	}
+			// 	console.log(i);
+			// }
+			
+				// continue 案例;求1~100之间,除了能被7整除之外的整数和
+			// var sum = 0;
+			// for (var i = 1; i <= 100; i++){
+			// 	if (i % 7 == 0){
+			// 		continue;
+			// 	}
+			// 	sum += i;
+			// }
+			// console.log(sum);
+			
+				// break关键字;直接中断条件后面所有语句
+			// for (var i = 1; i <= 5; i++){
+			// 	if(i == 3){
+			// 		break;
+			// 	}
+			// 	console.log(i);
+			// }
+			
+			var yue = 100;
+			var a = '';
+			a = prompt('请输入您要的操作:' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出');
+			while(a == ''){
+				a = prompt('输入有误,重新输入' + '请输入您要的操作:' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出')
+			}
+			if(a == '1'){
+				var cun = prompt('请输入存款额度:');
+				yue += (Number(cun));
+				alert('存款成功');
+				a = prompt('请输入您要的操作:' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出');
+			}
+			if(a == '2'){
+				var qu = prompt('请输入取款额度');
+				yue -= (Number(qu));
+				alert('取款成功');
+				a = prompt('请输入您要的操作:' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出');
+			}
+			if(a == '3'){
+				alert('你的余额为:' + yue);
+				a = prompt('请输入您要的操作:' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出');
+			}
+			if(a == '4'){
+				alert('正在退出');
+				alert('退出成功');
+			}
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
