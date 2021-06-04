@@ -358,10 +358,103 @@
 			// function jg(num1,num2){
 			// 	return[num1+num2,num1-num2,num1*num2,num1/num2,];
 			// }
+			// prompt('1.加法\n' + '2.减法\n' + '3.乘法' + '4.除法')
+			// while()
 			// console.log(jg(1,2));		//第一种输出方式
 			// var te = jg(1,2);		//第二种输出方式（常用）
 			// console.log(te)		//第二种输出方式（常用）
-		
+			
+				// 利用Arguments函数求最大值
+				// Arguments存储了传递过来的所有实参
+			// function getmax(){			//未定义实参
+			// 	var max = arguments[0]		//将第一个实参赋值给max
+			// 	for(var i = 0; i < arguments.length; i++){		//外层循环,从0开始循环
+			// 		if(arguments[i] > max){			//将传过来的实参和max进行比较如果比max大就赋值给max
+			// 			max = arguments[i]			//如果传过来的实参比max大就赋值给max
+			// 		}
+			// 	}
+			// 	return max;			//返回max值
+			// }
+			// console.log(getmax(1,2,3,))
+			// console.log(getmax(1,2,3,4,));
+			// console.log(getmax(1,2,3,4,5,555,6,8,999));
+			
+				// 函数调用
+				// 384-393未调用函数,394调用fn1输出111后调用fn2输出222,'fn2'之后返回fn1函数体输出'fn1'
+			// function fn1(){
+			// 	console.log(111);
+			// 	fn2();
+			// 	console.log('fn1');
+			// }
+			
+			// function fn2(){
+			// 	console.log(222);
+			// 	console.log('fn2');
+			// }
+			// fn1();
+			// 结果:111,222,'fn2','fn1'
+			
+				// 判断是否是闰年,输出true或false
+			// function run(year){
+			// 	var flag = false;
+			// 	if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0){
+			// 		flag = true;
+			// 	}
+			// 	return flag;
+			// }
+			// // console.log(a(2000));
+			
+			
+			// function backDay(){
+			// 	var year = prompt('输入年份');
+			// 	// 调用run(year)函数，true输出是闰年，false输出平年
+			// 	if (run(year)) {
+			// 		alert('输入的是闰年,有28天');
+			// 	}else{
+			// 		alert('输入的是平年，有27天');
+			// 	}
+			// }
+			// backDay();
+			
+				// 创建对象
+			// var obj = {
+			// 	uname:'张三',
+			// 	age: 18,
+			// 	sex: '男',
+			// 	sayHi: function(){
+			// 		console.log('hi~');
+			// 	}
+			// }
+			// // 第一种调用对象
+			// console.log(obj.age);
+			// // 第二种调用对象
+			// console.log(obj['age']);
+			// // 调用对象方法 sayHi
+			// obj.sayHi()
+			
+				// new构造函数
+			// function Star(uname,age,sex){
+			// 	this.name = uname;
+			// 	this.age = age;
+			// 	this.sex = sex;
+			// 	this.sing = function(sang){
+			// 		console.log(sang);
+			// 	}
+			// 	this.sing = function(sang){
+			// 		console.log(sang);
+			// 	}
+			// }
+			// //调用函数返回参数到Star后面小括号
+			// var ldh = new Star('刘德华',18,'男');
+			// console.log(ldh.name);
+			// console.log(ldh['sex']);
+			// ldh.sing('冰雨')
+			// var zxy = new Star('张学友',19,'男');
+			// console.log(zxy.name);
+			// zxy.sing('李兰香')
+			
+					
+			
 		</script>
 	</head>
 	<body>
