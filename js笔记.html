@@ -529,21 +529,21 @@
 			// console.log(Date.now());
 			
 					// 倒计时案例
-			function countDown(time){
-				var nowTime = +new Date();	//返回当前时间总的毫秒数
-				var inputTime = +new Date(time);
-				var times = (inputTime - nowTime) / 1000	//剩余的总毫秒数
-				var d = parseInt(times / 60 / 60 / 24);
-				d = d < 10 ? '0' + d : d;
-				var h = parseInt(times / 60 / 60 % 24);
-				h = h < 10 ? '0' + h : h;
-				var m = parseInt(times / 60 %60);
-				m = m < 10 ? '0' + m : m;
-				var s = parseInt(times %60);
-				s = s < 10 ? '0' + s : s;
-				return d + '天' + h + '时' + m + '分' + s + '秒'
-			}
-			console.log(countDown('2021-6-6 21:50:00'));
+			// function countDown(time){
+			// 	var nowTime = +new Date();	//返回当前时间总的毫秒数
+			// 	var inputTime = +new Date(time);	//输入时间的总毫秒数
+			// 	var times = (inputTime - nowTime) / 1000	//（输入时间 - 当前时间）= 剩余的总毫秒数
+			// 	var d = parseInt(times / 60 / 60 / 24);		//换算天数
+			// 	d = d < 10 ? '0' + d : d;				//位数小于两位前面添'0'
+			// 	var h = parseInt(times / 60 / 60 % 24);		//换算小时
+			// 	h = h < 10 ? '0' + h : h;
+			// 	var m = parseInt(times / 60 %60);	//换算分
+			// 	m = m < 10 ? '0' + m : m;
+			// 	var s = parseInt(times %60);	//换算秒		
+			// 	s = s < 10 ? '0' + s : s;
+			// 	return d + '天' + h + '时' + m + '分' + s + '秒'		//返回时间
+			// }
+			// console.log(countDown('2021-6-6 21:50:00'));	//实参传回到534的形参
 		</script>
 	</head>
 	<body>
