@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div,p{
+				width: 600px;
+				height: 50px;
+				line-height: 50px;
+				border: solid 1px;
+			}
+		</style>
+	</head>
+	<body>
+		<button>点击显示时间</button>
+		<div></div>
+		<p></p>
+		<p class="time"></p>
+		
+		<script type="text/javascript">
+		
+		// 1,获取元素
+		var btn = document.querySelector('button');
+		var div = document.querySelector('div');
+		var p = document.querySelector('p')
+		var ti = document.querySelector('.time')
+		
+		// 2,注册时间  innerHTML 修改元素内容
+		btn.onclick = function(){
+			div.innerHTML = getDate() + ' <strong>点击显示时间</strong>'; 
+		}
+			//2-1 页面加载直接显示时间
+		p.innerHTML = getDate() + ' <strong>加载页面显示时间</strong>';
+			//2-2 直接使用 innerHTML 修改内容
+		ti.innerHTML = '今天是2021年6月10日 ' +' <strong>直接修改时间</strong>'
+		
+		
+		
+		//获取当前时间
+		function getDate(){
+			var date = new Date();
+			var year = date.getFullYear();		//年份
+			var month = date.getMonth() + 1;		//月份要 + 1;
+			var dates = date.getDate();			//日
+			//无法直接输出汉字'星期几'，所以用数组方式输出。
+			var arr = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+			var day = date.getDay();		//星期
+			var h = date.getHours();
+			h = h < 10 ? '0' + h : h;
+			var m = date.getMinutes();
+			m = m < 10 ? '0' + m : m;
+			var s = date.getSeconds();
+			s = s < 10 ? '0' + s : s;
+			return'今天是: ' + year +'年' + month + '月' + dates + '日 ' + arr[day] + h + ':' + m + ':' + s;
+		}
+		</script>
+	</body>
+</html>

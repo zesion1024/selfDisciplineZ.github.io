@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>你我山巅自相逢1</li>
+			<li>你我山巅自相逢2</li>
+			<li>你我山巅自相逢3</li>
+			<li>你我山巅自相逢4</li>
+		</ul>
+		
+		<ol id="ol">
+			<li>js1</li>
+			<li>js2</li>
+			<li>js3</li>
+			<li>js4</li>
+		</ol>
+		
+		<script type="text/javascript">
+			
+			// 1,获取标签元素
+			// 2,返回的是获取过来的元素对象的集合 以为数组的形式存储的
+			var lis = document.getElementsByTagName('li');
+			console.log(lis);	//打印的是 ul 里面的 4 个 li
+			console.log(lis[0]);	//打印第一个li
+			
+			// 3,依次打印元素对象可以采取遍历的方式
+			for(var i = 0; i < lis.length; i++){
+				console.log(lis[i]);
+			}
+			
+			// 4,获取父元素里面子元素的标签
+			 var ol = document.getElementById('time');
+			 console.log(time.getElementsByTagName('li'));
+		</script>
+	</body>
+</html>
