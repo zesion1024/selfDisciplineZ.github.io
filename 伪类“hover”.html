@@ -60,6 +60,18 @@
 				line-height: 110px;
 				text-align: center;
 			}
+			#zixun:hover{
+				background-color: #ffffff;
+			}
+			#caijin:hover{
+				background-color: #ffffff;
+			}
+			#shenghuo:hover{
+				background-color: #ffffff;
+			}
+			#shizheng:hover{
+				background-color: #ffffff;
+			}
 			.box1-1:hover{
 				border-top: solid 3px #023f6e;
 				border-bottom: none;
@@ -79,20 +91,74 @@
 	<body>
 		<div class="maxbox">
 			<div class="box1">
-				<div class="box1-1">资讯</div>
-				<div class="box1-1">财经</div>
-				<div class="box1-1">生活</div>
-				<div class="box1-2">时政</div>
+				<div class="box1-1" id="zixun">资讯</div>
+				<div class="box1-1" id="caijin">财经</div>
+				<div class="box1-1" id="shenghuo">生活</div>
+				<div class="box1-2" id="shizheng">时政</div>
 			</div>
 			<div class="box2">
-				<div class="box2-1">新闻热词</div>
-				<div class="box2-1">粤港澳大湾区</div>
-				<div class="box2-1">双语新闻</div>
-				<div class="box2-2">原创</div>
-				<div class="box2-1">新时代大讲堂</div>
-				<div class="box2-1">脱贫攻坚云展厅</div>
-				<div class="box2-1">中国那些事儿</div>
+				<div class="box2-1" id="box2-1">新闻热词</div>
+				<div class="box2-1" id="box2-2">粤港澳大湾区</div>
+				<div class="box2-1" id="box2-3">双语新闻</div>
+				<div class="box2-2" id="box2-4">原创</div>
+				<div class="box2-1" id="box2-5">新时代大讲堂</div>
+				<div class="box2-1" id="box2-6">脱贫攻坚云展厅</div>
+				<div class="box2-1" id="box2-7">中国那些事儿</div>
 			</div>
 		</div>
+		
+		<script type="text/javascript">
+		var zixun = document.getElementById('zixun');
+		var caijin = document.getElementById('caijin');
+		var shenghuo = document.getElementById('shenghuo');
+		var shizheng = document.getElementById('shizheng');
+			var box1 = document.getElementById('box2-1');
+			var box2 = document.getElementById('box2-2');
+			var box3 = document.getElementById('box2-3');
+			var box4 = document.getElementById('box2-4');
+			var box5 = document.getElementById('box2-5');
+			var box6 = document.getElementById('box2-6');
+			var box7 = document.getElementById('box2-7');
+			
+			zixun.onmouseover = function(){
+				box1.innerHTML = '新闻热词';
+				box2.innerHTML = '粤港澳大湾区';
+				box3.innerHTML = '双语新闻';
+				box4.innerHTML = '原创';
+				box5.innerHTML = '新时代大讲堂';
+				box6.innerHTML = '脱贫攻坚云展厅';
+				box7.innerHTML = '中国那些事儿';
+			}
+			
+			caijin.onmouseover = function(){
+				box1.innerHTML = '图说中国经济';
+				box2.innerHTML = '独家';
+				box3.innerHTML = '广交会';
+				box4.innerHTML = '声音';
+				box5.innerHTML = '跨国公司';
+				box6.innerHTML = '六稳六保';
+				box7.innerHTML = '脱贫攻坚';
+			}
+			
+			shenghuo.onmouseover = function(){
+				box1.innerHTML = '最旅游';
+				box2.innerHTML = '酒店大赏花';
+				box3.innerHTML = '最美食';
+				box4.innerHTML = '';
+				box5.innerHTML = '时尚';
+				box6.innerHTML = '文化中国';
+				box7.innerHTML = '原创';
+			}
+			
+			shizheng.onmouseover = function(){
+				box1.innerHTML = '两岸同心';
+				box2.innerHTML = '扶贫故事会';
+				box3.innerHTML = '中国日报网评';
+				box4.innerHTML = '世界观';
+				box5.innerHTML = '百年宏图';
+				box6.innerHTML = '对口帮扶';
+				box7.innerHTML = '共产党百科';
+			}
+		</script>
 	</body>
 </html>
