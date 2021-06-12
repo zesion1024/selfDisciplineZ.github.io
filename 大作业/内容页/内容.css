@@ -1,11 +1,11 @@
-*{
+			*{
 				margin: 0px;
 				padding: 0px;
 			}
 			/* 头部的大盒子主要用于定义头部颜色 */
 			.toububox{
-				width: 1519px;
-				height: 240px;
+				width: 100%;
+				height: 110px;
 				border: none;
 				border-bottom: solid 1px #E0E0E0;
 				margin-bottom: 30px;
@@ -14,7 +14,7 @@
 			/* 头部内容页的大盒子用于居中对齐 */
 			.tbnrbox{
 				width: 1010px;
-				height:240px;
+				height:100px;
 				border: none;
 				margin: 0px auto;
 			}
@@ -147,14 +147,14 @@
 			}
 			/* 内容页的大盒子用于定位,缩小窗口时和上面的头部对齐 */
 			.nrmaxbox{
-				width: 1519px;
-				height: 2680px;
+				width: 100%;
+				height: 1480px;
 				border: none;
 			}
 			/* 内容页的大盒子包括左边的文章和右边的热点部分 */
 			.nrbox{
-				width: 1010px;
-				height: 2476px;
+				width: 1020px;
+				height: 1480px;
 				border: none;
 				margin: 0px auto;
 				margin-bottom: 100px;
@@ -162,33 +162,55 @@
 			/* 左边文章部分 */
 			.wbox{
 				width: 655px;
-				height: 2015px;
+				height: 1480px;
 				border: none;
 				float: left;
 				margin-right: 20px;
 				line-height: 180%;
 			}
-			/* 左边文章下面的水平线 */
-			hr{
+			.nrmaxbox .nrbox .wbox h2{
+				text-align: center;
+				font-size: 30px;
+				font-family: "微软雅黑";
+				padding: 20px 10px 20px 10px;
+				line-height: 50px;
+				font-weight: normal;
+			}
+			.wen-spx{
+				width: 655px;
+				border-top: dotted 1px;
+				margin-bottom: 20px;
+				margin-top:20px;
+			}
+			.img-box{
+				width: 655px;
+				height: 460px;
+				border: none;
+				margin: 0 auto;
+				text-align: center;
 				margin-bottom: 20px;
 			}
-			/* 文章部分图片的左浮动 */
-			.leftfloat{
-				float: left;
-				margin-right:20px ;
-				margin-bottom: 15px;
-			} 
-			/* 文章部分时间的右浮动 */
-			.rightfloat{
-				float: right;
-				font-size: 20px;
-				font-family: "华文楷体";
+			.nrmaxbox .nrbox .wbox .img-box p{
+				margin-left: 35px;
+				margin-right: 35px;
+				color: blue;
+			}
+			.wen-box{
+				width: 620px;
+				text-indent: 2em;
+				margin: 0 auto;
+				margin-bottom: 50px;
+			}
+			.zrbj{
+				width: 655px;
+				text-align: right;
+				margin-top: 60px;
+				margin-bottom: 40px;
 			}
 			/* 热点下面蓝色灰色水平线 */
 			.rdspxbox{
 				width: 331px;
 				border: none;
-				margin-top: 20px;
 				margin-bottom: 20px;
 				float: left;
 			}
@@ -207,34 +229,67 @@
 			/* 热点部分的大盒子 */
 			.rdbox{
 				width: 331px;
-				height: 2007px;
+				height: 1390px;
 				border: none;
 				margin-top: 10px;
 				float: right;
 			}
 			/* 热点标题 */
 			.rdbt{
+				width: 100px;
+				height: 30px;
+				float: left;
+				border: none;
+				margin-top: 35px;
+				margin-bottom: 5px;
+				margin-left: 15px;
 				font-family: "宋体";
 				color: cornflowerblue;
 			}
+			.rdbt2{
+				width: 290px;
+				height: 30px;
+				float: left;
+				border: none;
+				margin-top: 20px;
+				margin-bottom: 5px;
+				margin-left: 8px;
+				font-family: "宋体";
+				color: cornflowerblue;
+			}
+			.zhuanti-img1{
+				width: 150px;
+				height: 110px;
+				border: none;
+				margin: 5px;
+				float: left;
+			}
+/* 			.zhuanti-img2{
+				width: 150px;
+				height: 110px;
+				border: none;
+				margin-bottom: 60px;
+				margin-top: 5px;
+				margin-left: 5px;
+				margin-right: 5px;
+				float: left;
+			} */
 			/* 热点内容 */
 			.rdnr{
 				font-size: 16px;
 				margin-left:5px ;
 				margin-right: 20px;
-				margin-bottom: 10px;
+				margin-bottom: 20px;
 				border-bottom: dotted 1px;
 				line-height: 180%;
 			}
-			/* 内容页底部图片的上边距 */
-			p img{
-				margin-top: 50px;
-			}
 			/* 底部的大盒子主要用于定义颜色 */
 			.dibumaxbox{
-				width: 1519px;
+				width: 100%;
 				height: 430px;
 				border: none;
+				float: left;
+				margin-top: 50px;
 				border-top: solid 1px #E0E0E0;
 				background-color: #F8F8F8;
 			}

@@ -1,0 +1,355 @@
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			a{
+				text-decoration: none;
+				color: black;
+			}
+			a:hover{
+				text-decoration: underline;
+			}
+			/* 头部的大盒子主要用于定义头部颜色 */
+			.toububox{
+				width: 100%;
+				height: 240px;
+				border: none;
+				border-bottom: solid 1px #E0E0E0;
+				margin-bottom: 30px;
+				background-color: #FAFAFA;
+			}
+			/* 头部内容页的大盒子用于居中对齐 */
+			.tbnrbox{
+				width: 1010px;
+				height:240px;
+				border: none;
+				margin: 0px auto;
+			}
+			/* 当日要闻 */
+			.dryw{
+				border: none;
+				float: left;
+				margin-top: 5px;
+			}
+			/* 顶部标签的浮动 首页-时政-资讯....*/
+			.toubufloat{
+				float: left;
+			}
+			/* 定义顶部第一个标签"China Daily Homepage"的格式 */
+			.onebox{
+				width: 230px;
+				height: 33px;
+				float: left;
+				line-height: 33px;
+				font-size: 14px;
+				font-family: "宋体";
+				border: solid 1px #cccccc;
+				border-left: none;
+				border-top:none;
+				text-align: center;
+			}
+			/* 顶部首页到原创的格式 */
+			.two{
+				width: 60px;
+				height: 33px;
+				float: left;
+				font-size: 14px;
+				line-height: 33px;
+				font-family: "宋体";
+				border: solid 1px #cccccc;
+				border-left: none;
+				border-top:none;
+				text-align: center;
+			}
+			/* 观天下-登陆-注册的格式 */
+			.therr{
+				width: 230px;
+				height: 33px;
+				float: left;
+				font-size: 14px;
+				font-family: "宋体";
+				line-height: 33px;
+				margin-bottom: 20px;
+				border: solid 1px #cccccc;
+				border-left: none;
+				border-right: none;
+				border-top:none;
+			}
+			/* 登陆 */
+			.therr-box1{
+				width: 40px;
+				height: 33px;
+				border: none;
+				padding-left: 13px;
+			}
+			/* 注册右浮动 */
+			.therr-box2{
+				width: 50px;
+				height: 33px;
+				float: right;
+				text-align: center;
+			}
+			/* 搜索框的大盒子 */
+			.sousuo-max-box{
+				width: 340px;
+				height: 40px; 
+				float: right;
+				border: none;
+			}
+			/* 第一个搜索框的盒子 */
+			.s-box-1{
+				width: 100px;
+				height: 40px;
+				/* 行边距 */
+				line-height: 40px;
+				margin-right: 15px;
+				float: left;
+				border: none;
+			}
+			/* 第二个搜索框的盒子 */
+			.s-box-2{
+				width: 223px;
+				height: 40px;
+				border: solid 1px #cccccc;
+				float: left;
+			}
+			/* 移动新媒体的格式 */
+			.sousuo-max-box .s-box-1 span{
+				float: right;
+				text-align: center;
+				font-size: 13px;
+			}
+			/* 移动新媒体前面的手机图标 */
+			.sousuo-max-box .s-box-1 img{
+				margin-top: 10px;
+				float: right;
+				margin-right: 10px;
+			}
+			/* 中国搜索列表 */
+			.liebiao{
+				height: 40px;
+				font-size: 16px;
+				font-family: "宋体";
+				color: #999999;
+				border: none;
+				float: left;
+				outline: none;
+			}
+			/* 搜索框 */
+			.sousuo{
+				width: 100px;
+				height: 35px;
+				border: none;
+				font-size: 15px;
+				text-align: left;
+				float: left;
+				/* 元素周围轮廓,点击搜索框不会出现边框 */
+				outline: none;
+			}
+			/* 搜索框后的图片 */
+			.tupian{
+				text-align: center;
+				line-height: 40px;
+				margin: 0 auto;
+			}
+			/* 内容页的大盒子用于定位,缩小窗口时和上面的头部对齐 */
+			.nrmaxbox{
+				width: 100%;
+				height: 2680px;
+				border: none;
+			}
+			/* 内容页的大盒子包括左边的文章和右边的热点部分 */
+			.nrbox{
+				width: 1010px;
+				height: 2476px;
+				border: none;
+				margin: 0px auto;
+				margin-bottom: 100px;
+			}
+			/* 左边文章部分 */
+			.wbox{
+				width: 655px;
+				height: 2015px;
+				border: none;
+				float: left;
+				margin-right: 20px;
+				line-height: 180%;
+			}
+			/* 左边文章下面的水平线 */
+			hr{
+				margin-bottom: 20px;
+			}
+			/* 文章部分图片的左浮动 */
+			.leftfloat{
+				float: left;
+				margin-right:20px ;
+				margin-bottom: 15px;
+			} 
+			/* 文章部分时间的右浮动 */
+			.rightfloat{
+				float: right;
+				font-size: 20px;
+				font-family: "华文楷体";
+			}
+			/* 热点下面蓝色灰色水平线 */
+			.rdspxbox{
+				width: 331px;
+				border: none;
+				margin-top: 20px;
+				margin-bottom: 20px;
+				float: left;
+			}
+			/* 蓝色的水平线 */
+			.rdspx{
+				width: 41px;
+				border-top: solid 3px #0055ff;
+				float: left;
+			}
+			/* 灰色水平线 */
+			.rdspx2{
+				width: 290px;
+				border-top: solid 3px darkgray;
+				float: right;
+			}
+			/* 热点部分的大盒子 */
+			.rdbox{
+				width: 331px;
+				height: 2007px;
+				border: none;
+				margin-top: 10px;
+				float: right;
+			}
+			/* 热点标题 */
+			.rdbt{
+				font-family: "宋体";
+				color: cornflowerblue;
+			}
+			/* 热点内容 */
+			.rdnr{
+				font-size: 16px;
+				margin-left:5px ;
+				margin-right: 20px;
+				margin-bottom: 10px;
+				border-bottom: dotted 1px;
+				line-height: 180%;
+			}
+			/* 内容页底部图片的上边距 */
+			p img{
+				margin-top: 50px;
+			}
+			/* 底部的大盒子主要用于定义颜色 */
+			.dibumaxbox{
+				width: 100%;
+				height: 430px;
+				border: none;
+				border-top: solid 1px #E0E0E0;
+				background-color: #F8F8F8;
+			}
+			/* 底部内容的盒子用于内容的居中 */
+			.dibubox{
+				width: 1010px;
+				height: 420px;
+				border: none;
+				margin: 0 auto;
+			}
+			/* 左边的图片的盒子 */
+			.zbox{
+				width: 165px;
+				height: 408px;
+				border: none;
+				margin-top: 20px;
+				float: left;
+			}
+			/* 右边内容的盒子 */
+			.ybox{
+				width: 840px;
+				height: 430px;
+				border: none;
+				font-family: "微软雅黑";
+				border-left: solid 1px #E0E0E0;
+				border-right: solid 1px #E0E0E0;
+				float: right;
+			}
+			/* 右边第一行内容的盒子 */
+			.ybox1{
+				width: 840px;
+				height: 40px;
+				border: none;
+				border-bottom: solid 1px #E0E0E0;
+				float: right;
+				margin-bottom: 1px;
+			}
+			/* 右边第一行内容格式 */
+			.y1n{
+				width: 80px;
+				height: 40px;
+				float: left;
+				text-align: center;
+				line-height: 40px;
+				font-size: 17px;
+				list-style-type: none;
+			}
+			/* 右边第二行的盒子 */
+			.ybox2{
+				width: 840px;
+				height: 60px;
+				border: none;
+				border-bottom: solid 1px #E0E0E0;
+				float: right;
+				margin-bottom: 1px;
+			}
+			/* 右边第二行内容的格式 */
+			.ybox2 li{
+				font-size: 13px;
+				margin: 0px 5px 0px 15px;
+				float: left;
+				list-style-type: none;
+				line-height: 30px;
+			}
+			/* 右边第二行"地方频道"左对齐 */
+			.ybox2 li font strong{
+				float: left;
+			}
+			/* 右边第三行的盒子 */
+			.ybox3{
+				width: 840px;
+				height: 60px;
+				border: none;
+				border-bottom: solid 1px #E0E0E0;
+				float: right;
+				margin-bottom: 20px;
+			}
+			/* 右边的三行的内容 */
+			.ybox3 li{
+				font-size: 13px;
+				margin: 0px 5px 0px 15px;
+				float: left;
+				list-style-type: none;
+				text-align: center;
+				line-height: 30px;
+			}
+			/* 右边第三行"友情链接"左对齐 */
+			.ybox3 li font strong{
+				float: left;
+			}
+			/* 右边第四行的盒子 */
+			.ybox4{
+				width: 840px;
+				height: 220px;
+				border: none;
+				float: right;
+			}
+			/* 右边第四行上面部分的内容格式 */
+			.ybox4 li{
+				list-style-type: none;
+				margin: 0px 5px 8px 15px;
+				float: left;
+				font-size: 13px;
+			}
+			/* 右边第四行下面部分的内容格式 */
+			.ybox4 div{
+				font-size: 13px;
+				float: left;
+				margin: 0px 5px 8px 15px;
+				line-height: 190%;
+			}
