@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 40%;
+            height: 250px;
+            display: flex;
+            flex-direction: row;
+            /* 设置主轴水平居中 */
+            justify-content: space-between;
+            /* 设置主轴垂直居中 (单行)*/
+            align-items: center;
+            /* 设置多行格式(align-content) */
+            align-content: stretch;
+            border:none;
+            background-color: pink;
+            /* 自动拉伸，不要设置高度 */
+            /* align-items: stretch; */
+            /* 设置换行排序 */
+            /* flex-wrap: wrap; */
+        }
+        div span{
+            width: 100px;
+            height: 80px;
+            margin-bottom: 5px;
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </div>
+</body>
+</html>
