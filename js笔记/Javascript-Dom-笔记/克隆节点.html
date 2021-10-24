@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1222</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <script>
+        var ul = document.querySelector('ul')
+
+        // 将 ul 里面的第一个节点克隆下来括号里面如果是 ‘true’ 则会克隆标签里的内容 
+        var lis = ul.children[0].cloneNode(true)
+        // 括号里不填则不会克隆标签里的内容
+        var liss = ul.children[0].cloneNode()
+        ul.appendChild(lis)
+        ul.appendChild(liss)
+    </script>
+</body>
+</html>
