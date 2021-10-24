@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .nav{
+            width: 300px;
+            display: flex;
+            /* border: solid 1px; */
+            margin: 20px;
+            justify-content: space-between;
+        }
+        .nav li ul{
+            display: none;
+        }
+        a,li{
+            width: 90px;
+            height: 20px;
+            border: solid 1px;
+            text-align: center;
+        }
+        /* li{
+            display: none;
+        } */
+        /* a:hover li{
+            display: block;
+        } */
+    </style>
+
+    <ul class="nav">
+        <li>微博
+            <ul>
+                <li>私信</li>
+                <li>评论</li>
+                <li>@我</li>
+            </ul>
+        </li>
+        <li>博客
+            <ul>
+                <li>评论</li>
+                <li>邮箱</li>
+            </ul>
+        </li>
+        <li>邮箱
+            <ul>
+                <li>免费</li>
+                <li>VIP</li>
+                <li>企业</li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+        // 获取 nav 元素
+        var nav = document.querySelector('.nav')
+        // 获取 nav 下的子节点
+        var lis = nav.children
+        // 打印出 nav 子节点 ：微博  博客  邮箱
+        console.log(lis);
+
+        // 循环遍历三个 li
+        for(i = 0; i < lis.length; i++){
+            // 鼠标放置 li 元素上时
+            lis[i].onmouseover = function(){
+                // 将 li 元素下面第一个子节点 ul 显示出来
+                this.children[0].style.display = 'block'
+            }
+            // 鼠标移开 li 元素时
+            lis[i].onmouseout = function(){
+                // 将 li 元素下面第一个子节点 ul 隐藏起来
+                this.children[0].style.display = 'none'
+            }
+        }
+    </script>
+</body>
+</html>

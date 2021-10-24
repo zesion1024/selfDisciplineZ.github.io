@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击关灯</button>
+
+    <script>
+        var but = document.querySelector('button')
+        var body = document.querySelector('body')
+
+        var flag = 0;
+        but.onclick = function(){
+            if(flag == 0){
+                but.innerHTML = '点击开灯'
+                body.style.backgroundColor = 'black'
+                flag = 1
+            }else{
+                but.innerHTML = '点击关灯'
+                body.style.backgroundColor = 'white'
+                flag = 0
+            }
+        }
+    </script>
+</body>
+</html>

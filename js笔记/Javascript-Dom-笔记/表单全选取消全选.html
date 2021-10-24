@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        table{
+            width: 300px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        thead{
+            background-color: skyblue;
+        }
+        td{
+            border: solid 1px;
+        }
+    </style>
+    <table>
+        <thead>
+            <tr>
+                <td><input type="checkbox" id="quanxuan"></td>
+                <td>商品</td>
+                <td>价格</td>
+            </tr>
+        </thead>
+        <tbody  id="fuxuan">
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>小米8</td>
+                <td>2000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>小米8</td>
+                <td>2000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>小米8</td>
+                <td>2000</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var quanxuan = document.getElementById('quanxuan')
+        var fuxuan = document.getElementById('fuxuan').getElementsByTagName('input')
+
+        // 注册事件
+        // 点击全选按钮
+        quanxuan.onclick = function(){
+        // 遍历复选按钮，并将其全部选中,   “checked”  为选框选中
+            for(var i = 0; i < fuxuan.length; i++){
+                fuxuan[i].checked = this.checked
+            }
+
+        }
+
+        // 反向全选
+        // 遍历复选框
+        for(var i = 0; i< fuxuan.length; i ++){
+        // 每次点击复选框之后遍历
+            fuxuan[i].onclick = function(){
+                var flag = true
+                for(var i = 0; i < fuxuan.length; i ++){
+        // 如果复选框不为 checked 就将 false 赋给全选框。 如果没有被全选则跳出if 将 flag 的值赋给全选框
+                    if(!fuxuan[i].checked){        
+                        flag = false
+                    }
+                }
+                quanxuan.checked = flag
+            }
+        }
+    </script>
+</body>
+</html>

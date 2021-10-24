@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">统一</button>
+		<script type="text/javascript">
+			//点击按钮,弹出对话框
+			// 1,事件是有三部分组成  事件源  事件类型  事件处理程序  我们也称事件三要素
+				//(1) 事件源 事件被触发的对象  按钮
+			var btn = document.getElementById('btn')	//获取事件源
+				
+				//(2) 事件类型 如何触发 什么事件 比如鼠标点击(onclick) 还是鼠标经过  键盘按下
+				//(3) 事件处理程序 通过一个函数赋值的方式 完成
+			btn.onclick = function(){		//通过点击触发事件源 btn 最后通过函数赋值处理程序
+				alert('冰红茶');
+			}
+		
+		</script>
+	</body>
+</html>

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			// prompt('输入')
+			// alert('输出')
+			// console.log(16313);
+			
+			// var age = prompt('年龄');
+			// alert('你已经' + age +'岁了');
+			
+			// var nianfen = prompt('请输入出生年份');
+			// var age = 2021 - nianfen;
+			// alert('你今年' + age + '岁了');
+			
+			// ！！！！数据转换
+				// 第一种方法转换后直接输出
+			// var num1 = prompt ('请输入一个数字');
+			// var num2 = prompt ('请输入一个数字');
+			// // var jieguo =parseFloat(num1) + parseFloat(num2);
+			// // alert('你输入的结果是:' + jieguo);
+				// 第二种直接输出
+			// alert(num1*1 + num2*1);
+				// 第三种直接输出
+			// //alert(parseFloat(num1) + parseFloat(num2))
+			
+			// var num1 = prompt('姓名');
+			// var num2 = prompt('年龄');
+			// var num3 = prompt('性别');
+			// alert('姓名:' + num1 +'\n' + '年龄:' + (Number(num2)) + '\n' + '性别:' + num3);
+			
+				//！！！！if判断
+			// var i = prompt('请输入分数')
+			// // if (i >= 90){
+			// // 	alert('A')
+			// // }else if (i >= 80){
+			// // 	alert('B')
+			// // }else if (i >= 70){
+			// // 	alert('C')
+			// // }else if (i >= 60){
+			// // 	alert('D')
+			// // }else {
+			// // 	alert('E')
+			// // }
+			// if (i>=90 && i<=100){
+			// 	alert('哈哈哈')
+			// }else{
+			// 	alert('呵呵呵')
+			// }
+			
+				// !!!!三元运算符
+			// var i = prompt('数字')
+			// var j = i < 10 ? '0' + i : i;
+			// alert(j);
+			
+				// !!!!!!switch 判断
+			// var i = prompt('名称');
+			// switch (i) {
+			// 	case '苹果':
+			// 		alert('3元/斤');
+			// 		break;
+			// 	case '香蕉':
+			// 		alert('5元/斤');
+			// 		break;
+			// 	case '桃子':
+			// 		alert('4元/斤');
+			// 		break;
+			// 	default:
+			// 		alert('无');
+			// }
+			
+				// for循环
+			// for(var i = 1; i <= 100; i++){
+			// 	console.log('你好');
+			// }
+				// for循环执行不同代码
+			// for(i = 1; i <= 100;i++){
+			// 	console.log('我今年' + i + '岁了');
+			// }
+
+				//！！！ 输入班级人数输入人数成绩并累加计算总成绩和平均成绩
+			// var renshu = prompt('输入人数');		//班级人数
+			// var sum = 0;		//总得分
+			// var pinjun = 0; 	//平均分
+			// for (i = 1; i <= renshu; i++){
+			// 	var chengji = prompt('请输入第' + i +'个学生成绩');
+			// 	sum = sum + parseFloat(chengji);	//每次输入一个成绩就加到sum里面
+			// }
+			// pinjun = sum / renshu; 		//求平均树
+			// alert('班级总分是:' + sum); 
+			// alert('班级平均分是:' + pinjun);
+			
+				// 打印5行5列的*
+			// var str = '';
+			// 	// 输出打印5行
+			// for(var i = 1; i <= 5; i++){
+			// 	// 每行输出打印5个
+			// 	for(var j = 1; j <= 5; j++){
+			// 		str = str + '*';
+			// 	}
+			// 	str = str + '\n'
+			// }
+			// console.log(str);
+			
+			// 	// 输入任意行和列并打印出
+			// var hang = prompt('请输入行数');
+			// var lie = prompt('请输入列数');
+			// var str = '';
+			// for(var i = 1; i <= hang; i++){
+			// 	for(var j = 1; j <= lie; j++){
+			// 		str += '*';	
+			// 	}
+			// 	str += '\n';
+			// }
+			// console.log(str);
+			
+				// 倒立三角形
+			// var str = '';
+			// for (var i = 1; i <= 10; i++){
+			// 	for (var j = i; j <= 10; j++){
+			// 		str += '*';
+			// 	}
+			// 	str += '\n'
+			// }
+			// console.log(str);
+			
+				//！！！！ 九九乘法表
+			// var str = '';
+			// for(var i = 1; i <= 9; i++){
+			// 	for(var j = 1; j <= i; j++){
+			// 		// str += '*'
+			// 		str += j + '*' + i + '=' + i * j + '\t';   将i * j 的结果赋值给j + '*' + i
+			// 	}
+			// 	str += '\n';
+			// }
+			// console.log(str);
+			
+				// while循环
+			// var num = 1
+			// while(num <= 100){
+			// 	console.log('你好');
+			// 	num++;		一定要加这行代码,不然会死循环,不要轻易尝试
+			// }
+			
+				// while循环案例
+			// var age = 1;
+			// while(age <= 100){
+			// 	console.log('你已经' + age + '岁了');
+			// 	age++;
+			// }
+			
+				// while 案例 （1）
+			// var i = prompt('你好吗');
+			// while(i !== '好'){
+			// 	i = prompt('你好吗');
+			// }
+			// alert('你好');
+
+				// while 案例 （2）
+			// var y = prompt('请输入用户名');
+			// var m = prompt('请输入密码');
+			// while(y !== 'zheng' && m !== 123456){
+			// 	y = prompt('输入有误，请重新输入账号');
+			// 	m = prompt('输入有误，请重新输入密码');
+			// }
+			// alert('登陆成功');
+			
+				// continue关键字中断本次循环，其余继续
+			// for(var i = 1; i <= 10; i++){
+			// 	if (i ==3){
+			// 		continue;
+			// 	}
+			// 	console.log(i);
+			// }
+			
+				// continue 案例;求1~100之间,除了能被7整除之外的整数和
+			// var sum = 0;
+			// for (var i = 1; i <= 100; i++){
+			// 	if (i % 7 == 0){
+			// 		continue;
+			// 	}
+			// 	sum += i;
+			// }
+			// console.log(sum);
+			
+				// break关键字;直接中断条件后面所有语句
+			// for (var i = 1; i <= 5; i++){
+			// 	if(i == 3){
+			// 		break;
+			// 	}
+			// 	console.log(i);
+			// }
+			
+				// 简易ATM,1.0版本有BUG
+			// var yue = 100;
+			// var a = '';
+			// a = prompt('请输入您要的操作:' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出');
+			// while(a == ''){
+			// 	a = prompt('输入有误,重新输入' + '请输入您要的操作:' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出')
+			// }
+			// if(a == '1'){
+			// 	var cun = prompt('请输入存款额度:');
+			// 	yue += (Number(cun));
+			// 	alert('存款成功');
+			// 	a = prompt('请输入您要的操作:' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出');
+			// }
+			// if(a == '2'){
+			// 	var qu = prompt('请输入取款额度');
+			// 	yue -= (Number(qu));
+			// 	alert('取款成功');
+			// 	a = prompt('请输入您要的操作:' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出');
+			// }
+			// if(a == '3'){
+			// 	alert('你的余额为:' + yue);
+			// 	a = prompt('请输入您要的操作:' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出');
+			// }
+			// if(a == '4'){
+			// 	alert('正在退出');
+			// 	alert('退出成功');
+			// }
+			
+				// 简易ATM,2.0无BUG
+			// var num =100;
+			// while(true){
+			// var str = prompt('请输入您要的操作:'+'\n'+ '1.存钱' +'\n'+ '2.取钱' +'\n'+ '3.显示余额' + '\n'+ '4.退出' )
+			// if(str == '4'){
+			// 	alert('退出完成');
+			// 	break;
+			// }
+			// switch(str){
+			// 	case '1':
+			// 	var score = prompt('请您输入存的钱数:')
+			// 	num += parseFloat(score)
+			// 	alert('成功,您目前余额为:' + num)
+			// 	continue;
+			// 	case '2':
+			// 	var score = prompt('请您输入取的钱数:')
+			// 	num -= parseFloat(score)
+			// 	alert('成功,您目前余额为:' + num)
+			// 	continue;
+			// 	case '3':
+			// 	alert('您目前余额为:' + num)
+			// 	continue;
+			//     }
+			// }
+			
+				// 数组
+			// var a = ['小黑','小黄','小白','小蓝','小绿'];
+			// console.log(a[1]);
+			
+				// 遍历数组;将数组从头到尾依次访问一遍
+				// a . length 动态检测数组元素的个数,不用一个个数
+			// var a = ['小黑','小黄','小白','小蓝','小绿','123'];
+			// for(var i = 0;i < a.length; i++){
+			// 	console.log(a[i]);
+			// }
+			
+				// 数组案例,求一列数组的和，平均数
+			// var a = [2,6,1,7,4];
+			// var sum = 0;
+			// var pingjun = 0;
+			// for(var i = 0;i < a.length; i++){
+			// 	sum += a[i];
+			// }
+			// pingjun = sum / a.length;
+			// console.log(sum,pingjun);
+			
+				// 数组案例;求最大值
+			// var a = [2,6,1,77,52,25,7];
+			// var max = a[0];
+			// for(var i = 0; i < a.length; i++){
+			// 	if(a[i]>max){
+			// 		max = a[i];
+			// 	}
+			// }
+			// console.log('该数列中最大值是:' + max);
+			
+				// 数组案例;求一列数组中最小值	
+			// var a = [2,6,1,77,52,25,7,0];
+			// var mix = a[0];	//将一列数组中的第一个值先赋给mix
+			// for(var i = 0; i < a.length; i++){	//外层循环数组中的每一个值
+			// 	if(a[i]<mix){	//将循环的数组与mix里面的值进行对比
+			// 		mix = a[i];		//如果数组的值比mix里面的值小就将它赋给mix
+			// 	}
+			// }
+			// console.log('该数组中最小值是:' + mix);
+			
+				// 数组案例;新建数组,将1~10存放到里面
+			// var a = [];
+			// for(var i = 0; i < 11; i++){
+			// 	a[i] = i;
+			// }
+			// console.log(a);
+			
+				// 数组案例;将数组[2,0,6,1,77,0,52,0,25,7]中大于10的元素选出来,放入新的数组
+			// var num = [2,0,6,1,77,0,52,0,25,7,11];
+			// var num1 = [];
+			// for(var i = 0; i < num.length; i++){
+			// 	if(num[i] > 10){
+			// 		num1 += num[i] + '\n';
+			// 	}
+			// }
+			// console.log(num1);
+			
+				// 函数
+				//return终止函数,下面的代码不会执行，返回值只能返回一个值。如果有两个，只能返回最后一个值，但是可以返回数组。
+			// 1 声明函数
+			// function getsum(){
+			// 	var sum = 0;
+			// 	for (var i = 0; i <= 100; i++){
+			// 		sum += i;
+			// 	}
+			// 	console.log(sum);
+			// }
+			// // 2调用函数
+			// getsum()
+			
+				// 形参和实参
+			// function getsum (num1,num2){
+			// 	console.log(num1,num2);
+			// 	console.log(num1 + num2);
+			// }
+			// getsum(1,2);
+			
+				// 利用函数求任意两个数之间的和
+			// var sum = 0;
+			// function getsum(num1,num2){
+			// 	for(var i = num1; i <= num2; i++){
+			// 		sum += i;
+			// 	}
+			// 	console.log(sum);
+			// }
+			// getsum(1,100);
+			// getsum(1,50);
+			
+				// 利用return返回参数计算两个数的最大值
+			// function a(num1,num2){
+			// 	return num1 > num2 ? num1 : num2;
+			// }
+			// console.log(a(2,5));
+			// console.log(a(10,5));
+			
+				// 利用return返回参数求数组中的最大值
+			// function amax(a){
+			// 	var max = 0;
+			// 	for(var i = 0; i < a.length; i++){
+			// 		if(a[i] > max){
+			// 			max = a[i];
+			// 		}
+			// 	}
+			// 	return max;
+			// }
+			// console.log(amax([5,2,99,101,67,77]));
+			
+				//return求两个数的加减乘除结果
+			// function jg(num1,num2){
+			// 	return[num1+num2,num1-num2,num1*num2,num1/num2,];
+			// }
+			// prompt('1.加法\n' + '2.减法\n' + '3.乘法' + '4.除法')
+			// while()
+			// console.log(jg(1,2));		//第一种输出方式
+			// var te = jg(1,2);		//第二种输出方式（常用）
+			// console.log(te)		//第二种输出方式（常用）
+			
+				// 利用Arguments函数求最大值
+				// Arguments存储了传递过来的所有实参
+			// function getmax(){			//未定义实参
+			// 	var max = arguments[0]		//将第一个实参赋值给max
+			// 	for(var i = 0; i < arguments.length; i++){		//外层循环,从0开始循环
+			// 		if(arguments[i] > max){			//将传过来的实参和max进行比较如果比max大就赋值给max
+			// 			max = arguments[i]			//如果传过来的实参比max大就赋值给max
+			// 		}
+			// 	}
+			// 	return max;			//返回max值
+			// }
+			// console.log(getmax(1,2,3,))
+			// console.log(getmax(1,2,3,4,));
+			// console.log(getmax(1,2,3,4,5,555,6,8,999));
+			
+				// 函数调用
+				// 384-393未调用函数,394调用fn1输出111后调用fn2输出222,'fn2'之后返回fn1函数体输出'fn1'
+			// function fn1(){
+			// 	console.log(111);
+			// 	fn2();
+			// 	console.log('fn1');
+			// }
+			
+			// function fn2(){
+			// 	console.log(222);
+			// 	console.log('fn2');
+			// }
+			// fn1();
+			// 结果:111,222,'fn2','fn1'
+			
+				// 判断是否是闰年,输出true或false
+			// function run(year){
+			// 	var flag = false;
+			// 	if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0){
+			// 		flag = true;
+			// 	}
+			// 	return flag;
+			// }
+			// // console.log(a(2000));
+			
+			
+			// function backDay(){
+			// 	var year = prompt('输入年份');
+			// 	// 调用run(year)函数，true输出是闰年，false输出平年
+			// 	if (run(year)) {
+			// 		alert('输入的是闰年,有28天');
+			// 	}else{
+			// 		alert('输入的是平年，有27天');
+			// 	}
+			// }
+			// backDay();
+			
+				// 创建对象
+			// var obj = {
+			// 	uname:'张三',
+			// 	age: 18,
+			// 	sex: '男',
+			// 	sayHi: function(){
+			// 		console.log('hi~');
+			// 	}
+			// }
+			// // 第一种调用对象
+			// console.log(obj.age);
+			// // 第二种调用对象
+			// console.log(obj['age']);
+			// // 调用对象方法 sayHi
+			// obj.sayHi()
+			
+				// new构造函数
+			// function Star(uname,age,sex){
+			// 	this.name = uname;
+			// 	this.age = age;
+			// 	this.sex = sex;
+			// 	this.sing = function(sang){
+			// 		console.log(sang);
+			// 	}
+			// 	this.sing = function(sang){
+			// 		console.log(sang);
+			// 	}
+			// }
+			// //调用函数返回参数到Star后面小括号
+			// var ldh = new Star('刘德华',18,'男');
+			// console.log(ldh.name);
+			// console.log(ldh['sex']);
+			// ldh.sing('冰雨')
+			// var zxy = new Star('张学友',19,'男');
+			// console.log(zxy.name);
+			// zxy.sing('李兰香')
+			
+					// 构造函数
+				// 基本语法;
+				// function 构造函数名(形参){
+				// 	this.属性 = 值;
+				// 	this.方法 = function(){
+				// 	}
+				// }
+				// new 构造函数名();
+			// 创建构造函数定义形参
+			// function Wz(name,type,blood,attack){
+			// 	// 将传过来的实参再次赋值给属性
+			// 	this.name = name;
+			// 	this.type = type;
+			// 	this.blood = blood;
+			// 	this.attack = attack;
+			// }
+			// // 将实参传递给形参
+			// var lp = new Wz('廉颇','力量型','500血量','攻击:近战');
+			// // 打印输出
+			// console.log(lp.name);
+			// console.log(lp.type);
+			// console.log(lp.blood);
+			// console.log(lp.attack);
+			// var hy = new Wz('后裔','射手','100血量','攻击:远程');
+			// console.log(hy.name);
+			// console.log(hy.type);
+			// console.log(hy.blood);
+			// console.log(hy.attack);
+			
+				// 遍历对象
+			// var obj = {
+			// 	name: 'pink',
+			// 	age: 18,
+			// 	sex: '男'
+			// }
+			// for(var k in obj){
+			// 	console.log(k);		//k 变量输出的是属性名
+			// 	console.log(obj[k]);	//obj[k]得到的是属性值
+			// }   
+			
+					// Math数学对象
+			// console.log(Math.max(1,2,3,555));
+					// 得到两个数之间的最大整数,包括两个数
+			// function a (min,max){
+			// 	return Math.floor(Math.random() * (max - min + 1)) + min;
+			// }
+			// console.log(a(1,10));
+			
+					//Dete参数，返回系统当前时间
+			// var date = new Date();
+			// console.log(date);
+			
+					// 格式化日期年月日
+			// var date = new Date();
+			// var year = date.getFullYear();		//年份
+			// var month = date.getMonth() + 1;		//月份要 + 1;
+			// var dates = date.getDate();			//日
+			// //无法直接输出汉字'星期几'，所以用数组方式输出。
+			// var arr = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+			// var day = date.getDay();		//星期
+			// var h = date.getHours();
+			// h = h < 10 ? '0' + h : h;
+			// var m = date.getMinutes();
+			// m = m < 10 ? '0' + m : m;
+			// var s = date.getSeconds();
+			// s = s < 10 ? '0' + s : s;
+			// console.log('今天是: ' + year +'年' + month + '月' + dates + '日 ' + arr[day] + '\0' + h + ':' + m + ':' + s);
+		
+					// 获得Date总的毫秒数(时间戳) 不是当前时间的毫秒数 二十距离1970年1月1日过了多少毫秒
+				// 1:常用写法
+			// var date = +new Date();
+			// console.log(date);
+			// 	// 2:H5 新增写法,(不考虑兼容可用)
+			// console.log(Date.now());
+			
+					// 倒计时案例
+			// function countDown(time){
+			// 	var nowTime = +new Date();	//返回当前时间总的毫秒数
+			// 	var inputTime = +new Date(time);	//输入时间的总毫秒数
+			// 	var times = (inputTime - nowTime) / 1000	//（输入时间 - 当前时间）= 剩余的总毫秒数
+			// 	var d = parseInt(times / 60 / 60 / 24);		//换算天数
+			// 	d = d < 10 ? '0' + d : d;				//位数小于两位前面添'0'
+			// 	var h = parseInt(times / 60 / 60 % 24);		//换算小时
+			// 	h = h < 10 ? '0' + h : h;
+			// 	var m = parseInt(times / 60 %60);	//换算分
+			// 	m = m < 10 ? '0' + m : m;
+			// 	var s = parseInt(times %60);	//换算秒		
+			// 	s = s < 10 ? '0' + s : s;
+			// 	return d + '天' + h + '时' + m + '分' + s + '秒'		//返回时间
+			// }
+			// console.log(countDown('2021-6-6 21:50:00'));	//实参传回到534的形参
+		
+					// 利用new Array创建数组
+			// var arr1 = new Array();		//创建了一个空数组
+			// var arr1 = new Array(2);		//创建了一个长度为2的数组
+			// var arr1 = new Array(2,3);		//等价于[2,3]有两个元素
+			// console.log(arr1);
+			
+					//筛选数组[1500,1600,2000,2100,1800]超过2000的
+			// var arr = [1500,1600,2000,2100,1800];
+			// var newArr = [];			//创建一个用来存储新数组的空数组
+			// for(var i = 0; i < arr.length; i++){	//外层循环，遍历arr数组
+			// 	if(arr[i] < 2000){		//判断小于2000的数组
+			// 		newArr.push(arr[i]);		//将小于2000的元组推入新数组
+			// 	}
+			// }
+			// console.log(newArr);
+			
+					// 数组排序
+				//反转数组
+			// var arr = ['pink','red','blue'];
+			// arr.reverse();
+			// console.log(arr);
+				//冒泡排序
+			// var arr = [13,4,77,1,7]
+			// arr.sort(function (a,b){		//arr.sort()括号中函数固定写法,(a - b)升序排序。(b - a)降序排序
+			// 	return a - b;		//升序排序
+			// });
+			// console.log(arr);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url(images/背景1.png) no-repeat;
+            background-size: 100%;
+        }
+        .box{
+            width: 700px;
+            height: 330px;
+            border: none;
+            display: flex;
+            flex-wrap: wrap;
+            /* 设置盒子之间的间距 */
+            column-gap: 80px;
+            justify-content: space-between;
+            align-content: space-between;
+        }
+        .box div{
+            width: 70px;
+            height: 70px;
+            border: none;
+            font-size: 16px;
+            display: flex;
+            position: relative;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+        }
+        span{
+            position: absolute;
+            bottom: -30px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        img{
+            display: inline;
+            width: 70px;
+            border-radius: 50%;
+            height: 70px;
+        }
+        .box div:hover{
+            transform: translateY(-8px);
+            /* box-shadow: 8px 8px 20px rgba(150, 144, 145, 0.336); */
+            transition: .3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div>
+            <img src="images\淘宝.png" alt="">
+            <span>淘宝</span>
+        </div>
+        <div>
+            <img src="images\京东.png" alt="">
+            <span>京东</span>
+        </div>
+        <div>
+            <img src="images\csdn.png" alt="">
+            <span>CSND</span>
+        </div>
+        <div>
+            <img src="images\百度网盘.png" alt="">
+            <span>百度网盘</span>
+        </div>
+        <div>
+            <img src="images\邮箱.png" alt="">
+            <span>163邮箱</span>
+        </div>
+        <div>
+            <img src="images\慕课.png" alt="">
+            <span>慕课</span>
+        </div>
+        <div>
+            <img src="images\网易云.png" alt="">
+            <span>网易云</span>
+        </div>
+        <div>
+            <img src="images\qq音乐.png" alt="">
+            <span>qq音乐</span>
+        </div>
+        <div>
+            <img src="images\新浪微博.png" alt="">
+            <span>新浪微博</span>
+        </div>
+        <div>
+            <img src="images\腾讯视频.png" alt="">
+            <span>腾讯视频</span>
+        </div>
+        <div>
+            <img src="images\优酷.png" alt="">
+            <span>优酷</span>
+        </div>
+        <div>
+            <img src="images\爱奇艺.png" alt="">
+            <span>爱奇艺</span>
+        </div>
+        <div>
+            <img src="images\慕课.png" alt="">
+            <span>网易公开课</span>
+        </div>
+        <div>
+            <img src="images\知乎.png" alt="">
+            <span>知乎</span>
+        </div>
+        <div>
+            <img src="images\哔哩哔哩.png" alt="">
+            <span>哔哩哔哩</span>
+        </div>
+    </div>
+</body>
+</html>

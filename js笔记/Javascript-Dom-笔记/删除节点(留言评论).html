@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style type="text/css">
+        li{
+            width: 200px;
+            height: 20px;
+            border: solid 1px;
+        }
+        li a{
+            float: right;
+        }
+    </style>
+
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button>发布</button>
+    <ul></ul>
+
+    <script>
+        var text = document.querySelector('textarea')
+        var but = document.querySelector('button')
+        var ul = document.querySelector('ul')
+
+        but.onclick = function(){
+            // 创建节点
+            var li = document.createElement('li')
+            // 将输入的内容赋值给 li 并且添加删除按钮
+            li.innerHTML = text.value + "<a href = 'javascript:;'>删除</a>";
+            // 插入节点
+            ul.appendChild(li)
+            // 获取全部 a 元素
+            var as = document.querySelectorAll('a')
+            // 循环遍历 a 
+            for(i = 0; i < as.length; i++){
+            // 点击 a 元素执行以下事件
+            as[i].onclick = function(){
+            // 删除 ul 元素里面 a 元素的父节点。this.parentNode = as[i].父节点
+                ul.removeChild(this.parentNode)
+            }
+        }
+    }
+        
+    </script>
+</body>
+</html>

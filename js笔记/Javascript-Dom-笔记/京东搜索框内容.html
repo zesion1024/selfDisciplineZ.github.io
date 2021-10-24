@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 450px;
+				height: 30px;
+				border: none;
+				margin: 200px auto;
+			}
+		
+			.sousuokuang{
+				width: 400px;
+				height: 30px;
+				margin: 0 auto;
+				line-height: 30px;
+				color: #999;
+				border-right: none;
+				outline: none;
+			}
+			.sousuo{
+				width: 67px;
+				height: 36px;
+				position: relative;
+				top: -36px;
+				right: -403px;
+				background-color: dodgerblue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<input type="text" id="sousuokuang" value="手机" class="sousuokuang"/>	
+			<input type="submit" id="" value="搜索" class="sousuo"/>
+		</div>
+		
+		<script type="text/javascript">
+			//获取元素
+			var sou = document.getElementById('sousuokuang')
+			
+			//当聚焦到搜索框  value 为 手机 时修改内容为空字符  并且输入字符颜色改为 #333
+			sou.onfocus = function(){
+				if(this.value == '手机'){
+					this.value = '';
+				}
+				this.style.color = '#333'
+			}
+			//当搜索框失焦  value 为 空字符 时修改内容为 手机 并且修改颜色改为 #999 
+			sou.onblur = function(){
+				if(this.value == ''){
+					this.value = '手机';
+				}
+				this.style.color = '#999'
+			}
+		</script>
+	</body>
+</html>

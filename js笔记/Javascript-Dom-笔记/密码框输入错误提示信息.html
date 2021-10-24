@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title></title>
+		<style type="text/css">
+			.div{
+				width: 350px;
+				height: 25px;
+				border: solid 1px;
+				margin: 200px auto;
+			}
+			.ipt{
+				height: 23px;
+				outline: none;
+				border: none;
+				margin-right: 15px;
+				border-right: solid 1px;
+				float: left;
+			}
+			.dd{
+				display: inline-block;
+				font-size: 15px;
+				padding-left: 25px;
+				position: relative;
+				top: -11px;
+				background: url(images/lv.png) no-repeat left;
+			}
+			.dd-2{
+				color: red;
+				background: url(images/hong.png) no-repeat left;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div">
+			<input type="password" class="ipt" value="" />
+			<p class="dd">请输入6~16个字符</p>
+			<!-- <img class="img" src="images/lv.png" >
+			<span>请输入6~16个字符</span> -->
+			
+			<script type="text/javascript">
+				var ipt = document.querySelector('.ipt');
+				var p = document.querySelector('.dd');
+				
+				ipt.onblur = function(){
+					if(ipt.value.length < 6 || ipt.value.length > 16){
+						p.className = 'dd dd-2';
+						p.innerHTML = '请输入6~16个字符'
+					}else{
+						p.className = 'dd';
+						p.innerHTML = '您输入的正确'
+					}
+				}
+			</script>
+		</div>
+	</body>
+</html>

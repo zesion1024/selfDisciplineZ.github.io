@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="box">盒子1</div>
+		<div class="box">盒子2</div>
+		<div id=""></div>
+		
+		<script type="text/javascript">
+			//1, getElementsByClassName 根据类名获得某些元素集合
+			var boxs = document.getElementsByClassName('box')
+			console.log(boxs);
+			
+			//2, querySelector() 返回指定选择器的第一个元素对象  里面选择器需要加符号 . #
+			var box1 = document.querySelector('.box');
+			console.log(box1);
+			
+			//3, querySelectorAll() 返回指定选择器的所有元素对象集合
+			var box = document.querySelectorAll('.box');
+			console.log(box);
+		</script>
+	</body>
+</html>

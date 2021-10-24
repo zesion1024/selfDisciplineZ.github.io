@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				width: 350px;
+				height: 100px;
+				border: none;
+				margin: 200px auto;
+				text-align: center;
+			}
+			.box1{
+				width: 350px;
+				height: 50px;
+				border-bottom:solid 1px dimgrey;
+				/* border: solid 2px; */
+			}
+			.box .box1 input{
+				width: 300px;
+				height: 30px;
+				margin-top: 15px;
+				float: left;
+				outline: none;
+				border: none;
+			}
+			.box2{
+				width: 350px;
+				height: 50px;
+				border-bottom:solid 1px dimgrey;
+				/* border: solid 2px; */
+			}
+			.box .box2 input{
+				width: 270px;
+				height: 30px;
+				border: none;
+				outline: none;
+				float: left;
+				margin-top: 15px;
+			}
+			.box .box2 img{
+				width: 30px;
+				height: 30px;
+				margin-top: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="box1">
+				<input type="text" name="" id="" value=""/>
+			</div>
+			<div class="box2">
+				<input id="mima" type="password" name="" id="" value=""/>
+				<label>
+					<img src="images/guan.png" >
+				</label>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			//1,获取元素
+			var img = document.querySelector('img');
+			var mima = document.getElementById('mima');
+			
+			//注册事件 处理程序	此程序可以不用 if 判断
+			var flag = 0;							// 用于 if 判断所使用的变量
+			img.onclick = function(){				//当点击 img 时执行以下代码
+				if(flag == 0){						// flag 等于 0 时改变图片和 inpu 属性
+					img.src = 'images/kai.png';
+					mima.type = 'text';
+					flag = 1;						// 改变之后重新赋值 1 给 flag
+				}else{								// 如果 flag 不为 0 则将图片和 input 属性改为一下样式
+					img.src = 'images/guan.png';
+					mima.type = 'password';
+					flag = 0;						//然后重新赋值 0 给 flag
+				}
+			}
+		</script>
+	</body>
+</html>

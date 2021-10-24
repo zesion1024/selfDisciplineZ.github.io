@@ -1,0 +1,800 @@
+body {
+		    margin: 0px;
+		    padding: 0px;
+		    font-size: 12px;
+		    font-family: "微软雅黑", Arial;
+		}
+		div{display: block;}
+		.one{width: 1000px;
+			 height: 180px;
+		     border:none;
+			 margin: 0 auto;}
+		.of{width: 450px;
+				height: 40px; 
+				margin-top: 10px;
+				border: none;
+				float: right;}
+		.fo{width: 200px;
+				height: 40px;
+				line-height: 40px;
+				margin-right: 15px;
+				float: left;
+				border: none;}
+		.fo a{
+			text-decoration: none;
+		}	
+		.fo a:hover{
+			color: #55ffff;
+			text-decoration: underline;
+		}/*超链接的下划线*/
+		.two{width: 223px;
+				height: 40px;
+				border: solid 1px #cccccc;
+				float: right;}
+				
+		.wu{  height: 40px;
+				font-size: 15px;
+				font-family: "宋体";
+				color: #999999;
+				border: none;
+				float: left;}
+		.wd{width: 100px;
+				height: 35px;
+				border: none;
+				float: left;
+				outline: none;}					
+		.ed{text-align: center;
+				line-height: 40px;
+				margin: 0 auto;}
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		ul{
+			list-style-type: none;
+		}
+		/* 大盒子用于居中 */
+		.IT{
+			width: 1000px;
+			height: 80px;
+			margin: 0 auto;
+			border: none;
+			padding-top: 5px;
+		}
+		.IT a{
+			text-decoration: none;
+		}
+		.IT a:link,a:visited{
+			color: #000;
+			text-decoration: none;
+		}
+		.it{
+			width: 98px;
+			height: 40px;
+			font-size: 18px;
+			border-right: solid 1px #ffaa00;
+			/* padding-bottom: 8px; */
+			line-height: 40px;
+			text-align: center;
+			/* 相对定位元素 */
+			position: relative;
+			float: left;
+		}
+		/* 主要用于最后一个盒子的边框 */
+		.it10{
+			width: 98px;
+			height: 40px;
+			font-size: 18px;
+			line-height: 40px;
+			text-align: center;
+			position: relative;
+			float: left;
+		}
+		/* 列表宽度居中和不显示 */
+		.ppt{
+			width: 98px;
+			border-top: solid 1px azure;
+			text-align: center;
+			display: none;
+		}
+		/* 鼠标放到盒子上时盒子颜色和列表颜色都突出显示*/
+		.it:hover .ppt{
+			background: cornflowerblue;
+		}
+		/* 鼠标放到盒子上时盒子颜色突出显示*/
+		.it:hover{
+			background: cornflowerblue;
+		}
+		/* 鼠标放到盒子上时列表显示出来 */
+		.it:hover .ppt{
+			display: block;
+		}
+		/* 最后一个盒子的颜色和列表颜色*/
+		.it10:hover .ppt{
+			background: cornflowerblue;
+		}
+		/* 最后一个盒子的颜色*/
+		.it10:hover{
+			background: cornflowerblue;
+		}
+		/* 最后一个盒子的列表显示 */
+		.it10:hover .ppt{
+			margin:0 ;
+			padding: 0;
+			display: block;
+		}
+		/* 鼠标放到列表的颜色 */
+		ul .it ul .ppt:hover{
+			background: #55ffff;
+		}
+		/* 鼠标放到最后一个列表的颜色 */
+		ul .it10 ul .ppt:hover{
+			background: #55ffff;
+		}	 
+	  .WE{margin: 0px auto 20px auto;
+	      padding: 0px;
+	      overflow: hidden;
+	      width: 990px;
+   }
+   .WE-left{argin: 0px;
+            padding: 0px;
+            float: left;
+            width: 735px;
+    }
+	.WE-left-A{margin: 0px 0px 0px 0px;
+	           padding: 0px;
+	           overflow: hidden;
+    }
+	.WE-left-A h3{margin: 0px;
+	          padding: 0px;
+	          font-family: "微软雅黑";
+	          font-size: 34px;
+	          color: #333;
+	          text-align: center;
+   }
+   .WE-left-A h3 a:link, .WE-left-A h3 a:visited {
+       margin: 0px;
+       padding: 0px;
+       text-decoration: none;
+       color: #000;
+   }
+  .WE-left-B{
+       margin: 5px auto 0px auto;
+       padding: 0px;
+       overflow: hidden;
+       width: 735px;
+   }
+   table {
+       border-collapse: separate;
+       text-indent: initial;
+       border-spacing: 2px;
+   }
+   tbody {
+       display: table-row-group;
+       vertical-align: middle;
+       border-color: inherit;
+   }
+   tr {
+       display: table-row;
+       vertical-align: inherit;
+       border-color: inherit;
+   }
+   p {
+       display: block;
+       margin-block-start: 1em;
+       margin-block-end: 1em;
+       margin-inline-start: 0px;
+       margin-inline-end: 0px;
+   }
+   .WE-left-B p {
+       margin: 0px auto 5px auto;
+       padding: 0px;
+       font-size: 16px;
+       font-family: "微软雅黑";
+       white-space: nowrap;
+       text-align: center;
+   }
+   .WE-left-B a{
+	   color: #000000;
+   	text-decoration: none;
+   }	
+   .WE-left-B a:hover{
+   	color: #00ffff;
+   	text-decoration: underline;
+   }/*超链接的下划线*/
+   .WE-right{
+    margin: 0px;
+    padding: 0px;
+    float: right;
+    width: 235px;
+}
+img {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
+
+
+.EW{
+           margin: 0px auto;
+		   padding: 0px;
+		   width: 1050px;
+		   overflow: hidden;
+		   }
+		   .EW-left{
+			   margin: 0px;
+			   padding: 0px;
+			   float: left;
+			   overflow: hidden;
+			   width: 580px;
+		   }
+		   .EW-datu{
+			   margin: 0px;
+			   padding: 0px;
+			   overflow: hidden;
+		   }
+		   .focus {
+		       overflow: hidden;
+		   }
+		   .focus .shadow {
+		       left: 0px;
+		       z-index: 10;
+		       display: block;
+		       position: relative;
+		       text-align: center;
+		       overflow: hidden;
+		   }
+		    .focus .shadow a{
+				color: #000000;
+			}
+		   .focus .shadow h3 {
+		       margin: 10px 0px 10px 0px;
+		       padding: 0px;
+		       font-size: 30px;
+		       line-height: 34px;
+		       color: #000;
+		       font-weight: normal;
+		       font-family: "微软雅黑";
+		   }
+		   h3 {
+		       display: block;
+		       margin-block-start: 1em;
+		       margin-block-end: 1em;
+		       margin-inline-start: 0px;
+		       margin-inline-end: 0px;
+		   }
+		   .left-liebiao {
+		       margin: 0px 0px 0px 0px;
+		       padding: 0px;
+		       overflow: hidden;
+		   }
+		  .leibiao1 {
+		       padding-top: 15px;
+		       padding-bottom: 20px;
+		       overflow: hidden;
+		       padding-right: 10px;
+		       border-top: 1px solid #CCCCCC;
+		       margin: 0px 0px 0px 0px;
+		       background: #FFF;
+			   float:left;
+		   }
+		   .biao1 {
+		       margin-right: 0px;
+		       float: right;
+		   }
+		   .leibiao1 h3 {
+		       margin: 0px 0px 0px 0px;
+		       padding: 0px;
+		       font-size: 22px;
+		       font-weight: normal;
+		       font-family: "微软雅黑";
+		       line-height: 32px;
+		   }
+		 .shadow h3 a, .leibiao1 h3 a:link, .leibiao1 h3 a:visited {
+		       margin: 0px;
+		       padding: 0px;
+		       text-decoration: none;
+		       color: #000;
+		   }
+		   .leibiao1 p {
+		       margin: 5px 0px 20px 0px;
+		       padding: 0px;
+		       font-size: 14px;
+		       line-height: 18px;
+		       font-family: "微软雅黑";
+		   }
+		   .leibiao1 p a:link, .leibiao1 p a:visited {
+		       text-decoration: none;
+		       color: #333;
+		   }
+		   .leibiao1 .chinese {
+		       margin: 15px 0px 0px 0px;
+		       padding: 0px;
+		       color: #a09f9f;
+		   }
+		   .leibiao1 .chinese span.jj {
+		       margin: 0px 0px 0px 0px;
+		       padding: 0px 0px;
+		       font-size: 12px;
+		       font-family: "微软雅黑";
+		   }
+		   .leibiao1 .jj a:link, .leibiao1  .jj a:visited {
+		       text-decoration: none;
+		       color: #666666;
+		   }
+		   .dibu {
+			   width: 600px;
+			   height: 30px;
+			   border: none;
+			   background: #e2e2e2;
+			   text-decoration: none;
+			   line-height: 30px;
+			   font-size: 17px;
+			   float: left;
+		       margin: 20px 0px 0px 0px;
+		       padding: 0px;
+		       text-align: center;
+		   }
+		   .dibu:hover{
+			   background: #6495ED;
+		   }
+		   .dibu a:hover{
+			   background: #336699;
+		   }
+/* 		   .dibu a:link, .dibu a:visited {
+		       margin: 0px;
+		       padding: 10px 0px;
+		       font-size: 14px;
+		       color: #666;
+		       text-decoration: none;
+		       background: #F6F6F6;
+		       display: block;
+		   } */
+		  .jj{
+			  border: 1px solid;
+			  background-color: aqua;
+		  }
+		  a:-webkit-any-link {
+		      cursor: pointer;
+		  }
+		 .biao2 {
+			 width: 1000px;
+		     margin: 0px;
+		     padding: 0px 0px 0px 3px;
+		     overflow: hidden;
+		     font-family: "微软雅黑";
+		     border-top: 1px solid #CCCCCC;
+			 float: left;
+		     margin-right: 440px ;
+		 }
+		.right-datu {
+		    margin: 25px 0px 0px 0px;
+		    padding: 0px;
+		    width: 355px;
+			float: right;
+		}	 
+		 .WT{
+			 width: 600px;
+		 }
+		 .manhua {
+		     margin: 25px 0px 0px 0px;
+		     padding: 0px;
+		 }
+		 .man1 {
+		     margin: 0px;
+		     padding: 0px 0px 0px 0px;
+		     border-top: 3px solid #ccc;
+		     font-family: "微软雅黑";
+		     height: 33px;
+		 }
+		 .man1 p {
+		     margin: -1px 0px 0px 0px;
+		     padding: 0px 0px 0px 0px;
+		     font-size: 18px;
+		     color: #023f6e;
+		 }
+		 .man1 p a:link, .man1 p a:visited {
+		     margin: -2px 0px 0px 0px;
+		     padding: 3px 0px 0px 0px;
+		     text-decoration: none;
+		     color: #023f6e;
+		     border-top: 3px solid #083E6D;
+		     display: block;
+		     float: left;
+		 }
+		 .man2 {
+		     margin: 5px 0px 0px 0px;
+		     padding: 0px;
+		     font-size: 20px;
+		     font-family: "微软雅黑";
+		     color: #000;
+		 }
+		 .man2 a:link, .man2 a:visited {
+		     text-decoration: none;
+		     color: #000;
+		 }
+		 .man3 {
+		     margin: 15px 0px 0px 0px;
+		     padding: 0px;
+		 }
+		 .man3 img {
+		     width: 355px;
+		 }
+		 .biao2-1{
+		     margin: 15px 0px;
+		     padding: 0px 0px 0px 15px;
+		     border-left: 3px solid #023F6E;
+		     font-size: 18px;
+		     color: #023f6e;			 
+		 }
+		 .biao2-1 a:link, .biao2-1 a:visited {
+		     text-decoration: none;
+		     color: #023f6e;
+		 }
+		 .biao2-2 {
+		     margin: 0px 0px 25px 0px;
+		     padding: 0px;
+		     overflow: hidden;
+		 }
+		.biao20 {
+		    margin: 0px 20px 0px 0px;
+		    padding: 0px;
+		    float: left;
+		}
+		 .biao21 {
+		     margin: 0px 0px 0px 0px;
+		     padding: 0px;
+			 float: float;
+		 }
+		 img {
+		     margin: 0px;
+		     padding: 0px;
+		     border: none;
+		 }
+		 .biao20 img {
+		     width: 180px;
+		     height: 100px;
+		 }
+		 .biao21 img {
+		     width: 180px;
+		     height: 100px;
+		 }
+		 .EW-right {
+			 margin: 0px;
+			 		    padding: 0px;
+			 		    overflow: hidden;
+			 		    width: 410px;
+			 		}
+			 		.henwen {
+			 		    margin: 0px;
+			 		    padding: 0px;
+			 		    overflow: hidden;
+			 			
+			 		}
+			 		.henwen-xin {
+			 		    margin: 5px 0px 10px 0px;
+			 		    padding: 0px;
+			 		    overflow: hidden;
+			 		}
+			 		.henwen-xin h2 {
+			 		    margin: 0px;
+			 		    padding: 0px;
+			 		    font-family: "微软雅黑";
+			 		    font-size: 23px;
+			 		    color: #333;
+			 		    font-weight: normal;
+			 		}
+			 		.henwen-xin h2 a:link, .henwen-xin h2 a:visited {
+			 		    margin: 0px;
+			 			margin-left: 30px;
+			 		    padding: 0px;
+			 		    text-decoration: none;
+			 		    color: #000;
+			 		}
+			 		.henwen-xin h3 {
+			 		    margin: 0px;
+			 		    padding: 0px;
+			 		    font-family: "微软雅黑";
+			 		    font-size: 16px;
+			 		    color: #333;
+			 		    font-weight: normal;
+			 		}
+			 		.henwen-xin h3 a:link, .henwen-xin h3 a:visited {
+			 		    margin: 0px;
+			 			margin-left: 10px;
+			 		    padding: 0px;
+			 		    text-decoration: none;
+			 		}
+			 		.right-xin {
+			 		    margin: 0px 0px 0px 0px;
+			 		    padding: 0px;
+			 		    overflow: hidden;
+			 		}
+			 		.right-xin ul {
+			 		    margin: 0px;
+			 		    padding: 0px;
+			 		    list-style-type: none;
+			 		}
+			 	  .EW-right    ul {
+			 		    display: block;
+			 		    margin-block-start: 1em;
+			 		    margin-block-end: 1em;
+			 		    margin-inline-start: 0px;
+			 		    margin-inline-end: 0px;
+			 		    padding-inline-start: 40px;
+			 		}
+			 		.right-xin li {
+			 		    margin: 0px 0px 10px 0px;
+			 		    padding: 0px 0px 0px 0px;
+			 		    font-size: 16px;
+			 		    font-family: "微软雅黑";
+			 		    background: none;
+			 		}
+			 		.right-xin li a:link, .right-xin li a:visited {
+			 		    text-decoration: none;
+			 		    color: #333;
+			 		}
+			 		.right-xin li a:hover{
+			 			color: #55ffff;
+			 			text-decoration: underline;
+			 		}
+			 	.EW-right   li {
+			 	    display: list-item;
+			 	    text-align: -webkit-match-parent;
+			 	}
+			 	.maxpox{
+			 		width: 399px;
+			 		height: 160px;
+			 		border-bottom:none;
+			 		margin: 0 auto;
+			 		margin-top: 50px;
+			 	}
+				.maxpox a{
+					   color: #000000;
+					text-decoration: none;
+				}	
+				.maxpox a:hover{
+					color: #00ffff;
+					text-decoration: underline;
+				}
+			 	.pox1{
+			 		width: 399px;
+			 		height: 50px;
+			 		border:none;
+			 		line-height: 50px;
+			 		text-align: center;
+			 		background: #f6f6f6;
+			 		margin-bottom: 4px;
+			 	}
+			 	.pox1-1{
+			 		width: 97.6px;
+			 		height: 50px;
+			 		border-right: solid 1px #CCCCCC;
+			 		border-bottom: solid 1px #CCCCCC;
+			 		float: left;
+			 	}
+			 	.pox1-2{
+			 		width: 97.6px;
+			 		height: 50px;
+			 		border: none;
+			 		border-bottom: solid 1px #CCCCCC;
+			 		float: left;
+			 		}
+			 	.pox2{
+			 		width: 399px;
+			 		height: 110px;
+			 		border: none;
+			 		background: #EBEBEB;
+			 	}
+			 	.pox2-1{
+			 		width: 112px;
+			 		height: 54px;
+			 		border: solid 1px #F9F9F9;
+			 		float: left;
+			 		line-height: 54px;
+			 		text-align: center;
+			 	}
+			 	.pox2-2{
+			 		width: 55px;
+			 		height: 110px;
+			 		border: solid 1px #F9F9F9;
+			 		float: right;
+			 		line-height: 110px;
+			 		text-align: center;
+			 	}
+			 	.pox1-1:hover{
+			 		border-top: solid 3px #023f6e;
+			 		border-bottom: none;
+			 	}
+			 	.pox1-2:hover{
+			 		border-top: solid 3px #023f6e;
+			 		border-bottom: none;
+			 	}
+			 	.pox2-1:hover{
+			 		background: #336699;
+			 	}
+			 	.pox2-2:hover{
+			 		background: #336699;
+			 	}
+				
+				
+			 .bian{margin: 25px 0px 0px 0px;
+			     padding: 0px;
+			 }
+			 .piao {
+			     margin: 0px;
+			     padding: 0px 0px 0px 0px;
+			     border-top: 3px solid #ccc;
+			     font-family: "微软雅黑";
+			     height: 33px;
+			 }
+			 .ben {
+			     padding-top: 0px;
+			     padding-bottom: 0px;
+			     overflow: hidden;
+			     padding-right: 0px;
+			     border-bottom: 1px solid #CCCCCC;
+			     margin: 0px 0px 0px 0px;
+			     background: #FFF;
+			 }
+			 .piao p {
+			     margin: -1px 0px 0px 0px;
+			     padding: 0px 0px 0px 0px;
+			     font-size: 18px;
+			     color: #023f6e;
+			 }
+			 .ben-1 {
+			     margin: 0px 0px 10px 0px;
+			     float: left;
+			 }
+			 .ben-1 img {
+			     margin: 0px 10px 0px 0px;
+			     width: 95px;
+			     height: 115px;
+			 }
+			 .ben h3 {
+			     margin: 0px 0px 0px 0px;
+			     padding: 20px 0px 0px 0px;
+			     font-size: 20px;
+			     font-weight: normal;
+			     font-family: "微软雅黑";
+			     line-height: 24px;
+			 }
+			 .ben h3 a:link, .ben h3 a:visited {
+			     margin: 0px;
+			     padding: 0px;
+			     text-decoration: none;
+			     color: #000;
+			 }
+			 .ben p {
+			     margin: 5px 0px 0px 0px;
+			     padding: 0px;
+			     font-size: 14px;
+			     color: #333;
+			     line-height: 18px;
+			     font-family: "微软雅黑";
+			 }
+			 .ben p span a:link, .ben p span a:visited {
+			     text-decoration: none;
+			     font-size: 12px;
+			     font-family: "微软雅黑";
+			 }
+			 .dibumaxbox{
+				 width: 1519px;
+				 	height: 430px;
+					margin-top: 2700px;
+				 	border: none;
+				 	border-top: solid 1px #E0E0E0;
+				 	background-color: #F8F8F8;
+				 }
+				 /* 底部内容的盒子用于内容的居中 */
+				 .dibubox{
+				 	width: 1010px;
+				 	height: 420px;
+				 	border: none;
+				 	margin: 0 auto;
+				 }
+				 /* 左边的图片的盒子 */
+				 .zbox{
+				 	width: 165px;
+				 	height: 408px;
+				 	border: none;
+				 	margin-top: 20px;
+				 	float: left;
+				 }
+				 /* 右边内容的盒子 */
+				 .ybox{
+				 	width: 840px;
+				 	height: 430px;
+				 	border: none;
+				 	font-family: "微软雅黑";
+				 	border-left: solid 1px #E0E0E0;
+				 	border-right: solid 1px #E0E0E0;
+				 	float: right;
+				 }
+				 /* 右边第一行内容的盒子 */
+				 .ybox1{
+				 	width: 840px;
+				 	height: 40px;
+				 	border: none;
+				 	border-bottom: solid 1px #E0E0E0;
+				 	float: right;
+				 	margin-bottom: 1px;
+				 }
+				 /* 右边第一行内容格式 */
+				 .y1n{
+				 	width: 80px;
+				 	height: 40px;
+				 	float: left;
+				 	text-align: center;
+				 	line-height: 40px;
+				 	font-size: 17px;
+				 	list-style-type: none;
+				 }
+				 /* 右边第二行的盒子 */
+				 .ybox2{
+				 	width: 840px;
+				 	height: 60px;
+				 	border: none;
+				 	border-bottom: solid 1px #E0E0E0;
+				 	float: right;
+				 	margin-bottom: 1px;
+				 }
+				 /* 右边第二行内容的格式 */
+				 .ybox2 li{
+				 	font-size: 13px;
+				 	margin: 0px 5px 0px 15px;
+				 	float: left;
+				 	list-style-type: none;
+				 	line-height: 30px;
+				 }
+				 /* 右边第二行"地方频道"左对齐 */
+				 .ybox2 li font strong{
+				 	float: left;
+				 }
+				 /* 右边第三行的盒子 */
+				 .ybox3{
+				 	width: 840px;
+				 	height: 60px;
+				 	border: none;
+				 	border-bottom: solid 1px #E0E0E0;
+				 	float: right;
+				 	margin-bottom: 20px;
+				 }
+				 /* 右边的三行的内容 */
+				 .ybox3 li{
+				 	font-size: 13px;
+				 	margin: 0px 5px 0px 15px;
+				 	float: left;
+				 	list-style-type: none;
+				 	text-align: center;
+				 	line-height: 30px;
+				 }
+				 /* 右边第三行"友情链接"左对齐 */
+				 .ybox3 li font strong{
+				 	float: left;
+				 }
+				 /* 右边第四行的盒子 */
+				 .ybox4{
+				 	width: 840px;
+				 	height: 220px;
+				 	border: none;
+				 	float: right;
+				 }
+				 /* 右边第四行上面部分的内容格式 */
+				 .ybox4 li{
+				 	list-style-type: none;
+				 	margin: 0px 5px 8px 15px;
+				 	float: left;
+				 	font-size: 13px;
+				 }
+				 /* 右边第四行下面部分的内容格式 */
+				 .ybox4 div{
+				 	font-size: 13px;
+				 	float: left;
+				 	margin: 0px 5px 8px 15px;
+				 	line-height: 190%;
+				 }
+			 				
+
+		 		    

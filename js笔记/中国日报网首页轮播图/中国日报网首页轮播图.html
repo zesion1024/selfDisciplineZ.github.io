@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 450px;
+				height: 300px;
+				border: solid 1px;
+				margin: 200px auto;
+				position: relative;
+			}
+			
+			/* 用于定位两边按钮居中 */
+/* 			.box2{
+				width: 450px;
+				height: 75px;
+				margin: 0 auto;
+				position: absolute;
+				margin: auto;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				border: solid 1px red;
+			} */
+			.lunbo{
+				width: 450px;
+				height: 300px;
+			}
+			.anniu1{
+				width: 40px;
+				height: 74px;
+				border: solid 1px;
+				position: relative;
+				top: -389px;
+				right: -526px;
+				background: url(btn.png);
+				background-position: 0px -74px;
+			}
+			.anniu1:hover{
+				background: url(btn.png);
+				background-position: 0px 0px;
+			}
+			.anniu2{
+				width: 40px;
+				height: 74px;
+				position: relative;
+				top: -465px;
+				right: -935px;
+				border: solid 1px;
+				background: url(btn.png);
+				background-position: -40px -74px;
+			}
+			.anniu2:hover{
+				background: url(btn.png);
+				background-position: -40px 0px;
+			}
+			div{
+				
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="box">
+				<img src="9.jpg" class="lunbo">
+		</div>
+		<div id="n1" class="anniu1"></div>
+		<div id="n2" class="anniu2"></div>
+		
+		
+		<script type="text/javascript">
+			var n1 = document.getElementById('n1');
+			var n2 = document.getElementById('n2');
+			var img = document.querySelector('img');
+			
+			var flag = 0;
+			n1.onmousedown = function(){
+				
+			}
+			n2.onclick = function(){
+				if(flag == 0){
+					img.src = '10.jpg'
+					flag = 1;
+				}else if(flag == 1){
+					img.src = '11.jpg'
+					flag = 2;
+				}else if(flag == 2){
+					img.src = '12.jpg'
+					flag = 3;
+				}else if(flag == 3){
+					img.src = '9.jpg'
+					flag = 0
+				}
+			}
+			n1.onclick = function(){
+				if(flag == 0){
+					img.src = '12.jpg'
+					flag = 1;
+				}else if(flag == 1){
+					img.src = '11.jpg'
+					flag = 2;
+				}else if(flag == 2){
+					img.src = '10.jpg'
+					flag = 3;
+				}else if(flag == 3){
+					img.src = '9.jpg'
+					flag = 0;
+				}
+			}
+		</script>
+	</body>
+</html>

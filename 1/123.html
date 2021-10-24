@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            width: 300px;
+            height: 300px;
+            border: solid 1px;
+            position: absolute;
+        }
+        .button{
+            width: 100px;
+            height: 100px;
+            background: #81ecec;
+            /* border: none; */
+            border-radius: 50%;
+            margin: 0 auto;
+            position: relative;
+            top: 200px;
+            display: flex;
+            justify-content: center;
+        }
+        .button>:nth-child(1),.button>:nth-child(2),.button>:nth-child(3){
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #6c5ce7;
+            position: absolute;
+            display: none;
+        }
+        .button:hover>:nth-child(1){
+            /* transform: translate(0); */
+            display: block;
+            animation: dh1 .3s forwards;
+        }
+        .button:hover>:nth-child(2){
+            /* transform: translate(0); */
+            display: block;
+            animation: dh2 .1s forwards;
+        }
+        .button:hover>:nth-child(3){
+            /* transform: translate(0); */
+            display: block;
+            animation: dh3 .3s forwards; 
+        }
+        @keyframes dh1{
+            0%{
+                display: none;
+                background-color: white;
+                transform: translate(0,0);
+            }
+            100%{
+                background-color: #6c5ce7;
+                transform: translate(-95px,-30px);
+            }
+        }
+        @keyframes dh2{
+            0%{
+                display: none;
+                background-color: white;
+                transform: translate(0,0);
+            }
+            100%{
+                background-color: #6c5ce7;
+                transform: translate(0,-90px);
+            }
+        }
+        @keyframes dh3{
+            0%{
+                display: none;
+                background-color: white;
+                transform: translate(0,0);
+            }
+            100%{
+                background-color: #6c5ce7;
+                transform: translate(95px,-30px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="button">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</body>
+</html>

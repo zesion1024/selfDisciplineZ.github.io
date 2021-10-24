@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				width: 115px;
+				height: 130px;
+				border: solid 1px #CCCCCC;
+				margin: auto;
+				position: relative;
+				top: 200px;
+				text-align: center;
+				display: block;
+			}
+			.cha{
+				position: relative;
+				left: -21px;
+				top: -126px;
+				font-size: 20px;
+				color: #CCCCCC;
+				line-height: 18px;
+				width: 18px;
+				height: 18px;
+				border: solid 1px #CCCCCC;
+				cursor: default;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box" id="box">
+			<div style="color: coral;text-align: center;">淘宝二维码</div>
+			<img src="images/tao.png" width="100px" height="100px">
+			<div class="cha" id="cha">×</div>
+			
+			<script type="text/javascript">
+				//获取元素
+				var box = document.getElementById('box');
+				var cha = document.getElementById('cha');
+				
+				//修改内容
+				cha.onclick = function(){
+					box.style.display = 'none';
+				}
+			</script>
+		</div>
+	</body>
+</html>
