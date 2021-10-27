@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>123</div>
+
+    <script>
+        var div = document.querySelector('div')
+
+        // 事件对象是我们事件一系列相关数据的集合例如：鼠标点击后的坐标，点击键盘后的案件.
+        div.addEventListener('click',function(e){
+            console.log(e);
+        })  
+    </script>
+</body>
+</html>

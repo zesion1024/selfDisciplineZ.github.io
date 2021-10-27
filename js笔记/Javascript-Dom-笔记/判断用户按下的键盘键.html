@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        document.addEventListener('keyup',function(e){
+            // keyup和keydown 不区分大小写 , 大小写ASCII码都是一样
+            console.log(e.keyCode);
+            if(e.keyCode == 65){
+                alert('对')
+            }else{
+                alert('错')
+            }
+        })
+    </script>
+</body>
+</html>

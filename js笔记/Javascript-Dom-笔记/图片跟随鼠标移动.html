@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        img{
+            position: absolute;
+            pos
+        }
+    </style>
+<body>
+    <img src="images/螃蟹 .png" alt="" width="80px">
+
+    <script>
+        var img = document.querySelector('img')
+        document.addEventListener('mousemove',function(e){
+            var x = e.pageX
+            var y = e.pageY
+            console.log('当前x坐标是' + x,'当前y坐标是' + y);
+            img.style.left = x - 40 + 'px'
+            img.style.top = y - 40 + 'px'
+        })
+    </script>
+</body>
+</html>

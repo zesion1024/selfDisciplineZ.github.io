@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>111111</button>
+    <button>222222</button>
+    <button>333333</button>
+
+    <script>
+        var buts = document.querySelectorAll('button')
+        buts[0].onclick = function(){
+            alert('0000')
+            // 传统方式删除事件
+            buts.onclick = null
+        }
+
+        buts[1].addEventListener('click',fn)
+        function fn(){
+            alert(20)
+            buts[1].removeEventListener('click',fn)
+        }
+    </script>
+</body>
+</html>

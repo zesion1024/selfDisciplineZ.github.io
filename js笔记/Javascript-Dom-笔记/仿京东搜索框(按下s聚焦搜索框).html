@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="">
+    <script>
+        var int = document.querySelector('input')
+        document.addEventListener('keyup',function(e){
+            // 检测出 s 的 ascii 码为 83
+            console.log(e.keyCode);
+
+            // 判断用户按下的是不是 s 如果是则聚集到搜索框
+            if(e.keyCode == 83){
+                int.focus()
+            }
+        })
+    </script>
+</body>
+</html>
