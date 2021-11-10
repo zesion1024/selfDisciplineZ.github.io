@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        img{
+            position: fixed;
+            bottom: 0px;
+            right: 0px;
+        }
+    </style>
+
+    <img src="img/广告.jpg" alt="">
+
+    <script>
+
+            // 过两秒显示
+        // var img = document.querySelector('img')
+        // function fn (){
+        //     img.style.bottom = 0 + 'px'
+        //     img.style.transition = 1 + 's'
+        // }
+        // setTimeout(fn,2000)
+
+        var img = document.querySelector('img')
+        function fn(){
+            img.style.bottom = -380 + 'px'
+            img.style.transition = 1 + 's'
+        }
+        setTimeout(fn,2000)
+    </script>
+</body>
+</html>

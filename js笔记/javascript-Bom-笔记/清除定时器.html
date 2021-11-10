@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击停止定时器</button>
+
+    <script>
+        var bnt = document.querySelector('button')
+
+        // 1. 创建一个定时器 赋给一个标识符 两秒后执行
+            var set = setTimeout(function(){
+                alert('艺术就是爆炸')
+            },2000)
+
+            // 2. 点击 button 标签后清除 定时器 倒计时
+            bnt.addEventListener('click',function(){
+                // clearTimeout() 清除定时器
+                clearTimeout(set)
+            })
+    </script>
+</body>
+</html>

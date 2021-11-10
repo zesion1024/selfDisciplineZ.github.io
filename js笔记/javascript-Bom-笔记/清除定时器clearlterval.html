@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="kai">开启</button>
+    <button class="guan">关闭</button>
+
+    <script>
+        var kai = document.querySelector('.kai')
+        var guan = document.querySelector('.guan')
+
+        // 点击关闭会发现 tin 为 undefined 是应为定时器的tin 在函数内部作用域不同
+        // 所以我们先给tin 一个全局作用域并将值设置为 空对象 null
+        var tin = null;
+
+        // 点击按钮执行一下定时器，并且给定时器一个标识符 tin 
+        kai.addEventListener('click',function(){
+            tin = setInterval(function(){
+                console.log(123);
+            },1000);
+        })
+        // 点击按钮将 tin 定时器关闭
+        guan.addEventListener('click',function(){
+            clearInterval(tin)
+        })
+    </script>
+</body>
+</html>

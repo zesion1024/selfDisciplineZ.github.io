@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .box{
+            width: 300px;
+            height: 90px;
+            border: solid 1px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .box div{
+            width: 90px;
+            border: solid 1px;
+            background-color: rgb(36, 35, 35);
+            font-size: 70px;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+    <div class="box">
+        <div id="box1"></div>
+        <div id="box2"></div>
+        <div id="box3"></div>
+    </div>
+
+    <script>
+        var date = new Date();
+        var h = date.getHours();
+        var m = date.getMinutes();
+        var s = date.getSeconds();
+        console.log(h,m,s);
+
+        var b1 = document.querySelector('#box1')
+        var b2 = document.querySelector('#box2')
+        var b3 = document.querySelector('#box3')
+        // 定时器调用之前先调用一次，优化打开页面时间的视觉效果
+        countDown()
+
+        // 定时器每隔1s调用countDown函数
+        setInterval(countDown,1000)
+
+        function countDown(){
+				var nowTime = +new Date();	//返回当前时间总的毫秒数
+				var inputTime = +new Date('2021-11-9 23:30:00');	//输入时间的总毫秒数
+				var times = (inputTime - nowTime) / 1000	//（输入时间 - 当前时间）= 剩余的总毫秒数
+				var h = parseInt(times / 60 / 60 % 24);		//换算小时
+				h = h < 10 ? '0' + h : h;
+                b1.innerHTML = h
+				var m = parseInt(times / 60 %60);	//换算分
+				m = m < 10 ? '0' + m : m;
+                b2.innerHTML = m
+				var s = parseInt(times %60);	//换算秒		
+				s = s < 10 ? '0' + s : s;
+                b3.innerHTML = s
+			}
+    </script>
+</body>
+</html>
