@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            border: solid 1px;
+            background-color: pink;
+            margin: 200px;
+        }
+    </style>
+    <div></div>
+
+    <script>
+        var div = document.querySelector('div')
+        // 获取 div 盒子与父元素的距离  （父元素必须要有定位）
+        console.log(div.offsetLeft);
+        console.log(div.offsetTop);
+    </script>
+</body>
+</html>

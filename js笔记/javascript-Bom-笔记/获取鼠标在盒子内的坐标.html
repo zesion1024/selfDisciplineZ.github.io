@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            border: solid 1px;
+            background-color: pink;
+            margin: 200px;
+        }
+    </style>
+    <div></div>
+
+    <script>
+        var div = document.querySelector('div')
+        div.addEventListener('click',function(e){
+            var x = e.pageX - div.offsetLeft
+            var y = e.pageY - div.offsetTop
+            div.innerHTML = 'x坐标为' + x + 'y坐标为' + y
+        })
+        console.log(div.offsetLeft);
+        console.log(div.offsetTop);
+    </script>
+</body>
+</html>

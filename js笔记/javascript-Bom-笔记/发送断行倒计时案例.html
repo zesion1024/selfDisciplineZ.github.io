@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    手机号码： <input type="text" name="" id=""> <button>发送</button>
+
+    <script>
+        var but = document.querySelector('button')
+
+        // 从点击发送按钮开始
+        but.addEventListener('click',function(){
+            // 创建一个倒计时的局部变量
+            var time = 3
+            // 点击按钮之后按钮变为不可选中
+            but.disabled = true;
+            // 创建定时器并给定时器添加一个标识符
+            var times = setInterval(function(){
+                // 如果倒计时结束则清除定时器，重新赋值给 time 变量
+                if(time == 0){
+                    clearInterval(times)
+                    but.disabled = false
+                    but.innerHTML = '发送'
+                    time = 3
+                }else{
+                    but.innerHTML = time
+                    time--
+                }
+            },1000)
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            /* display: flex; */
+        }
+        .denglu{
+            width: 300px;
+            height: 200px;
+            border: solid 1px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            display: none;
+        }
+        .denglu span{
+            width: 20px;
+            height: 20px;
+            border: solid 1px;
+            border-radius: 50%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+
+    <div id="dj">点击弹出登陆窗口</div>
+
+    <div class="denglu" id="dl">
+        <div id="title">登陆窗口</div>
+        <span id="sc">x</span>
+    </div>
+
+    <script>
+        var dj = document.querySelector('#dj')
+        var dl = document.querySelector('#dl')
+        var sc = document.querySelector('#sc')
+        var title = document.querySelector('#title')
+        // 点击弹出登陆框
+        dj.addEventListener('click',function(){
+            dl.style.display = 'block'
+        })
+        // 点击隐藏登陆框
+        sc.addEventListener('click',function(){
+            dl.style.display = 'none'
+        })
+
+
+        // 按下鼠标时获取鼠标在登陆页面里面的坐标
+        title.addEventListener('mousedown',function(e){
+            var x = e.pageX - dl.offsetLeft
+            var y = e.pageY - dl.offsetTop
+
+            // 移动鼠标时将页面坐标减去鼠标在登陆页面时的坐标就是动态框坐标
+            document.addEventListener('mousemove', move)
+            function move(e) {
+                dl.style.left = e.pageX - x + 'px';
+                dl.style.top = e.pageY - y + 'px';
+            }
+            // 鼠标弹起结束事件
+            document.addEventListener('mouseup', function() {
+                document.removeEventListener('mousemove', move);
+            })
+        })
+        
+    </script>
+</body>
+</html>
