@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .dinbu{
+            width: 50px;
+            height: 120px;
+            border: solid 1px;
+            position: absolute;
+            left: 92%;
+            top: 300px;
+        }
+        .dinbu button{
+            width: 50px;
+            height: 120px;
+            position: relative;
+            top: 150px;
+            display: none;
+        }
+        .nav{
+            width: 85%;
+            height: 200px;
+            margin: 0 auto;
+            border: solid 1px;
+        }
+        .banner{
+            width: 85%;
+            height: 300px;
+            border: solid 1px;
+            margin: 20px auto;
+        }
+        .main{
+            width: 85%;
+            height: 800px;
+            border: solid 1px;
+            margin: 0 auto;
+        }
+    </style>
+    
+    <div class="dinbu">
+        <span>返回顶部</span>
+        <button id="but">点击返回顶部</button>
+    </div>
+    <div class="nav">头部区域</div>
+    <div class="banner">banner区域</div>
+    <div class="main">主体部分</div>
+
+    <script>
+        var dinbu = document.querySelector('.dinbu')
+        var banner = document.querySelector('.banner')
+        var main = document.querySelector('.main')
+        var but = document.querySelector('#but')
+        console.log(but);
+
+        // banner 区域距离整个文档流顶部的像素
+        var bannertop = banner.offsetTop
+        // 将侧边栏距离整个文档流顶部的像素 - banner距离整个文档流顶部的像素
+        var dinbutop = dinbu.offsetTop - bannertop
+
+            // 页面滚动事件 'scroll'
+        document.addEventListener('scroll',function(){
+            // window.pageYOffset  window页面被卷去的头部大于 banner 的顶部执行
+            if(window.pageYOffset>=banner.offsetTop){
+                // 固定定位
+                dinbu.style.position = 'fixed'
+                // 61，62行计算过后的值赋给侧边栏，
+                dinbu.style.top = dinbutop + 'px'
+            }else{
+                dinbu.style.position = 'absolute'
+                dinbu.style.top = '300px'
+            }
+
+            // 返回顶部按钮的显示与隐藏
+            if(window.pageYOffset >= main.offsetTop){
+                but.style.display = 'block'
+            }else{
+                but.style.display = 'none'
+            }
+            // 点击按钮返回顶部
+            but.addEventListener('click',function(){
+                window.scroll(0,0)
+            })
+        })
+    </script>
+</body>
+</html>
