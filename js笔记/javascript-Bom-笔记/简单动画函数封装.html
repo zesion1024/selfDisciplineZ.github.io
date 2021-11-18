@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        div{
+            width: 150px;
+            height: 150px;
+            border: solid 1px;
+            background-color: aqua;
+            position: absolute;
+        }
+        span{
+            width: 150px;
+            height: 150px;
+            border: solid 1px;
+            background-color: brown;
+            position: absolute;
+            top: 200px;
+        }
+    </style>
+
+    <div></div>
+    <span></span>
+    <button>点击运行span</button>
+
+    <script>
+        var div = document.querySelector('div')
+        var span = document.querySelector('span')
+        var btn = document.querySelector('button')
+
+        // 封装动画函数 将下面实参传递进来
+        function dognhua(kai,guan){
+            // 清除定时器防止多次点击按钮时多次调用定时器
+            clearInterval(kai.time)
+            // kai.time 等于 var time   这样写避免多次调用函数的时候开辟多次内存空间，可以节省内存资源  
+            kai.time = setInterval(function(){
+                if(kai.offsetLeft >= guan){
+                    clearInterval(time)
+                }
+                kai.style.left = kai.offsetLeft + 5 + 'px'
+            },30)
+        }
+        dognhua(div,200)
+        // dognhua(span,300)
+        btn.addEventListener('click',function(){
+            dognhua(span,300)
+        })
+    </script>
+</body>
+</html>

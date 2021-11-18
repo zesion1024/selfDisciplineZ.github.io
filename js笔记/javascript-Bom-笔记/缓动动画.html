@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        div{
+            width: 150px;
+            height: 150px;
+            border: solid 1px;
+            background-color: aqua;
+            position: absolute;
+            top: 100px;
+        }
+    </style>
+
+    <div></div>
+    <button class="btn500">点击500</button>
+    <button class="btn800">点击800</button>
+
+    <script>
+        var div = document.querySelector('div')
+        var btn500 = document.querySelector('.btn500')
+        var btn800 = document.querySelector('.btn800') 
+
+        function donghua (kai,guan){
+            // 清除定时器防止多次点击按钮时多次调用定时器
+            clearInterval(kai.time)
+            kai.time = setInterval(function(){
+                // （目标值 - 当前值） / 10    用这个公式来控制每次运动的值
+                //    （500 - 0）/ 10 = 50  第一次运动 50 像素
+                //    （500 - 50）/ 10 = 45    第一次运动 45 像素
+                //    （500 - 100）/ 10 = 4    第一次运动 40 像素
+                // 此处除法涉及小数与所需数据有偏差，所以采用   Math.ceil()取最大值 Math.floor()取最小值
+                var yunsu = (guan - kai.offsetLeft) / 30
+                yunsu = yunsu > 0 ? Math.ceil(yunsu) : Math.floor(yunsu)
+                if(kai.offsetLeft == guan){
+                    clearInterval(kai.time)
+                }
+                kai.style.left = kai.offsetLeft + yunsu + 'px'
+            },15)
+        }
+        btn500.addEventListener('click',function(){
+            donghua(div,500)
+        })
+        btn800.addEventListener('click',function(){
+            donghua(div,800)
+        })
+    </script>
+</body>
+</html>
