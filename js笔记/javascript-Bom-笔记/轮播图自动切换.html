@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .div{
+            width: 350px;
+            height: 197px;
+            overflow: hidden;
+            position: relative;
+            padding: 5px 0;
+        }
+        .ul{
+            height: 100%;
+            display: flex;
+            position: relative;
+            transition: .3s;
+        }
+        img{
+            width: 350px;
+        }
+        .yd{
+            height: 17px;
+            display: flex;
+            position: absolute;
+            bottom: 8px;
+        }
+        .yd li{
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            margin: 0 2px;
+            opacity: 0.5;
+            background-color: yellow;
+
+        }
+        .yd li:hover{
+            background-color: pink;
+        }
+        button{
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+
+    <div class="div">
+        <ul class="ul">
+            <li><img src="img/百度换肤1.jpeg" alt=""></li>
+            <li><img src="img/百度换肤2.jpeg" alt=""></li>
+            <li><img src="img/百度换肤3.jpeg" alt=""></li>
+            <li><img src="img/百度换肤4.jpeg" alt=""></li>
+
+        </ul>
+        <ul class="yd">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <script>
+        var div = document.querySelector('.div')
+        var ul = document.querySelector('.ul')
+        var uls = document.querySelector('.ul').querySelectorAll('li')
+        var yd = document.querySelector('.yd')
+        var yds = document.querySelector('.yd').querySelectorAll('li')
+
+
+        // 设置第一个圆点为 红色
+        yds[0].style.backgroundColor = 'pink'
+        window.addEventListener('load',function(){
+            // 将 ul 的盒子设置为自适应 如果增加图片或者减少图片手动修改 css 里面的值
+            ul.style.width = uls.length * 350 + 'px'
+            // 设置圆点盒子的宽度自适应 增加 减少里面的个数不会影响整个圆点盒子的大小
+            yd.style.width = (yds.length * 17) + (yds.length * 4) + 'px'
+            // 圆点盒子的居中
+            yd.style.left = (div.offsetWidth - yd.offsetWidth) / 2 + 'px'
+        })
+
+        // index 用来控制图片位置  time定时器
+        let index = 0
+        let time
+        // 首先将ul 的值设置为0 否则ul 第一次位移时没有动画效果
+        ul.style.left = 0
+
+
+        // 封装小圆点的排他算法函数
+        function setA(){
+            for(var i = 0; i < yds.length; i++){
+                // console.log(yds[i]);
+                yds[i].style.backgroundColor = ''
+            }
+            // console.log(yds[index]);
+                yds[index].style.backgroundColor = 'pink';
+        }
+
+
+
+        function position(){
+            ul.style.left = (index * -100) + '%'
+            console.log(index);
+        }
+
+
+        // 当图片切换到最后一张并且再次调用此函数的时候会将图片切换至第一张  否则可以加一
+        function add() {
+            if (index >= uls.length - 1) {
+                index = 0
+            } else {
+                index++
+            }
+        }
+
+
+        // 当图片切换到第一张的时候 点击 向左切换下一张图片的时候用到此函数 （本项目没有实现左右按钮）
+        function desc() {
+            if (index < 1) {
+                index = uls.length - 1
+            } else {
+                index--
+            }
+        }
+
+        // 定时器内调用 desc 和 add 循序不可颠倒
+        function timer(){
+            time = setInterval(function(){
+                index++
+                desc()
+                add()
+                position()
+                setA()
+            },2000)
+        }
+
+        // 先 add 后 desc 结果陷入死循环 一直在最后一张图片
+        // 秒       index       add             desc
+        // 2000     0+1=1       index++=2       index--=1
+        // 4000     1+1=2       index++=3       index--=2
+        // 6000     2+1=3       index++=4       index--=3
+        // 8000     3+1=4       index=0         index=uls.length-1 ==3
+        // 10000    3+1=4           
+
+
+        // 先 add 后 desc  当切换到最后一张图片的时候会自动切换到第一张
+        // 秒       index       desc             add
+        // 2000     0+1=1       index--=0        index++=1
+        // 4000     1+1=2       index--=1        index++=2
+        // 8000     2+1=3       index--=2        index++=3
+        // 10000    3+1=4       index--=3        index=0
+
+        //  项目从此处开始运行 循环遍历每一个小圆点 将点击的小圆点索引值 赋值给 index ........ 如若不点击下面小圆点则会跳过执行点击事件  直接执行timer定时器
+        for(let i = 0; i < yds.length; i++){
+            yds[i].addEventListener('click',function(){
+                console.log(uls.length);
+                index = i
+                // 每次点击后清除定时器 防止点击事件和定时器在同一时间除法直接 切换两张图片
+                clearInterval(time)
+                timer()
+                position()
+                setA()
+            })
+        }
+        timer()
+    </script>
+</body>
+</html>
