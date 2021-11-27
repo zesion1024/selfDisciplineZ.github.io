@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        div{
+            width: 500px;
+            height: 300px;
+            border: solid 1px;
+        }
+        .tab{
+            height: 40px;
+            display: flex;
+            justify-content: space-between;
+            border: solid 1px;
+        }
+        .tab li{
+            width: 100px;
+            line-height: 40px;
+            text-align: center;
+            border: solid 1px;
+        }
+        .neirong li{
+            display: none;
+        }
+    </style>
+
+
+    <div>
+        <ul class="tab">
+            <li style="background-color: pink;">商品介绍</li>
+            <li>规格</li>
+            <li>评价</li>
+            <li>售后</li>
+            <li>客服</li>
+        </ul>
+        <ul class="neirong">
+            <li style="display: block;">商品介绍内容</li>
+            <li>规格内容</li>
+            <li>评价内容</li>
+            <li>售后内容</li>
+            <li>客服内容</li>
+        </ul>
+    </div>
+
+    <script>
+        var tab = document.querySelector('.tab')
+        var tl = document.querySelector('.tab').querySelectorAll('li')
+        var nl = document.querySelector('.neirong').querySelectorAll('li')
+
+
+// 第一种方法 使用自定义属性赋值给每个标签
+        // var index = 0
+        // // 遍历导航栏所有li
+        // for(var i = 0; i < tl.length; i++){
+        //     // 将自定义属性 index 赋值给每一个 li
+        //     tl[i].setAttribute('index',i)
+        //     tl[i].addEventListener('click',function(){
+        //         console.log(this.getAttribute('index'));
+        //         // 点击 li 后清除所有 li 元素的属性。然后给自己一个 颜色属性
+        //         for(var i = 0; i < tl.length; i++){
+        //             tl[i].style.backgroundColor = ''
+        //         }
+        //         this.style.backgroundColor = 'pink'
+        //         // 将自定义的 index 属性赋值给 index
+        //         index = this.getAttribute('index')
+        //         // 内容区域的排他算法
+        //         for(var i = 0;i < nl.length; i++){
+        //             nl[i].style.display = 'none'
+        //         }
+        //         nl[index].style.display = 'block'
+        //    })   
+        // }
+
+
+//第二种方法直接将每个标签de内置 num 属性都赋一个值 
+        let index
+        for(var i = 0; i < tl.length; i++){
+            // 将 i 赋值给 每一个 li 的 num 元素
+            tl[i].num = i
+            tl[i].addEventListener('click',function(){
+                // 点击后就将 点击的 num 值赋给 index
+                index = this.num
+                for(var i = 0; i < tl.length; i++){
+                    tl[i].style.backgroundColor = ''
+                }
+                this.style.backgroundColor = 'pink'
+                for(var i = 0; i < nl.length; i++){
+                    nl[i].style.display = 'none'
+                }
+                nl[index].style.display = 'block'
+            })
+        }
+</script>
+</body>
+</html>

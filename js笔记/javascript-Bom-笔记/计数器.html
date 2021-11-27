@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .box{
+            width: 400px;
+            height: 60px;
+            border: solid 1px;
+            border-radius: 40px;
+            display: flex;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+        button{
+            width: 35%;
+            height: 100%;
+            font-size: 25px;
+        }
+        .box>:nth-child(2){
+            width: 30%;
+            height: 100%;
+            background: rgb(165, 205, 221);
+            text-align: center;
+            line-height: 60px;
+        }
+    </style>
+
+    <div class="box">
+        <button id="but1">-</button>
+        <span>0</span>
+        <button id="but2">+</button>
+    </div>
+
+    <script>
+        var but1 = document.querySelector('#but1')
+        var but2 = document.querySelector('#but2')
+        var span = document.querySelector('span')
+
+        // 点击加号，如果数字等于10就将加号按钮关闭否则加一。再次判断如果数字等于一就将减号按钮打开
+        function add(){
+            if(span.innerText >= 10){
+                but2.disabled =true
+            }else{
+                span.innerText++    
+            }
+            if(span.innerText <= 1){
+                but1.disabled = false
+            }
+        }  
+
+        function desc(){
+            if(span.innerText < 1){
+                but1.disabled = true
+            }else{
+                span.innerText--
+            }
+            if(span.innerText <= 10){
+                but2.disabled = false
+            }
+        }
+
+        but1.addEventListener('click',function(){
+            desc()
+        })
+        
+        but2.addEventListener('click',function(){
+            add()
+        })
+       
+
+    </script>
+</body>
+</html>
