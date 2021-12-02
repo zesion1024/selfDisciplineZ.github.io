@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+    <!-- 
+        mvvm模型
+            1.M: 模型(model) : data 中的数据
+            2.v: 视图(view) : 模板代码（DOM文档）
+            3.vm: 视图模型(viewModel): vue实例
+        观察发现：
+            1.data中所有的属性，最后都出现在 vm 身上
+            2.vm 身上所有的属性及 vue yuxn0
+     -->
+    <div id="div">
+        <div>{{name}}</div>
+        <div>{{address}}</div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el:'#div',
+            data:{
+                name:'你好世界',
+                address:'湖北武汉'
+            }
+        })
+        console.log(vm);
+    </script>
+</body>
+</html>

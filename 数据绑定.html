@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width={{name}}, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+    <!-- 
+        vue中有两种数据绑定方式：
+            1.单向绑定（v-bind:）数据只能从 data 中流向页面 
+            2.双向绑定（v-bodel:）数据不止能从 data 流向页面还能从页面流向 data 
+                备注：
+                    1.双向绑定一般都应用在表单元素上（如：input,select 等）
+                    2.v-model:value 可以简写为 v-model 因为 v-bodel 默认收集的就是 value 的值
+    -->
+
+    <div id="div">
+        <!-- 单向数据绑定 v-bind: -->
+        单向数据绑定<input type="text" name="" id="" v-bind:value="name">
+        <br/>
+        <!-- 双向数据绑定 v-modle: -->
+        双向数据绑定<input type="text" name="" id="" v-model:value="name">
+    </div>
+
+
+    <script>
+        new Vue({
+            el:'#div',
+            data:{
+                name:'你好世界'
+            }
+        })
+    </script>
+</body>
+</html>
