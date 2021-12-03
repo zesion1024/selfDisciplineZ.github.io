@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="div">
+        <h3>{{name}}长江职业学院</h3>
+        <button @click="fn1">按钮1(不传参)</button>
+        <button @click='fn2(10)'>按钮2(传参)</button>
+    </div>
+
+    <!-- 
+        事件的基本使用：
+            1,使用 v-on:xxx 或 @xxx 绑定事件，其中 xxx 是事件名
+            2,事件的回调函数需要配置在 methods 对象中，最终会在 vm 中
+            3,methods 中配置的函数,不要用见都函数 否则 this 就不是 vm 了
+            4,methods 中配置的函数,都是被 Vue 所管理的函数 this 的指向是 vm 或组件实例对象
+            5,@click='xxx' 和 @click='xxx($svent)' 效果一样，但后者可以传参
+     -->
+
+    <script>
+        var vm = new Vue({
+            el:'#div',
+            data:{
+                name:'湖北武汉'
+            },
+            methods:{
+                fn1(){
+                    console.log('fn1');
+                },
+                // (传参,接收 14 行实参传入 number)
+                fn2(number){
+                    console.log(number);
+                    console.log('fn2');
+                }
+            }
+        })
+    </script>
+</body>
+</html>

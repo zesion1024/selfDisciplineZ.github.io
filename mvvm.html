@@ -16,13 +16,12 @@
             3.vm: 视图模型(viewModel): vue实例
         观察发现：
             1.data中所有的属性，最后都出现在 vm 身上
-            2.vm 身上所有的属性及 vue yuxn0
+            2.vm 身上所有的属性及 vue 原型上所有属性，在 vue 模板中都可以直接使用
      -->
     <div id="div">
         <div>{{name}}</div>
         <div>{{address}}</div>
     </div>
-
     <script>
         var vm = new Vue({
             el:'#div',

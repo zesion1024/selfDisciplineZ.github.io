@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // 数据代理：通过一个对象代理对另一个对象中的属性的操作（读/写）
+        var obj = {
+            num : 18
+        }
+        var obj2 = {
+            age : 20
+        }
+
+        
+        Object.defineProperty(obj2,'num',{
+            // 当访问 obj2.num 时直接返回 obj.num
+            get(){
+                return obj.num
+            },
+            // 修改 obj2.num 时 将值赋值给 obj.num
+            set(value){
+                obj.num = value
+            }
+        })
+    </script>
+</body>
+</html>
