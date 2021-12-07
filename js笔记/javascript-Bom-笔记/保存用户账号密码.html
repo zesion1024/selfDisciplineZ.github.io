@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        div{
+            width: 217px;
+            height: 87px;
+            border: solid 1px;
+        }
+    </style>
+
+    <div>
+        账号: <input type="text" name="" id="text"><br><br>
+        密码: <input type="password" name="" id="psd">
+        保存密码：<input type="checkbox" name="" id="che">
+    </div>
+
+    <script>
+        var text = document.querySelector('#text')
+        var psd = document.querySelector('#psd')
+        var che = document.querySelector('#che')
+
+
+        // 封装函数 判断复选框的值 为真保存 否则清除
+        function fn(){
+            setInterval(function(){
+                if(che.checked == true){
+                    var t = text.value
+                    var p = psd.value
+                    var c = che.checked
+                    localStorage.setItem('name',t)
+                    localStorage.setItem('password',p)
+            }else{
+                localStorage.removeItem('name')
+                localStorage.removeItem('password')
+            }
+            },100)
+        }
+
+        // 存储数据
+        che.addEventListener('click',function(){
+            // 当点击复选框按钮时调用定时器 判断数据有没有更改
+            fn()
+        })
+        // 当重新加载页面后 没有点击复选框时自动调用定时器判断数据有没有更改
+        fn()
+
+        // 打开页面时判断有没有保存的数据 如果有则将数据放入页面 并且复选框选中 
+        if(localStorage.getItem('name')||localStorage.getItem('password')){
+            che.checked = true
+            text.value = localStorage.getItem('name')
+            psd.value = localStorage.getItem('password')
+        }
+
+    </script>
+</body>
+</html>

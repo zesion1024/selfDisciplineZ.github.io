@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        div{
+            width: 217px;
+            height: 67px;
+            border: solid 1px;
+        }
+    </style>
+
+    <div>
+        账号: <input type="text" name="" id="text"><br><br>
+        密码: <input type="password" name="" id="psd">
+    </div>
+    <button id="set">存储数据</button>
+    <button id="get">获取数据</button>
+    <button id="remove">删除数据</button>
+    <button id="clear">清除数据</button>
+
+
+    <!-- 
+        1.生命周期永久生效
+        2.可以多窗口（页面）共享（同一浏览器可以共享）
+        3.以键值对形式存储使用
+    -->
+
+    <script>
+        var text = document.querySelector('#text')
+        var psd = document.querySelector('#psd')
+        var set = document.querySelector('#set')
+        var get = document.querySelector('#get')
+        var remove = document.querySelector('#remove')
+        var clear = document.querySelector('#clear')
+
+
+        document.addEventListener('load',function(){
+            text.value = localStorage.getItem('name')
+            psd.value = localStorage.getItem('password')
+        })
+
+        // 存储数据
+        set.addEventListener('click',function(){
+            var t = text.value
+            var p = psd.value
+            localStorage.setItem('name',t)
+            localStorage.setItem('password',p)
+        })
+        // 获取数据
+        get.addEventListener('click',function(){
+            console.log(localStorage.getItem('name'));
+            console.log(localStorage.getItem('password'));
+        })
+        // 删除数据
+        remove.addEventListener('click',function(){
+            localStorage.removeItem('name')
+            localStorage.removeItem('password')
+        })
+        // 清除所有数据
+        clear.addEventListener('click',function(){
+            localStorage.clear()
+        })
+    </script>   
+</body>
+</html>
