@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="div">
+        姓：<input type="text" name="" id="" v-model:value="xing"><br><br>
+        名：<input type="text" name="" id="" v-model:value="ming"><br><br>
+        姓名：<span>{{xm}}</span>
+    </div>
+
+    <!-- 
+        1.定义：要用的属性不存在，要通过已有属性计算得来
+        2.原理：底层借用了 object.defineproPerty方法提供的getter和setter
+        3.get 函数什么时候执行？
+            (1)初次读取时会执行一次
+            (2)当以来的数据发生改变时会再次被调用
+        4.优势：与 methods 实现相比，内部右缓存机制（复用），效率更高，调试更方便
+        5.备注：
+            1.计算属性最终会出现在 vm 上，直接读取使用即可
+            2.如果计算属性要被修改，那必须写 set 函数去相应修改且 set 中要引起计算时依赖的数据发生改变
+     -->
+
+    <script>
+        var vm =new Vue({
+            el:'#div',
+            data:{
+                xing:'张',
+                ming:'三'
+            },
+            computed:{
+                // xm:{
+                //     get(){
+                //         return this.xing + '-' + this.ming
+                //     },
+                //     set(value){
+                //         var arr = value
+                //         this.xing = arr[0]
+                //         this.ming = arr[1]
+                //     }
+                // }
+
+                // 简写   当不需要 set 的时候可以简写
+                xm(){
+                    return this.xing + '-' + this.ming
+                }
+            }
+        })
+    </script>
+</body>
+</html>

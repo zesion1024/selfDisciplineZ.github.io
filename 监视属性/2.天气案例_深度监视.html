@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    
+    <div id="div">
+        <p>a的值是:{{nums.a}}</p>
+        <p>a的值是:{{nums.b}}</p>
+        <button @click='nums.a++'>点击a加一</button>
+        <button @click='nums.b++'>点击b加一</button>
+    </div>
+
+    <!-- 
+        深度监视
+            1.Vue中的 watch 默认不检测对象内部值的改变（一层）
+            2.配置 deep:true 可以开启检测对象内部值的改变（多层）
+        备注：
+            1.Vue 自身可以检测对象内部值的改变，但 vue 提供的 watch 默认不可以
+            2.使用 watch 时根据数据的具体结构决定是否采用深度检测
+     -->
+
+    <script>
+        new Vue({
+            el:'#div',
+            data:{
+                nums:{
+                    a:1,
+                    b:2
+                }
+            },
+                // 监视多级属性中某个属性的改变
+            // watch:{
+            //    'nums.a':{
+            //        handler(newValue,oldValue){
+            //            console.log('新值'+ newValue +'原值' + oldValue);
+            //        }
+            //    }
+            // }
+                // 监视多级属性中所有属性的变化
+            watch:{
+                nums:{
+                    deep:true,      //开启深度监视
+                    handler(newValue,oldValue){
+                        console.log('新值'+ newValue +'原值' + oldValue);
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

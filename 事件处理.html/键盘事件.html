@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+
+    <!-- 
+        Vue常用按键别名：
+            回车 => enter
+            删除 => delete (捕获“删除”和“退格”键)
+            退出 => esc
+            空格 => space
+            换行 => tab(特殊，必须配合 keydown 使用)
+            上 => up
+            下 => down
+            左 => left
+            右   => right
+
+        2,Vue未提供别名按键，可以使用原始的 key 去绑定，但要注意要转为 kebab-case(短横线命名)
+        3,系统修饰键（用法特殊）：ctrl alt shift win 
+            (1)配合 key 使用，按下修饰键同时，再按下其他键，随后释放其他键事件才触发
+            (2)配合 keydown 使用，正常触发事件
+     -->
+
+
+    <div id="in">
+        <input type="text" placeholder="按下回车提示输入" @keydown.enter='fn'>
+        <input type="text" placeholder="按下回车提示输入" @keydown.tab='fn1'>
+    </div>
+    <script>
+
+        new Vue({
+            el:'#in',
+            data:{
+                name:'123'
+            },
+            methods:{
+                fn(e){
+                    console.log(e.keyCode);
+                    console.log(e.target.value);
+                },
+                fn1(e){
+                    console.log(e.target.value);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

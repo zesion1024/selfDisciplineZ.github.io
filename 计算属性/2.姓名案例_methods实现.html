@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="div">
+        姓：<input type="text" name="" id="" v-model:value="xing"><br><br>
+        名：<input type="text" name="" id="" v-model:value="ming"><br><br>
+        姓名：<span>{{xm()}}</span>
+    </div>
+
+    <script>
+        new Vue({
+            el:'#div',
+            data:{
+                xing:'张',
+                ming:'三'
+            },
+            methods:{
+                xm(){
+                    // this 指向 new Vue 的实例对象  并且将实例对象中的 xing 和 ming 取出来拼接之后返回给 函数 xm()。然后在 span  中调用函数就行
+                    return this.xing + '-' + this.ming
+                }
+            },
+        })
+    </script>
+</body>
+</html>
