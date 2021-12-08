@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+
+    <!-- 
+        条件渲染：
+            1.v-if
+                写法:
+                    (1).v-if='表达式'
+                    (2).v-else-if='表达式'
+                    (3).v-else='表达式'
+                适用于:切换频率较低的场景
+                特点:不展示的dom元素直接被溢出
+                注意:v-if 可以和 :v-else-if,v-else一起使用，但结构不能被打断
+            2.v-show
+                写法:v-show='表达式'
+                适用于:切换频率较高的场景
+                特点:不展示的dom元素未被移除，仅仅时隐藏
+            3.备注:使用v-if的时候元素可能无法获取到，而使用v-show可以
+     -->
+
+    <div id="div">
+        <div>当前值:{{n}}</div> <br>
+        <button @click='n++'>点击加一</button>
+        <button @click='n--'>点击减一</button>  <br/><br/>
+
+
+
+            <!-- v-show=''  底层使用js 的display:none 属性隐藏，dom 元素并没有删除 -->
+        <!-- <div v-show='n==1'>当前值:1</div> <br>
+        <div v-show='n==2'>当前值:2</div> <br>
+        <div v-show='n==3'>当前值:3</div>  -->
+
+
+            <!-- v-if 会直接删除 dom 元素 -->
+        <!-- <div v-if='n==1'>当前值:1</div> <br>
+        <div v-if='n==2'>当前值:2</div> <br>
+        <div v-if='n==3'>当前值:3</div>  -->
+
+            <!-- v-else 几个div之间不能用任何标签打断不然不会往下执行 -->
+        <!-- <div v-if='n==1'>当前值:1</div>
+        <div v-else-if='n==2'>当前值:2</div>
+        <div v-else-if='n==3'>当前值:3</div>
+        <div v-else>66666</div> -->
+
+
+            <!-- 每个h3都给判断语句显得臃肿 所以可以给一个 template 此标签在 dom 中并不会被渲染出来  -->
+            <!-- 此标签只能和 v-if 搭配使用不能用 v-show -->
+        <template v-if='n==1'>
+            <h3>你好</h3>
+            <h3>Vue</h3>
+            <h3>Vue.js</h3>
+        </template>
+
+    </div>
+
+    <script>
+        new Vue({
+            el:'#div',
+            data:{
+                n:0
+            }
+        })
+    </script>
+</body>
+</html>
