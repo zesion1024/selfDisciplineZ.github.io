@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>111</title>
+    <link href="/2022/01/17/111/"/>
+    <url>/2022/01/17/111/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>vue_object.definProperty底层原理</title>
+    <link href="/2021/12/19/vue-object-definProperty%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/"/>
+    <url>/2021/12/19/vue-object-definProperty%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="语法为：Object-defineProperty-obj-prop-descriptor"><a href="#语法为：Object-defineProperty-obj-prop-descriptor" class="headerlink" title="语法为：Object.defineProperty(obj,prop,descriptor)"></a>语法为：Object.defineProperty(obj,prop,descriptor)</h4><h4 id="参数："><a href="#参数：" class="headerlink" title="参数："></a>参数：</h4><blockquote><p>obj:要定义属性的对象<br>prop:要定义或修改的属性的名称<br>descriptor:配置项</p></blockquote><h4 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h4><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs xquery"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span></span><br><span class="xml">    var number = 25</span><br><span class="xml">    var person=</span><span class="xquery">&#123;</span><br><span class="xquery">       <span class="hljs-built_in"> name</span>:<span class="hljs-string">&#x27;张三&#x27;</span>,</span><br><span class="xquery">        sex:<span class="hljs-string">&#x27;男&#x27;</span></span><br><span class="xquery">    &#125;</span><br><span class="xml">    //给age赋值18并且添加到person对象中</span><br><span class="xml">    Object.defineProperty(person,&#x27;age&#x27;,</span><span class="xquery">&#123;</span><br><span class="xquery">        value:<span class="hljs-string">&#x27;18&#x27;</span>,</span><br><span class="xquery">    &#125;</span><span class="xml">)</span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure><blockquote><p>此时 age 被添加到person对象中，<strong>但是age是不参与person的枚举（遍历）、修改和删除的</strong><br>如需age可以被枚举修改删除需要添加以下属性</p></blockquote><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs elixir"> Object.defineProperty(person,<span class="hljs-string">&#x27;age&#x27;</span>,&#123;<br>    <span class="hljs-symbol">value:</span><span class="hljs-string">&#x27;18&#x27;</span>,<br>    <span class="hljs-symbol">enumerable:</span><span class="hljs-keyword">true</span>,    <span class="hljs-regexp">//</span>控制属性是否可以被枚举(遍历),默认值 <span class="hljs-keyword">false</span><br>    <span class="hljs-symbol">writable:</span><span class="hljs-keyword">true</span>,      <span class="hljs-regexp">//</span>控制属性是否可以被修改,默认值<span class="hljs-keyword">false</span><br>    <span class="hljs-symbol">configurable:</span><span class="hljs-keyword">true</span>,  <span class="hljs-regexp">//</span>控制属性是否可以被删除,默认值<span class="hljs-keyword">false</span><br>&#125;)<br></code></pre></td></tr></table></figure><blockquote><p><img src="/img/definProperty%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/1.png"></p></blockquote><h4 id="高级配置项-get-set"><a href="#高级配置项-get-set" class="headerlink" title="高级配置项 get,set"></a>高级配置项 get,set</h4><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-keyword">var</span> obj = &#123;<br>       <span class="hljs-built_in">num</span> : <span class="hljs-number">18</span><br>   &#125;<br>       <span class="hljs-keyword">var</span> obj2 = &#123;<br>       age : <span class="hljs-number">20</span><br>   &#125;<br>   <span class="hljs-built_in">Object</span>.defineProperty(obj2,<span class="hljs-string">&#x27;num&#x27;</span>,&#123;<br>   <span class="hljs-comment">// 当访问 obj2.num 时直接返回 obj.num</span><br>       <span class="hljs-keyword">get</span>()&#123;<br>           <span class="hljs-keyword">return</span> obj.<span class="hljs-built_in">num</span><br>       &#125;,<br>   <span class="hljs-comment">// 修改 obj2.num 时 将值赋值给 obj.num</span><br>       <span class="hljs-keyword">set</span>(value)&#123;<br>           obj.<span class="hljs-built_in">num</span> = value<br>       &#125;<br>   &#125;)<br></code></pre></td></tr></table></figure><blockquote><p style="text-indent:2em">get: 当有人读取num时get函数就会被调用且返回一个return值</p><p style="text-indent:2em">set: 当有人修改num属性时set函数就会被调用且会收到修改的具体值</p></blockquote><p><img src="/img/definProperty%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/2.png"></p><h4 id="object-definProperty详细用法"><a href="#object-definProperty详细用法" class="headerlink" title="object.definProperty详细用法"></a>object.definProperty详细用法</h4><blockquote><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">MSD</a><br><a href="https://www.bilibili.com/video/BV1Zy4y1K7SH?p=11">B站</a></p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>Vue框架</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Vue key</title>
+    <link href="/2021/12/18/Vue-key/"/>
+    <url>/2021/12/18/Vue-key/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="Key定义"><a href="#Key定义" class="headerlink" title="Key定义:"></a>Key定义:</h4><pre><code>相同父元素里面子元素的独特标识，重复的key会造成渲染错误 </code></pre><h4 id="key的使用"><a href="#key的使用" class="headerlink" title="key的使用"></a>key的使用</h4><pre><code>当传入两个形参时第一个输出的时数组里面的对象 而index 输出的是数组对象的索引值.</code></pre><h4 id="当：key的值为-index时"><a href="#当：key的值为-index时" class="headerlink" title="当：key的值为 index时"></a>当：key的值为 index时</h4><p><img src="/img/vue-key/1.png"></p><h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p><img src="/img/vue-key/2.png"></p><h4 id="当：key的值为-id时"><a href="#当：key的值为-id时" class="headerlink" title="当：key的值为 id时"></a>当：key的值为 id时</h4><p><img src="/img/vue-key/3.png"></p><h4 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h4><p><img src="/img/vue-key/4.png"></p><h4 id="小案例-key-index"><a href="#小案例-key-index" class="headerlink" title="小案例 (key=index);"></a>小案例 (key=index);</h4><pre><code>当点击按钮在原有数组后添加新对象</code></pre><blockquote><p>(1)给每个 li 元素后添加一个 input 输入框并随便填入值</p><blockquote><p><img src="/img/vue-key/5.png"><br>(2)点击添加时会发现 value 内容错乱了<br><img src="/img/vue-key/6.png"></p></blockquote></blockquote><h4 id="key为index）原理图："><a href="#key为index）原理图：" class="headerlink" title="(key为index）原理图："></a>(key为index）原理图：</h4><blockquote><p><img src="/img/vue-key/7.png"></p></blockquote><h4 id="index作为key时-原理"><a href="#index作为key时-原理" class="headerlink" title="(index作为key时)原理:"></a>(index作为key时)原理:</h4><blockquote><p style='text-indent:2em'>首先 vue 会根据用户创建的 vue 实例生成虚拟 DOM 进而转为用户可以看到的浏览器上显示的真实DOM</p><p style='text-indent:2em'>当点击添加按钮在原有数据之前添加新数据时 vue 会生成一个新的虚拟DOM</p><p style='text-indent:2em'>新的虚拟DOM与初始虚拟DOM进行对比，发现第一个li元素的内容发生变化，于是vue会将新的虚拟DOM的值转为真实的新的DOM。继续往下对比input里面的值会发现新DOM里面input里面没有值所以会直接将原有DOM里面input的值拿过来从而造成了input里面value的值发生错乱</p><p style='text-indent:2em'>如果没有手动为其添加key时vue会自动为其添加key值，当初始虚拟DOM与新虚拟DOM进行对比时新添加的元素会变为001从而导致两边虚拟DOM数据不一致而倒置BUG。当需要在原有元素<strong>之前</strong>添加新元素时并不建议使用index,在其之后添加并不会出现此BUG</p></blockquote><h4 id="key为id-原理图："><a href="#key为id-原理图：" class="headerlink" title="(key为id)原理图："></a>(key为id)原理图：</h4><blockquote><p><img src="/img/vue-key/8.png"></p></blockquote><h4 id="id作为key时-原理"><a href="#id作为key时-原理" class="headerlink" title="(id作为key时)原理:"></a>(id作为key时)原理:</h4><blockquote><p style='text-indent:2em'>新DOM与初始DOM对比vue会发现初始DOM没有key为004的元素与之匹配所以会直接将之生成为新的真实DOM</p><p style='text-indent:2em'>继而往下发现有与之匹配的001，而自身input里面并没有内容所以会直接将初始真实DOM拿过来使用</p></blockquote><h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><blockquote><p>1.虚拟DOM中key的作用；</p><blockquote><p>(1)Key是虚拟DOM对象的标识，当状态中的数据发生变化时.vue会根据【新数据】生成【新的虚拟DOM】，随后vue进行新旧DOM的差异比较，规则如下</p></blockquote><hr><p>2.对比规则</p><blockquote><p>(1)旧虚拟DOM中找到了与新虚拟DOM相同的key;</p><blockquote><p>①若虚拟DOM中内容没变，直接使用之前的真实DOM<br>②若虚拟DOM中内容改变。则生成新的真实DOM，随后替换页面之前的真实DOM</p></blockquote></blockquote><blockquote><p>(2)旧虚拟DOM中未找到与新虚拟DOM相同的key；</p><blockquote><p>①创建新的真实DOM，随后渲染到页面中</p></blockquote></blockquote><hr><p>3.用index作为key可能会引发的问题；</p><blockquote><p>(1)若对数据进行：逆序添加，逆序删除等破坏顺序操作</p><blockquote><p>会产生没有必要的真实DOM更新==&gt;界面没有问题，但效率低。</p></blockquote></blockquote><blockquote><p>(2)如果结构中还包含输入类（例如：index）的DOM</p><blockquote><p>会产生错误DOM更新==&gt;界面有问题</p></blockquote></blockquote><hr><p>4.开发中如何选择key?</p><blockquote><p>1.最好使用每条数据的唯一标识作为key,如id、手机号、身份证号、学号等唯一值<br>2.如果不存在对数据的逆序添加，逆序删除等破坏顺序的操作，仅用于渲染列表用于展示使用index作为key是没有问题的</p></blockquote><hr></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>Vue框架</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>hexo的基本使用</title>
+    <link href="/2021/10/14/hexo%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/"/>
+    <url>/2021/10/14/hexo%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="新建-hexo-文章"><a href="#新建-hexo-文章" class="headerlink" title="新建 hexo 文章"></a>新建 hexo 文章</h3><blockquote><ul><li>命令: hexo new “hello world”</li></ul></blockquote><h3 id="生成静态网页"><a href="#生成静态网页" class="headerlink" title="生成静态网页"></a>生成静态网页</h3><blockquote><ul><li>命令: hexo g</li></ul></blockquote><h3 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h3><blockquote><ul><li>命令: hexo s </li></ul></blockquote><h3 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h3><blockquote><ul><li>命令: hexo d</li></ul></blockquote><h3 id="清除缓存"><a href="#清除缓存" class="headerlink" title="清除缓存"></a>清除缓存</h3><blockquote><ul><li>命令: hexo clean</li></ul></blockquote><h3 id="文章分类"><a href="#文章分类" class="headerlink" title="文章分类"></a>文章分类</h3><blockquote><ul><li>命令: categories:- hexo </li></ul></blockquote><h3 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h3><blockquote><ul><li>命令: <code>![](/img/hexo的基本使用/1.png)</code> </li><li>路径前 “/“ 不能省略</li></ul></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>hexo</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Vue第一章</title>
+    <link href="/2021/10/14/Vue%E7%AC%AC%E4%B8%80%E7%AB%A0/"/>
+    <url>/2021/10/14/Vue%E7%AC%AC%E4%B8%80%E7%AB%A0/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    
+    
+    <categories>
+      
+      <category>Vue框架</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
