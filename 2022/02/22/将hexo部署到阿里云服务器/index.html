@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>vue_object.definProperty底层原理 - Windfall</title>
+  <title>将hexo部署到阿里云服务器 - Windfall</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -146,12 +146,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/definProperty%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/0.jpg') no-repeat center center;
+         style="background: url('/img/photo.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="vue_object.definProperty底层原理">
+            <span class="h2" id="subtitle" title="将hexo部署到阿里云服务器">
               
             </span>
 
@@ -161,8 +161,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-12-19 23:11" pubdate>
-        2021年12月19日 晚上
+      <time datetime="2022-02-22 19:13" pubdate>
+        2022年2月22日 晚上
       </time>
     </span>
   
@@ -173,7 +173,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      319 字
+      674 字
     </span>
   
 
@@ -183,7 +183,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      8
        分钟
     </span>
   
@@ -213,49 +213,51 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">vue_object.definProperty底层原理</h1>
+            <h1 style="display: none">将hexo部署到阿里云服务器</h1>
             
             <div class="markdown-body">
-              <h4 id="语法为：Object-defineProperty-obj-prop-descriptor"><a href="#语法为：Object-defineProperty-obj-prop-descriptor" class="headerlink" title="语法为：Object.defineProperty(obj,prop,descriptor)"></a>语法为：Object.defineProperty(obj,prop,descriptor)</h4><h4 id="参数："><a href="#参数：" class="headerlink" title="参数："></a>参数：</h4><blockquote>
-<p>obj:要定义属性的对象<br>prop:要定义或修改的属性的名称<br>descriptor:配置项</p>
+              <h3 id="安装git与本地建立连接"><a href="#安装git与本地建立连接" class="headerlink" title="安装git与本地建立连接"></a>安装git与本地建立连接</h3><ol>
+<li>安装git<br> <code>yum install git</code></li>
+<li>创建git用户：<br> <code>adduser git</code></li>
+<li>添加git账户权限：<br> <code>chmod 740 /etc/sudoers</code></li>
+<li>然后使用 vim 编辑器打开文件，如果你不会使用 vim ，移步 <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43941364/article/details/104561592">Vim基础使用</a><br><code>vim /etc/sudoers</code></li>
+<li>找到以下位置添加：<br> <code>git    ALL=(ALL)     ALL</code><br> <img src="/assets/1.png" srcset="/img/loading.gif" lazyload alt="1"></li>
+<li>修改权限<br> <code>chmod 400 /etc/sudoers</code></li>
+<li>设置 git 账户密码<br><code>sudo passwd git</code></li>
+<li>切换至 git 用户，创建 ~/.ssh 文件夹和 ~/.ssh/authchmod -R 777 ./www orized_keys 文件，并赋予相应的权限<br> <code>su git</code><br> <code>mkdir  ~/.ssh</code><br> <code>vim  ~/.ssh/authorized_keys</code></li>
+<li>将我们在win系统中生成的id_rsa.pub文件中的公钥复制到authorized_keys中。<br> <img src="/assets/2.png" srcset="/img/loading.gif" lazyload alt="2"></li>
+<li>接着，输入一下命令，赋予权限<br><code>chmod 600 /home/git/.ssh/authorized_keys</code><br><code>chmod 700 /home/git/.ssh</code></li>
+<li>打开 cmd ，输入：“ssh -v git@SERVER” 其中SERVER填写自己的云主机ip看到这句话表明成功：<br><img src="/assets/3.png" srcset="/img/loading.gif" lazyload alt="3"><br>到此为止就完成了服务器与主机的连接了。<h3 id="配置git钩子，用于自动部署"><a href="#配置git钩子，用于自动部署" class="headerlink" title="配置git钩子，用于自动部署"></a>配置git钩子，用于自动部署</h3></li>
+<li>返回服务端命令行切换到 root 账户<br><code>sudo su</code></li>
+<li>在 home 目录下创建 hexoGit 作为 Git 仓库目录并且赋予权限<br> <code>mkdir /home/hexoGit</code><br> <code>chown -R git:git /home/hexoGit</code><br> <code>chmod -R 755 /home/hexoGit</code></li>
+<li>接下来创建 hexo 目录作为网站根目录，并赋予权限<br> <code>mkdir /home/hexo</code><br> <code>chown -R git:git /home/hexo</code><br> <code>chmod -R 755 /home/hexo</code></li>
+<li>初始化 git 仓库：<br> <code>cd /home/hexoGit</code><br> <code>git init --bare hexo.git</code></li>
+<li>在 /var/repo/hexo.git 下，有一个自动生成的 hooks 文件夹。我们需要在里边新建一个新的钩子文件 post-receive。<br> vim /home/hexoGit/hexo.git/hooks/post-receive</li>
+<li>在该文件里面输入以下脚本然后保存退出：<br> <code>#!/bin/sh</code><br> <code>git --work-tree=/var/hexo --git-dir=/var/repo/hexo.git checkout -f</code><blockquote>
+<p>这其实是一个脚本文件，每当我们推送的时候就会触发这个脚本文件的执行。这样一旦本地仓库变更提交就会触发 Git 钩子，驱动自动部署。</p>
 </blockquote>
-<h4 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h4><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs xquery"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span></span><br><span class="xml">    var number = 25</span><br><span class="xml">    var person=</span><span class="xquery">&#123;</span><br><span class="xquery">       <span class="hljs-built_in"> name</span>:<span class="hljs-string">&#x27;张三&#x27;</span>,</span><br><span class="xquery">        sex:<span class="hljs-string">&#x27;男&#x27;</span></span><br><span class="xquery">    &#125;</span><br><span class="xml">    //给age赋值18并且添加到person对象中</span><br><span class="xml">    Object.defineProperty(person,&#x27;age&#x27;,</span><span class="xquery">&#123;</span><br><span class="xquery">        value:<span class="hljs-string">&#x27;18&#x27;</span>,</span><br><span class="xquery">    &#125;</span><span class="xml">)</span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
-<blockquote>
-<p>此时 age 被添加到person对象中，<strong>但是age是不参与person的枚举（遍历）、修改和删除的</strong><br>如需age可以被枚举修改删除需要添加以下属性</p>
+</li>
+<li>下面修改权限：<br> <code>chown -R git:git /home/hexoGit/hexo.git/hooks/post-receive</code><br> <code>chmod +x /home/hexoGit/hexo.git/hooks/post-receive</code><h3 id="安装并配置nginx"><a href="#安装并配置nginx" class="headerlink" title="安装并配置nginx"></a>安装并配置nginx</h3></li>
+<li>安装nginx<br> <code>yum install -y nginx</code><br> **nginx默认配置路径/etc/nginx/，一会要用到</li>
+<li>启动服务器：<br> <code>systemctl start nginx</code><br> <code>systemctl enable nginx</code></li>
+<li>打开 /etc/nginx/nginx.conf 目录<br> <code>vim /etc/nginx/nginx.conf</code></li>
+<li>修改nginx里server配置项<br><img src="/assets/4.png" srcset="/img/loading.gif" lazyload alt="4"></li>
+<li>修改本地config文件<br><img src="/assets/5.png" srcset="/img/loading.gif" lazyload alt="5"><h3 id="最后本地编译上传就完成了"><a href="#最后本地编译上传就完成了" class="headerlink" title="最后本地编译上传就完成了"></a>最后本地编译上传就完成了</h3></li>
+<li>清除缓存文件：<br> <code>hexo clean</code></li>
+<li>编译<br><code>hexo g</code></li>
+<li>上传<br> <code>hexo d</code></li>
+<li>如果此处出现权限问题请在服务器执行以下命令<br> <code>chown -R git:git /home/hexoGit/</code><br> <code>chown -R git:git /home/hexo</code></li>
+<li>打开服务器重启nginx服务<br> <code>nginx -s reload</code><blockquote>
+<p>此时home/hexo文件夹下应该有被推送上来的博客文件(如果没有文件就是失败请检查nginx.conf文件和git钩子脚本文件)</p>
 </blockquote>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs elixir"> Object.defineProperty(person,<span class="hljs-string">&#x27;age&#x27;</span>,&#123;<br>    <span class="hljs-symbol">value:</span><span class="hljs-string">&#x27;18&#x27;</span>,<br>    <span class="hljs-symbol">enumerable:</span><span class="hljs-keyword">true</span>,    <span class="hljs-regexp">//</span>控制属性是否可以被枚举(遍历),默认值 <span class="hljs-keyword">false</span><br>    <span class="hljs-symbol">writable:</span><span class="hljs-keyword">true</span>,      <span class="hljs-regexp">//</span>控制属性是否可以被修改,默认值<span class="hljs-keyword">false</span><br>    <span class="hljs-symbol">configurable:</span><span class="hljs-keyword">true</span>,  <span class="hljs-regexp">//</span>控制属性是否可以被删除,默认值<span class="hljs-keyword">false</span><br>&#125;)<br></code></pre></td></tr></table></figure>
-<blockquote>
-<p><img src="/img/definProperty%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/1.png" srcset="/img/loading.gif" lazyload></p>
-</blockquote>
-<h4 id="高级配置项-get-set"><a href="#高级配置项-get-set" class="headerlink" title="高级配置项 get,set"></a>高级配置项 get,set</h4><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-keyword">var</span> obj = &#123;<br>       <span class="hljs-built_in">num</span> : <span class="hljs-number">18</span><br>   &#125;<br>       <span class="hljs-keyword">var</span> obj2 = &#123;<br>       age : <span class="hljs-number">20</span><br>   &#125;<br>   <span class="hljs-built_in">Object</span>.defineProperty(obj2,<span class="hljs-string">&#x27;num&#x27;</span>,&#123;<br>   <span class="hljs-comment">// 当访问 obj2.num 时直接返回 obj.num</span><br>       <span class="hljs-keyword">get</span>()&#123;<br>           <span class="hljs-keyword">return</span> obj.<span class="hljs-built_in">num</span><br>       &#125;,<br>   <span class="hljs-comment">// 修改 obj2.num 时 将值赋值给 obj.num</span><br>       <span class="hljs-keyword">set</span>(value)&#123;<br>           obj.<span class="hljs-built_in">num</span> = value<br>       &#125;<br>   &#125;)<br></code></pre></td></tr></table></figure>
-<blockquote>
-<p style="text-indent:2em">get: 当有人读取num时get函数就会被调用且返回一个return值</p>
-<p style="text-indent:2em">set: 当有人修改num属性时set函数就会被调用且会收到修改的具体值</p>
-</blockquote>
-<p><img src="/img/definProperty%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/2.png" srcset="/img/loading.gif" lazyload></p>
-<h4 id="object-definProperty详细用法"><a href="#object-definProperty详细用法" class="headerlink" title="object.definProperty详细用法"></a>object.definProperty详细用法</h4><blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">MSD</a><br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Zy4y1K7SH?p=11">B站</a></p>
-</blockquote>
+</li>
+</ol>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/Vue%E6%A1%86%E6%9E%B6/">Vue框架</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/vue/">vue</a>
-                    
-                  </div>
                 
               </div>
               
@@ -270,9 +272,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/02/22/%E5%B0%86hexo%E9%83%A8%E7%BD%B2%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+                      <a href="/2022/02/22/%E7%BB%99hexo%E5%8D%9A%E5%AE%A2%E7%BD%91%E9%A1%B5%E9%85%8D%E7%BD%AEssl/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">将hexo部署到阿里云服务器</span>
+                        <span class="hidden-mobile">给hexo博客网页配置ssl</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -280,8 +282,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/12/18/Vue-key/">
-                        <span class="hidden-mobile">Vue key</span>
+                      <a href="/2021/12/19/vue-object-definProperty%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/">
+                        <span class="hidden-mobile">vue_object.definProperty底层原理</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
