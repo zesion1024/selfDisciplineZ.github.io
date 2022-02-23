@@ -146,7 +146,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/photo.png') no-repeat center center;
+         style="background: url('/img/%E7%BB%99hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AEssl/0.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -173,7 +173,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      488 字
+      487 字
     </span>
   
 
@@ -228,13 +228,13 @@
 <li>解压<br> <code>tar -xvf 压缩包全名</code></li>
 <li>进入解压后的文件夹路径执行指令<br> <code>./configure --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-file-aio --with-http_realip_module</code><br>之后执行<br><code>make</code> </li>
 <li>报错的话执行下面的，不报错就算了：<br> <code>yum -y install openssl openssl-devel</code></li>
-<li>继续执行下面的指令。将nginx启动文件覆盖。第一条指令是备份<br> 备份：<pre><code> `cp /usr/local/nginx/sbin/nginx /usr/local/nginx/sbin/nginx.bak`
-</code></pre>
- 替换、覆盖：<pre><code> `cp objs/nginx /usr/local/nginx/sbin/nginx`
-</code></pre>
-<h3 id="修改-nginx-conf-文件使-ssl-生效"><a href="#修改-nginx-conf-文件使-ssl-生效" class="headerlink" title="修改 nginx.conf 文件使 ssl 生效"></a>修改 nginx.conf 文件使 ssl 生效</h3></li>
+<li>继续执行下面的指令。将nginx启动文件覆盖。第一条指令是备份<ol>
+<li>备份：<br>  <code>cp /usr/local/nginx/sbin/nginx /usr/local/nginx/sbin/nginx.bak</code></li>
+<li>替换、覆盖：<br>  <code>cp objs/nginx /usr/local/nginx/sbin/nginx</code><h3 id="修改-nginx-conf-文件使-ssl-生效"><a href="#修改-nginx-conf-文件使-ssl-生效" class="headerlink" title="修改 nginx.conf 文件使 ssl 生效"></a>修改 nginx.conf 文件使 ssl 生效</h3></li>
+</ol>
+</li>
 <li>新建目录etc/ssl,并将下载到本地的 ssl 文件上传到此目录<br> <code>mkdir etc/ssl</code></li>
-<li>编辑nginx的配置文件<br> <code>vim etc/nginx/nginx.conf</code></li>
+<li>编辑nginx的配置文件<br><code>vim etc/nginx/nginx.conf</code></li>
 </ol>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs awk">http&#123;<br>    <span class="hljs-comment">#http节点中可以添加多个server节点</span><br>    server&#123;<br>        <span class="hljs-comment">#监听443端口</span><br>        listen <span class="hljs-number">443</span>;<br>        server_name 你的域名;<br>        ssl on;<br>        ssl_certificate <span class="hljs-regexp">/etc/</span>ssl/<span class="hljs-number">1</span>.crt.pem; <span class="hljs-comment">#地址修改为pem文件地址</span><br>        ssl_certificate_key <span class="hljs-regexp">/etc/</span>ssl/<span class="hljs-number">1</span>.key; <span class="hljs-comment">#地址修改为key文件地址</span><br>        ssl_session_timeout <span class="hljs-number">5</span>m;<br>        ssl_protocols TLSv1 TLSv1.<span class="hljs-number">1</span> TLSv1.<span class="hljs-number">2</span>;<br>        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;<br>        ssl_prefer_server_ciphers on;<br>        <span class="hljs-comment">#这是我的主页访问地址，因为使用的是静态的html网页，所以直接使用location就可以完成了。</span><br>        location / &#123;<br>                <span class="hljs-comment">#文件夹</span><br>                root <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/service/</span>ROOT;<br>                <span class="hljs-comment">#主页文件</span><br>                index index.html;<br>        &#125;<br>    &#125;<br>    server&#123;<br>        listen <span class="hljs-number">80</span>;<br>        server_name 你的域名;<br>        rewrite ^<span class="hljs-regexp">/(.*)$ https:/</span><span class="hljs-regexp">/你的域名:443/</span><span class="hljs-variable">$1</span> permanent;<br>    &#125;<br>&#125;  <br></code></pre></td></tr></table></figure>
 

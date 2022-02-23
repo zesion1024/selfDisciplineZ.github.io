@@ -146,7 +146,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/photo.png') no-repeat center center;
+         style="background: url('/img/%E5%B0%86hexo%E9%83%A8%E7%BD%B2%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91/0.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -232,13 +232,17 @@
 <li>在 home 目录下创建 hexoGit 作为 Git 仓库目录并且赋予权限<br> <code>mkdir /home/hexoGit</code><br> <code>chown -R git:git /home/hexoGit</code><br> <code>chmod -R 755 /home/hexoGit</code></li>
 <li>接下来创建 hexo 目录作为网站根目录，并赋予权限<br> <code>mkdir /home/hexo</code><br> <code>chown -R git:git /home/hexo</code><br> <code>chmod -R 755 /home/hexo</code></li>
 <li>初始化 git 仓库：<br> <code>cd /home/hexoGit</code><br> <code>git init --bare hexo.git</code></li>
-<li>在 /var/repo/hexo.git 下，有一个自动生成的 hooks 文件夹。我们需要在里边新建一个新的钩子文件 post-receive。<br> vim /home/hexoGit/hexo.git/hooks/post-receive</li>
-<li>在该文件里面输入以下脚本然后保存退出：<br> <code>#!/bin/sh</code><br> <code>git --work-tree=/var/hexo --git-dir=/var/repo/hexo.git checkout -f</code><blockquote>
+<li>在 /var/repo/hexo.git 下，有一个自动生成的 hooks 文件夹。我们需要在里边新建一个新的钩子文件 post-receive。<br> <code>vim /home/hexoGit/hexo.git/hooks/post-receive</code></li>
+<li>在该文件里面输入以下脚本然后保存退出： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/sh</span><br>git --work-tree=/var/hexo --git-dir=/var/repo/hexo.git checkout -f<br></code></pre></td></tr></table></figure>
+<blockquote>
 <p>这其实是一个脚本文件，每当我们推送的时候就会触发这个脚本文件的执行。这样一旦本地仓库变更提交就会触发 Git 钩子，驱动自动部署。</p>
 </blockquote>
 </li>
 <li>下面修改权限：<br> <code>chown -R git:git /home/hexoGit/hexo.git/hooks/post-receive</code><br> <code>chmod +x /home/hexoGit/hexo.git/hooks/post-receive</code><h3 id="安装并配置nginx"><a href="#安装并配置nginx" class="headerlink" title="安装并配置nginx"></a>安装并配置nginx</h3></li>
-<li>安装nginx<br> <code>yum install -y nginx</code><br> **nginx默认配置路径/etc/nginx/，一会要用到</li>
+<li>安装nginx<br> <code>yum install -y nginx</code><blockquote>
+<p>nginx默认配置路径/etc/nginx/，一会要用到</p>
+</blockquote>
+</li>
 <li>启动服务器：<br> <code>systemctl start nginx</code><br> <code>systemctl enable nginx</code></li>
 <li>打开 /etc/nginx/nginx.conf 目录<br> <code>vim /etc/nginx/nginx.conf</code></li>
 <li>修改nginx里server配置项<br><img src="/img/%E5%B0%86hexo%E9%83%A8%E7%BD%B2%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91/4.png" srcset="/img/loading.gif" lazyload alt="4"></li>
