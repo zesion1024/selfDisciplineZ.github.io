@@ -146,7 +146,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://gitee.com/windfall000/picture/raw/master/202203111441657.jpg') no-repeat center center;
+         style="background: url('http://img.czcgx.com/picture/202203112204060.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -220,20 +220,20 @@
 </code></pre>
 <h4 id="key的使用"><a href="#key的使用" class="headerlink" title="key的使用"></a>key的使用</h4><pre><code>当传入两个形参时第一个输出的时数组里面的对象 而index 输出的是数组对象的索引值.
 </code></pre>
-<h4 id="当：key的值为-index时"><a href="#当：key的值为-index时" class="headerlink" title="当：key的值为 index时"></a>当：key的值为 index时</h4><p><img src="https://gitee.com/windfall000/picture/raw/master/202203111442069.png" srcset="/img/loading.gif" lazyload></p>
-<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p><img src="https://gitee.com/windfall000/picture/raw/master/202203111442561.png" srcset="/img/loading.gif" lazyload></p>
-<h4 id="当：key的值为-id时"><a href="#当：key的值为-id时" class="headerlink" title="当：key的值为 id时"></a>当：key的值为 id时</h4><p><img src="https://gitee.com/windfall000/picture/raw/master/202203111442625.png" srcset="/img/loading.gif" lazyload></p>
-<h4 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h4><p><img src="https://gitee.com/windfall000/picture/raw/master/202203111443112.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="当：key的值为-index时"><a href="#当：key的值为-index时" class="headerlink" title="当：key的值为 index时"></a>当：key的值为 index时</h4><p><img src="http://img.czcgx.com/picture/202203112219561.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p><img src="http://img.czcgx.com/picture/202203112219994.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="当：key的值为-id时"><a href="#当：key的值为-id时" class="headerlink" title="当：key的值为 id时"></a>当：key的值为 id时</h4><p><img src="http://img.czcgx.com/picture/202203112219292.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h4><p><img src="http://img.czcgx.com/picture/202203112219226.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="小案例-key-index"><a href="#小案例-key-index" class="headerlink" title="小案例 (key=index);"></a>小案例 (key=index);</h4><pre><code>当点击按钮在原有数组后添加新对象
 </code></pre>
 <blockquote>
 <p>(1)给每个 li 元素后添加一个 input 输入框并随便填入值</p>
 <blockquote>
-<p><img src="https://gitee.com/windfall000/picture/raw/master/202203111443455.png" srcset="/img/loading.gif" lazyload><br>(2)点击添加时会发现 value 内容错乱了<br><img src="https://gitee.com/windfall000/picture/raw/master/202203111443856.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="http://img.czcgx.com/picture/202203112219698.png" srcset="/img/loading.gif" lazyload><br>(2)点击添加时会发现 value 内容错乱了<br><img src="http://img.czcgx.com/picture/202203112219624.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 </blockquote>
 <h4 id="key为index）原理图："><a href="#key为index）原理图：" class="headerlink" title="(key为index）原理图："></a>(key为index）原理图：</h4><blockquote>
-<p><img src="https://gitee.com/windfall000/picture/raw/master/202203111443851.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="http://img.czcgx.com/picture/202203112219699.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <h4 id="index作为key时-原理"><a href="#index作为key时-原理" class="headerlink" title="(index作为key时)原理:"></a>(index作为key时)原理:</h4><blockquote>
 <p style='text-indent:2em'>首先 vue 会根据用户创建的 vue 实例生成虚拟 DOM 进而转为用户可以看到的浏览器上显示的真实DOM</p>
@@ -242,7 +242,7 @@
 <p style='text-indent:2em'>如果没有手动为其添加key时vue会自动为其添加key值，当初始虚拟DOM与新虚拟DOM进行对比时新添加的元素会变为001从而导致两边虚拟DOM数据不一致而倒置BUG。当需要在原有元素<strong>之前</strong>添加新元素时并不建议使用index,在其之后添加并不会出现此BUG</p>
 </blockquote>
 <h4 id="key为id-原理图："><a href="#key为id-原理图：" class="headerlink" title="(key为id)原理图："></a>(key为id)原理图：</h4><blockquote>
-<p><img src="https://gitee.com/windfall000/picture/raw/master/202203111443645.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="http://img.czcgx.com/picture/202203112219851.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <h4 id="id作为key时-原理"><a href="#id作为key时-原理" class="headerlink" title="(id作为key时)原理:"></a>(id作为key时)原理:</h4><blockquote>
 <p style='text-indent:2em'>新DOM与初始DOM对比vue会发现初始DOM没有key为004的元素与之匹配所以会直接将之生成为新的真实DOM</p>
