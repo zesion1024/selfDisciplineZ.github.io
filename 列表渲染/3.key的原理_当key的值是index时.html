@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+
+<!-- 
+    总结：
+        1.	虚拟DOM中key的作用；
+            Key是虚拟DOM对象的标识，当状态中的数据发生变化时.vue会根据【新数据】生成【新的虚拟DOM】，随后vue进行新旧DOM的差异比较，规则如下
+        
+        2.对比规则
+            （1）旧虚拟DOM中找到了与新虚拟DOM相同的 key；
+                ①若虚拟DOM中内容没变，直接使用之前的真实DOM
+                ②若虚拟DOM中内容改变。则生成新的真实DOM，随后替换页面之前的真实DOM
+    
+            （2）旧虚拟DOM中未找到与新虚拟DOM相同的ｋｅｙ；
+                创建新的真实DOM，随后渲染到页面中
+
+        3.用index作为key可能会引发的问题；
+            （1）若对数据进行：逆序添加，逆序删除等破坏顺序操作
+                会产生没有必要的真实DOM更新==>界面没有问题，但效率低。
+        
+            （2）如果结构中还包含输入类（例如：index）的DOM
+                会产生错误DOM更新==>界面有问题
+
+        4.开发中如何选择key?
+            1.最好使用每条数据的唯一标识作为key,如id、手机号、身份证号、学号等唯一值
+            2.如果不存在对数据的逆序添加，逆序删除等破坏顺序的操作，仅用于渲染列表用于展示使用index作为key是没有问题的
+ -->
+    <div id="div">
+        <h3>添加数组</h3>
+        <button @click.once='add'>点击添加老李</button>
+        <button @click.once='adds'>点击添加老刘</button>
+        <ul>
+            <li v-for='p in persons' :key='index';;>
+                {{p.name}} -- {{p.age}}
+                <input type="text" name="" id="">
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el:'#div',
+            data:{
+                persons:[
+                    {id:'001',name:'张三',age:'18'},
+                    {id:'002',name:'李四',age:'19'},
+                    {id:'003',name:'王五',age:'20'}
+                ]
+            },
+            // 创建一个计算属性 add 点击按钮后将 变量 p 添加到 persons 数组后面
+            methods: {
+                add(){
+                    const p = {id:'004',name:'老李',age:'30'}
+                    //向数组后面添加一个数据用  push 
+                    this.persons.push(p)
+                },
+                adds(){
+                    const a = {id:'005',name:'老刘',age:'40'}
+                    // 向数组后面添加数据用 unshift
+                    this.persons.unshift(a)
+                }
+            },
+        })
+    </script>
+</body>
+</html>

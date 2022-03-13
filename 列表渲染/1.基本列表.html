@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="div">
+        <h3>数组遍历</h3>
+        <ul>
+            <li v-for='p in presons' :key='p.id'>{{p.name}}---{{p.age}}</li>
+        </ul>
+
+        <h3>对象遍历</h3>
+        <ul>
+            <!-- 遍历数组时首先传过来的时 value 值 所以一般输出时写为{{b}} -- {{a}}  -->
+            <!-- 因为对象的属性名时唯一的所以这里的 key 可以填写 形参‘b’ -->
+            <li v-for='(a,b) in phone' :key='b'>{{b}} --- {{a}}</li>
+        </ul>
+
+        <!-- v-for 还可以遍历'字符串','遍历指定次数'。但是并不常用 此处省略 详情查看 p29视频 -->
+    </div>
+
+    <script>
+        new Vue({
+            el:'div',
+            data:{
+                presons:[
+                    {id:'001',name:'张三',age:'18'},
+                    {id:'002',name:'李四',age:'19'},
+                    {id:'003',name:'王五',age:'20'}
+                ],
+                phone:{
+                    name:'xiaomi',
+                    price:'2999',
+                    color:'黑色'
+                }
+            },
+        })
+    </script>
+</body>
+</html>

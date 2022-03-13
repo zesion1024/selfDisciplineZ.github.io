@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <!-- 
+        收集表单数据：
+            若: <input type="text"/>    则收集的是用户输入的 value 值
+            若: <input type="radio"/>   则 v-model 收集的是 value 值，且要给标签配置 value 值
+            若: <input type="checkbox"/>   
+                1. 没有配置 input 的 value 属性，那么收集的就是 checked(勾选 or 未勾选，是布尔值)
+                2. 配置 input 的 value 值
+                    (1) v-model 的初始值是非数组，那么收集的就是 checked (勾选 or 未勾选，是布尔值)
+                    (2) v-model 的初始值是数组，那么收集的就是 value 组成的数组
+            备注: v-model 的三个修饰符：
+                    lazy: 失去焦点再收集数据 
+                    number: 输入字符串转换为有效的数字
+                    trim:  输入首位空格过滤
+     -->
+
+
+    <!--  @submit.prevent 阻止点击提交默认刷新事件 -->
+    <!-- required 强制输入 -->
+    <form id="form" @submit.prevent="demo">
+        <!-- v-model.trim 清除前后空格 -->
+        账号: <input type="text" v-model.trim="userinfo.account" required>   <br/><br/>
+        密码: <input type="password"v-model="userinfo.password" required>   <br/><br/>
+        <!-- v-model.number 将收集的数据转换为 number 类型 -->
+        年龄: <input type="number" v-model.number="userinfo.age" required> <br/><br/>
+        性别:  
+            男<input name="sex" type="radio" id="" v-model="userinfo.sex" value="nan" required>
+            女<input name="sex" type="radio" id="" v-model="userinfo.sex" value="nv" ><br/><br/>
+        爱好: 
+            <input type="checkbox" name="hobby" id=""  v-model="userinfo.hobby" value="chifan">吃饭
+            <input type="checkbox" name="hobby" id=""  v-model="userinfo.hobby" value="shuijiao">睡觉
+            <input type="checkbox" name="hobby" id=""  v-model="userinfo.hobby" value="dayouxi">打游戏
+            <br/><br/>
+        所属校区:  
+        <select name="" v-model="userinfo.campus" required> 
+            <option value="">请选择校区</option>
+            <option value="beijing">北京</option>
+            <option value="shanghai">上海</option>
+            <option value="wuhan">武汉</option>
+        </select>
+        <br/><br/>
+        其他信息：
+        <!-- v-model.lazy 当信息框失去焦点时 -->
+        <textarea name="" v-model.lazy="userinfo.other" required></textarea>
+        <br/><br/>
+        <input type="checkbox" v-model="checkbox.cbox" value="false" required>阅读并接受<a href="https://www.czcgx.com">《用户协议》</a>
+        <br/><br/>
+        <button>提交</button>
+    </form>
+
+    <script>
+        new Vue({
+            el:'#form',
+            data:{
+                userinfo:{
+                    account:'',
+                    password:'',
+                    age:18,
+                    sex:'',
+                    hobby:[],
+                    campus:'',
+                    other:'',
+                },
+                checkbox:{
+                    cbox:''
+                }
+            },
+            methods: {
+                demo(){
+                    // 将结果打印成 json 格式
+                    console.log(JSON.stringify(this.userinfo));
+                }
+            },
+        })
+    </script>
+</body>
+</html>

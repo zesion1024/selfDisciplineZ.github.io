@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="div">
+        <h3>添加数组</h3>
+        <button @click.once='add'>点击添加老李</button>
+        <button @click.once='adds'>点击添加老刘</button>
+        <ul>
+            <li v-for='p in persons' :key='p.id'>
+                {{p.name}} -- {{p.age}}
+                <input type="text" name="" id="">
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el:'#div',
+            data:{
+                persons:[
+                    {id:'001',name:'张三',age:'18'},
+                    {id:'002',name:'李四',age:'19'},
+                    {id:'003',name:'王五',age:'20'}
+                ]
+            },
+            // 创建一个计算属性 add 点击按钮后将 变量 p 添加到 persons 数组后面
+            methods: {
+                add(){
+                    const p = {id:'004',name:'老李',age:'30'}
+                    //向数组后面添加一个数据用  push 
+                    this.persons.push(p)
+                },
+                adds(){
+                    const a = {id:'005',name:'老刘',age:'40'}
+                    // 向数组后面添加数据用 unshift
+                    this.persons.unshift(a)
+                }
+            },
+        })
+    </script>
+</body>
+</html>

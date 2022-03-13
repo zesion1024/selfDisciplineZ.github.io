@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="div">
+        <h3>列表过滤</h3>
+        <input type="text" name="" id="" placeholder="请输入名字" v-model="names">
+        <ul>
+            <li v-for='p in filperson'>
+                {{p.name}}--{{p.age}}--{{p.sex}}
+            </li>
+        </ul>
+    </div>
+
+    
+    <script>
+        new Vue({
+            el:'div',
+            // 监视属性实现
+            data:{
+                names:'',
+                person:[
+                    {id:'001',name:'马冬梅',age:'18',sex:'女'},
+                    {id:'002',name:'周冬雨',age:'19',sex:'女'},
+                    {id:'003',name:'周杰伦',age:'20',sex:'男'},
+                    {id:'004',name:'温兆伦',age:'21',sex:'男'}
+                ],
+                filperson:[]
+            },
+            watch:{
+                // 监视 names 属性
+                names:{
+                    // 开启初始化时加载一次 handler
+                    immediate:true,
+                    handler(val){
+                        // 将person 里面过滤后的值赋给 新的 filperson  
+                        // 注意 监视属性里面的函数应写为 箭头函数 如果写为普通函数则指向的是 window
+                        this.filperson = this.person.filter((p) => {
+                        // 判断输入的字符与person.name 里面的字符是否相匹配
+
+                        // 返回 p.name 与用户输入所相匹配的字符串，如没有与之相匹配的则返回的是 -1
+                        return p.name.indexOf(val) !== -1
+                        })
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

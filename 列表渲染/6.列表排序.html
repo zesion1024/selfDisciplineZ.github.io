@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="div">
+        <h3>列表排序</h3>
+        <ul>
+            <input type="text" name="" id="" v-model="names">
+            <button @click="sortType=0">原序</button>
+            <button @click="sortType=1">降序</button>
+            <button @click="sortType=2">升序</button>
+            <li v-for="p in filperson">
+                {{p.name}}-{{p.age}}-{{p.sex}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el:'#div',
+            data:{
+                names:'',
+                sortType:'',
+                persons:[
+                    {id:'001',name:'马冬梅',age:'25',sex:'女'},
+                    {id:'002',name:'周冬雨',age:'19',sex:'女'},
+                    {id:'003',name:'周杰伦',age:'30',sex:'男'},
+                    {id:'004',name:'温兆伦',age:'26',sex:'男'}
+                ]
+            },
+            computed:{
+                filperson(){
+                    // 首先将经过过滤的值存入 arr 不反回
+                    let arr = this.persons.filter ((p) => {
+                        return p.name.indexOf(this.names) !== -1
+                    })
+                    // 判断 srotType 的值 为true进入if
+                    if (this.sortType) {
+                        // 使用 sort 函数进行排序
+                        arr.sort((a,b) => {
+                            // 使用三元运算符进行判断
+                            return this.sortType == 1 ? a.age - b.age : b.age-a.age
+                        })
+                    }
+                    // 返回 filperson 所需的值
+                    return arr
+                }
+            }
+        })
+    </script>
+</body>
+</html>

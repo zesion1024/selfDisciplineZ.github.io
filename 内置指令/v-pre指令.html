@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+<body>
+
+    <!-- 
+        v-pre指令:
+            1. 跳过其所在的节点的编译过程
+            2. 可利用他跳过：没有使用指令语法、没有使用插值语法的节点，会加快编译
+     -->
+
+    <div id="div">
+        <div v-pre>初始化n值是:{{n}}</div>
+        <div v-pre>当前n值是{{n}}</div>
+        <button v-pre @click="n++">点击n+1</button>
+    </div>
+
+    <script>
+        new Vue({
+            el:'#div',
+            data:{
+                n:'1'
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="div">
+        <h3>列表过滤</h3>
+        <ul>
+            <input type="text" name="" id="" v-model="names">
+            <li v-for='p in filpersons'>
+                {{p.name}}--{{p.age}}--{{p.sex}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el:'#div',
+            data:{
+                names:'',
+                persons:[
+                    {id:'001',name:'马冬梅',age:'18',sex:'女'},
+                    {id:'002',name:'周冬雨',age:'19',sex:'女'},
+                    {id:'003',name:'周杰伦',age:'20',sex:'男'},
+                    {id:'004',name:'温兆伦',age:'21',sex:'男'}
+                ]
+            },
+            computed:{
+                // 将计算出来的值返回给 filpersons
+                filpersons(){
+                    // 因计算属性需要返回一个值 所以此处返回的是 filpersons 的值
+                    return this.persons.filter ((p) => {
+                        // 此处是函数体 返回的是箭头函数所需要的值
+                        return p.name.indexOf(this.names) !== -1
+                    })
+                    
+                }
+            }
+        })
+    </script>
+</body>
+</html>
