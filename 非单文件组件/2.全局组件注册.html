@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <hello></hello>
+    </div>
+    <div id="root2">
+        <hello></hello>
+    </div>
+
+    <script>
+
+        // 1. 第一步: 创建组件 data 需要写为函数式
+        const hello = Vue.extend({
+            template:`
+            <div>
+                <h2>你好{{name}}</h2>    
+            </div>
+            `,
+            data() {
+                return {
+                    name:'Tom'
+                }
+            },
+        })
+        // 第二步: 注册组件（全局注册）
+        Vue.component('hello',hello)
+
+        new Vue({
+            el:'#root',
+            data:{
+            
+            }
+        })
+        
+        new Vue({
+            el:'#root2',
+            data:{
+            
+            }
+        })
+    </script>
+</body>
+</html>

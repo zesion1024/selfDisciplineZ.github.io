@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+
+    <!-- 
+        自定义指令：
+            一: 定义语法：
+                (1). 局部命令：
+                    new Vue({                               new Vue({              
+                        derectives:(指令名：配置对象)   或      derectives(){}
+                    })                                      })
+                (2). 全局命令：
+                vue.derective(指令名，配置对象) 或 vue.directive(指令名，回调函数)
+            二: 配置对象中常用的3个回调:
+                (1). bind: 指令与元素成功绑定时调用
+                (2). innserted: 指令所在元素被插入页面时调用
+                (3). udate: 指令所在模块被重新解析时调用
+            三: 备注：
+                (1). 指令定义时不加 v-,但使用时要加v-
+                (2). 指令如果是多个单词，要使用 kebab-case 命名方式，不要用 camelcase 命名
+    -->
+    
+    <div id="div">
+        <h3>当前n值是: <span v-text="n"></span></h3>
+        <h3>放大10倍后的n值是: <span v-big="n"></span></h3>
+        <button @click="n++">点击n+1</button>
+
+        <hr/>
+
+        <input type="text" v-fbin="n">
+    </div>
+
+    <script>
+        new Vue({
+            el:'#div',
+            data:{
+                n:'1'
+            },
+            // 自定义指令属性 directives
+            directives:{
+                // 自定义属性 函数式写法
+                // big 函数何时会被调用
+                    // 1. 指令与元素成功绑定时
+                    // 2. 指令所在模板被重新解析时候 
+                big(element,binding){
+                    console.log(binding);
+                    element.innerText = binding.value * 10
+                },
+
+                // 自定义属性 对象式写法
+                fbin:{
+                    // 指令与元素绑定成功时
+                    bind(element,binding){
+                        // 自定义指令中 this 指向的是 windows
+                        // 自定义指令只能局部使用，如需全局参考 p47 视频
+                        console.log(this);
+                        element.value = binding.value
+                    },
+                    // 指令所在元素被插入页面时
+                    inserted(element,binding){
+                        element.focus()
+                    },
+                    // 页面模板被重新解析时
+                    update(element,binding) {
+                        element.value = binding.value
+                        element.focus()
+                    },
+
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>
