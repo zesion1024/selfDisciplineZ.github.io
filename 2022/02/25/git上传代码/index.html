@@ -121,9 +121,33 @@
           
           
             <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
               </a>
             </li>
           
@@ -173,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      153 字
+      152 字
     </span>
   
 
@@ -218,8 +242,8 @@
             <div class="markdown-body">
               <h3 id="配置全局账户信息"><a href="#配置全局账户信息" class="headerlink" title="配置全局账户信息"></a>配置全局账户信息</h3><ol>
 <li>git config –global user.name “cjzywyz”</li>
-<li>git config –global user.email “<a href="mailto:&#x37;&#x31;&#48;&#49;&#x31;&#x33;&#x34;&#50;&#52;&#x40;&#x71;&#113;&#46;&#x63;&#111;&#109;">&#x37;&#x31;&#48;&#49;&#x31;&#x33;&#x34;&#50;&#52;&#x40;&#x71;&#113;&#46;&#x63;&#111;&#109;</a>“</li>
-<li>生成ssh公钥：3 ssh-keygen -t rsa -C “你的邮箱地址”</li>
+<li>git config –global user.email “<a href="mailto:&#55;&#49;&#x30;&#x31;&#x31;&#x33;&#x34;&#50;&#x34;&#64;&#113;&#x71;&#x2e;&#x63;&#x6f;&#109;">&#55;&#49;&#x30;&#x31;&#x31;&#x33;&#x34;&#50;&#x34;&#64;&#113;&#x71;&#x2e;&#x63;&#x6f;&#109;</a>“</li>
+<li>生成ssh公钥：ssh-keygen -t rsa -C “你的邮箱地址”</li>
 </ol>
 <h3 id="提交文件"><a href="#提交文件" class="headerlink" title="提交文件"></a>提交文件</h3><ol>
 <li>初始化：git init</li>
@@ -293,6 +317,31 @@
                   
                 
                 
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.lazyComments('valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#valine",
+          app_id: "appId",
+          app_key: "appKey",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
 
               </article>
             
@@ -355,6 +404,30 @@
      <span>Hexo</span> <i class="iconfont icon-love"></i> <span>Fluid</span> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
   </div>
   
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
 
   
   <!-- 备案信息 -->
@@ -437,6 +510,8 @@
   <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
