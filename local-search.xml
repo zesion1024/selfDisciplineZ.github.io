@@ -5,31 +5,6 @@
   
   <entry>
     <title>vue_全局事件总线</title>
-    <link href="/2022/04/28/vue-%E5%85%A8%E5%B1%80%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/"/>
-    <url>/2022/04/28/vue-%E5%85%A8%E5%B1%80%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/</url>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="Vue-全局事件总线"><a href="#Vue-全局事件总线" class="headerlink" title="Vue_全局事件总线"></a>Vue_全局事件总线</h3><p><img src="http://img.czcgx.com/picture/202204282218863.png"></p><h4 id="1-使组件间互相通信首先需要一个所有组件能够访问读取到的地方-vue-VueComponent-。所有组件和vue实例最终都会指向-vue-VueComponent-于是我们可以在-vue-原型链上添加一个所有组件都能访问到的总线-‘-bus’"><a href="#1-使组件间互相通信首先需要一个所有组件能够访问读取到的地方-vue-VueComponent-。所有组件和vue实例最终都会指向-vue-VueComponent-于是我们可以在-vue-原型链上添加一个所有组件都能访问到的总线-‘-bus’" class="headerlink" title="(1) 使组件间互相通信首先需要一个所有组件能够访问读取到的地方 (vue.VueComponent )。所有组件和vue实例最终都会指向 vue.VueComponent 于是我们可以在 vue 原型链上添加一个所有组件都能访问到的总线 ‘$bus’"></a>(1) 使组件间互相通信首先需要一个所有组件能够访问读取到的地方 (vue.VueComponent )。所有组件和vue实例最终都会指向 vue.VueComponent 于是我们可以在 vue 原型链上添加一个所有组件都能访问到的总线 ‘$bus’</h4><blockquote><h5 id="使用beforeCreate生命周期钩子函数在-vue-实例初始化时候在其原型链上添加一个-bus-以供所有组件能够访问到"><a href="#使用beforeCreate生命周期钩子函数在-vue-实例初始化时候在其原型链上添加一个-bus-以供所有组件能够访问到" class="headerlink" title="使用beforeCreate生命周期钩子函数在 vue 实例初始化时候在其原型链上添加一个 $bus 以供所有组件能够访问到"></a>使用beforeCreate生命周期钩子函数在 vue 实例初始化时候在其原型链上添加一个 $bus 以供所有组件能够访问到</h5></blockquote><p><img src="http://img.czcgx.com/picture/202204282203957.png"></p><h4 id="2-当所有组件都能够访问到-bus-时就可以往上添加事件"><a href="#2-当所有组件都能够访问到-bus-时就可以往上添加事件" class="headerlink" title="(2) 当所有组件都能够访问到 $bus 时就可以往上添加事件"></a>(2) 当所有组件都能够访问到 $bus 时就可以往上添加事件</h4><blockquote><h5 id="在A组件上往vue原型链上的-bus-添加一个自定义事件"><a href="#在A组件上往vue原型链上的-bus-添加一个自定义事件" class="headerlink" title="在A组件上往vue原型链上的 $bus 添加一个自定义事件"></a>在A组件上往vue原型链上的 $bus 添加一个自定义事件</h5></blockquote><p><img src="http://img.czcgx.com/picture/202204282216604.png"></p><h4 id="3-触发事件"><a href="#3-触发事件" class="headerlink" title="(3) 触发事件"></a>(3) 触发事件</h4><p><img src="http://img.czcgx.com/picture/202204282218460.png"></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>Vue</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Vue</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>vue_全局事件总线</title>
     <link href="/2022/04/28/vue_%E5%85%A8%E5%B1%80%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/"/>
     <url>/2022/04/28/vue_%E5%85%A8%E5%B1%80%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/</url>
     
