@@ -29,6 +29,31 @@
   
   
   <entry>
+    <title>vue_全局事件总线</title>
+    <link href="/2022/04/28/vue_%E5%85%A8%E5%B1%80%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/"/>
+    <url>/2022/04/28/vue_%E5%85%A8%E5%B1%80%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="Vue-全局事件总线"><a href="#Vue-全局事件总线" class="headerlink" title="Vue_全局事件总线"></a>Vue_全局事件总线</h3><p><img src="http://img.czcgx.com/picture/202204282218863.png"></p><p>(1) 使组件间互相通信首先需要一个所有组件能够访问读取到的地方 (vue.VueComponent )。所有组件和vue实例最终都会指向 vue.VueComponent 于是我们可以在 vue 原型链上添加一个所有组件都能访问到的总线 ‘$bus’</p><blockquote><p>使用beforeCreate生命周期钩子函数在 vue 实例初始化时候在其原型链上添加一个 $bus 以供所有组件能够访问到</p></blockquote><p><img src="http://img.czcgx.com/picture/202204282203957.png"></p><p>(2) 当所有组件都能够访问到 $bus 时就可以往上添加事件</p><blockquote><p>在A组件上往vue原型链上的 $bus 添加一个自定义事件</p></blockquote><p><img src="http://img.czcgx.com/picture/202204282216604.png"></p><p>(3) 触发事件</p><p><img src="http://img.czcgx.com/picture/202204282218460.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Vue</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Vue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>hexo_更换域名</title>
     <link href="/2022/04/15/hexo-%E6%9B%B4%E6%8D%A2%E5%9F%9F%E5%90%8D/"/>
     <url>/2022/04/15/hexo-%E6%9B%B4%E6%8D%A2%E5%9F%9F%E5%90%8D/</url>
@@ -58,7 +83,7 @@
     <link href="/2022/02/25/git%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81/"/>
     <url>/2022/02/25/git%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81/</url>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="配置全局账户信息"><a href="#配置全局账户信息" class="headerlink" title="配置全局账户信息"></a>配置全局账户信息</h3><ol><li>git config –global user.name “cjzywyz”</li><li>git config –global user.email “<a href="mailto:&#x37;&#49;&#x30;&#49;&#49;&#51;&#52;&#50;&#x34;&#64;&#113;&#x71;&#46;&#99;&#111;&#x6d;">&#x37;&#49;&#x30;&#49;&#49;&#51;&#52;&#50;&#x34;&#64;&#113;&#x71;&#46;&#99;&#111;&#x6d;</a>“</li><li>生成ssh公钥：ssh-keygen -t rsa -C “你的邮箱地址”</li></ol><h3 id="提交文件"><a href="#提交文件" class="headerlink" title="提交文件"></a>提交文件</h3><ol><li>初始化：git init</li><li>将本地库与远程库关联：git remote add origin 远程库地址</li><li>暂存文件：git add .</li><li>提交文件到本地库：git commit -m “备注”</li><li>推送到远程库：git push origin 本地分支：远程分支</li></ol><h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><ol><li>主分支：master;</li><li>创建分支：git branch ***</li><li>切换分支：git checkout ***</li><li>查看分支：git branch</li></ol><h3 id="git-详细命令查看"><a href="#git-详细命令查看" class="headerlink" title="git 详细命令查看"></a>git 详细命令查看</h3><ol><li><a href="https://github.com/xjh22222228/git-manual">https://github.com/xjh22222228/git-manual</a></li></ol>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="配置全局账户信息"><a href="#配置全局账户信息" class="headerlink" title="配置全局账户信息"></a>配置全局账户信息</h3><ol><li>git config –global user.name “cjzywyz”</li><li>git config –global user.email “<a href="mailto:&#55;&#49;&#48;&#49;&#x31;&#x33;&#52;&#50;&#x34;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;">&#55;&#49;&#48;&#49;&#x31;&#x33;&#52;&#50;&#x34;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;</a>“</li><li>生成ssh公钥：ssh-keygen -t rsa -C “你的邮箱地址”</li></ol><h3 id="提交文件"><a href="#提交文件" class="headerlink" title="提交文件"></a>提交文件</h3><ol><li>初始化：git init</li><li>将本地库与远程库关联：git remote add origin 远程库地址</li><li>暂存文件：git add .</li><li>提交文件到本地库：git commit -m “备注”</li><li>推送到远程库：git push origin 本地分支：远程分支</li></ol><h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><ol><li>主分支：master;</li><li>创建分支：git branch ***</li><li>切换分支：git checkout ***</li><li>查看分支：git branch</li></ol><h3 id="git-详细命令查看"><a href="#git-详细命令查看" class="headerlink" title="git 详细命令查看"></a>git 详细命令查看</h3><ol><li><a href="https://github.com/xjh22222228/git-manual">https://github.com/xjh22222228/git-manual</a></li></ol>]]></content>
     
     
     <categories>

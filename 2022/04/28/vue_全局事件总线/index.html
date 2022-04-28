@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>git上传代码 - Windfall</title>
+  <title>vue_全局事件总线 - Windfall</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -170,12 +170,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('http://img.czcgx.com/picture/202203112212081.jpg') no-repeat center center;
+         style="background: url('/img/photo.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="git上传代码">
+            <span class="h2" id="subtitle" title="vue_全局事件总线">
               
             </span>
 
@@ -185,8 +185,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-02-25 21:41" pubdate>
-        2022年2月25日 晚上
+      <time datetime="2022-04-28 20:55" pubdate>
+        2022年4月28日 晚上
       </time>
     </span>
   
@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      152 字
+      174 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      1
        分钟
     </span>
   
@@ -237,30 +237,22 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">git上传代码</h1>
+            <h1 style="display: none">vue_全局事件总线</h1>
             
             <div class="markdown-body">
-              <h3 id="配置全局账户信息"><a href="#配置全局账户信息" class="headerlink" title="配置全局账户信息"></a>配置全局账户信息</h3><ol>
-<li>git config –global user.name “cjzywyz”</li>
-<li>git config –global user.email “<a href="mailto:&#55;&#49;&#48;&#49;&#x31;&#x33;&#52;&#50;&#x34;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;">&#55;&#49;&#48;&#49;&#x31;&#x33;&#52;&#50;&#x34;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;</a>“</li>
-<li>生成ssh公钥：ssh-keygen -t rsa -C “你的邮箱地址”</li>
-</ol>
-<h3 id="提交文件"><a href="#提交文件" class="headerlink" title="提交文件"></a>提交文件</h3><ol>
-<li>初始化：git init</li>
-<li>将本地库与远程库关联：git remote add origin 远程库地址</li>
-<li>暂存文件：git add .</li>
-<li>提交文件到本地库：git commit -m “备注”</li>
-<li>推送到远程库：git push origin 本地分支：远程分支</li>
-</ol>
-<h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><ol>
-<li>主分支：master;</li>
-<li>创建分支：git branch ***</li>
-<li>切换分支：git checkout ***</li>
-<li>查看分支：git branch</li>
-</ol>
-<h3 id="git-详细命令查看"><a href="#git-详细命令查看" class="headerlink" title="git 详细命令查看"></a>git 详细命令查看</h3><ol>
-<li><a target="_blank" rel="noopener" href="https://github.com/xjh22222228/git-manual">https://github.com/xjh22222228/git-manual</a></li>
-</ol>
+              <h3 id="Vue-全局事件总线"><a href="#Vue-全局事件总线" class="headerlink" title="Vue_全局事件总线"></a>Vue_全局事件总线</h3><p><img src="http://img.czcgx.com/picture/202204282218863.png" srcset="/img/loading.gif" lazyload></p>
+<p>(1) 使组件间互相通信首先需要一个所有组件能够访问读取到的地方 (vue.VueComponent )。所有组件和vue实例最终都会指向 vue.VueComponent 于是我们可以在 vue 原型链上添加一个所有组件都能访问到的总线 ‘$bus’</p>
+<blockquote>
+<p>使用beforeCreate生命周期钩子函数在 vue 实例初始化时候在其原型链上添加一个 $bus 以供所有组件能够访问到</p>
+</blockquote>
+<p><img src="http://img.czcgx.com/picture/202204282203957.png" srcset="/img/loading.gif" lazyload></p>
+<p>(2) 当所有组件都能够访问到 $bus 时就可以往上添加事件</p>
+<blockquote>
+<p>在A组件上往vue原型链上的 $bus 添加一个自定义事件</p>
+</blockquote>
+<p><img src="http://img.czcgx.com/picture/202204282216604.png" srcset="/img/loading.gif" lazyload></p>
+<p>(3) 触发事件</p>
+<p><img src="http://img.czcgx.com/picture/202204282218460.png" srcset="/img/loading.gif" lazyload></p>
 
             </div>
             <hr>
@@ -270,7 +262,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/git/">git</a>
+                      <a class="hover-with-bg" href="/categories/Vue/">Vue</a>
                     
                   </div>
                 
@@ -278,7 +270,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/git/">git</a>
+                      <a class="hover-with-bg" href="/tags/Vue/">Vue</a>
                     
                   </div>
                 
@@ -295,9 +287,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/04/15/hexo-%E6%9B%B4%E6%8D%A2%E5%9F%9F%E5%90%8D/">
+                      <a href="/2022/04/28/vue-%E5%85%A8%E5%B1%80%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">hexo_更换域名</span>
+                        <span class="hidden-mobile">vue_全局事件总线</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -305,8 +297,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/02/22/%E7%BB%99hexo%E5%8D%9A%E5%AE%A2%E7%BD%91%E9%A1%B5%E9%85%8D%E7%BD%AEssl/">
-                        <span class="hidden-mobile">给hexo博客网页配置ssl</span>
+                      <a href="/2022/04/15/hexo-%E6%9B%B4%E6%8D%A2%E5%9F%9F%E5%90%8D/">
+                        <span class="hidden-mobile">hexo_更换域名</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
