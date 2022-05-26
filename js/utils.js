@@ -1,120 +1,112 @@
-/* global Fluid, CONFIG, Debouncer */
+/* global Fluid, CONFIG */
+
+window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
 
 Fluid.utils = {
 
   listenScroll: function(callback) {
-    if ('Debouncer' in window) {
-      var dbc = new Debouncer(callback);
-      window.addEventListener('scroll', dbc, false);
-      dbc.handleEvent();
-    } else {
-      window.addEventListener('scroll', callback, false);
-    }
+    var dbc = new Debouncer(callback);
+    window.addEventListener('scroll', dbc, false);
+    dbc.handleEvent();
+    return dbc;
+  },
+
+  unlistenScroll: function(callback) {
+    window.removeEventListener('scroll', callback);
   },
 
   scrollToElement: function(target, offset) {
-    var of = $(target).offset();
+    var of = jQuery(target).offset();
     if (of) {
-      $('html,body').animate({
+      jQuery('html,body').animate({
         scrollTop: of.top + (offset || 0),
         easing   : 'swing'
       });
     }
   },
 
-  waitElementVisible: function(target, callback, heightFactor) {
+  elementVisible: function(element, offsetFactor) {
+    offsetFactor = offsetFactor && offsetFactor >= 0 ? offsetFactor : 0;
+    var rect = element.getBoundingClientRect();
+    var height = window.innerHeight || document.documentElement.clientHeight;
+    var top = rect.top;
+    return (top >= 0 && top <= height * (offsetFactor + 1))
+      || (top <= 0 && top >= -(height * offsetFactor) - rect.height);
+  },
+
+  waitElementVisible: function(selectorOrElement, callback, offsetFactor) {
     var runningOnBrowser = typeof window !== 'undefined';
-    var isBot = (runningOnBrowser && !('onscroll' in window)) || (typeof navigator !== 'undefined'
-        && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent));
-    var supportsIntersectionObserver = 'IntersectionObserver' in window;
-
+    var isBot = (runningOnBrowser && !('onscroll' in window))
+      || (typeof navigator !== 'undefined' && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent));
     if (!runningOnBrowser || isBot) {
-      callback && callback();
       return;
     }
 
-    var _target;
-    if (typeof target === 'string') {
-      _target = document.getElementById(target);
-    } else {
-      _target = target;
-    }
+    offsetFactor = offsetFactor && offsetFactor >= 0 ? offsetFactor : 0;
 
-    var _heightFactor = heightFactor || 2;
-
-    var _elementInViewport = function(el) {
-      var rect = el.getBoundingClientRect();
-      var height = window.innerHeight || document.documentElement.clientHeight;
-      var top = rect.top;
-      return (top >= 0 && top <= height * (_heightFactor + 1))
-          || (top <= 0 && top >= -(height * _heightFactor) - rect.height);
-    };
-
-    if (_elementInViewport(_target)) {
-      callback && callback();
-      return;
-    }
-
-    var _listenScroll = function() {
-      var _callback = function() {
-        if (_elementInViewport(_target)) {
-          window.removeEventListener('scroll', _callback);
-          callback && callback();
-        }
-      };
-      window.addEventListener('scroll', _callback);
-    };
-
-    if (supportsIntersectionObserver) {
-      var io = new IntersectionObserver(function(entries, ob) {
-        if (entries[0].intersectionRect.x <= 0) {
-          if ('Debouncer' in window) {
-            var dbc = new Debouncer(_listenScroll);
-            dbc.handleEvent();
-          } else {
-            _listenScroll();
-          }
-        } else if (entries[0].isIntersecting) {
-          callback && callback();
-        }
-        ob.disconnect();
-      }, {
-        threshold : [0],
-        rootMargin: (window.innerHeight || document.documentElement.clientHeight) + 'px'
-      });
-      io.observe(_target);
-    } else {
-      if ('Debouncer' in window) {
-        var dbc = new Debouncer(_listenScroll);
-        dbc.handleEvent();
-      } else {
-        _listenScroll();
+    function waitInViewport(element) {
+      if (Fluid.utils.elementVisible(element, offsetFactor)) {
+        callback();
+        return;
       }
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function(entries, ob) {
+          if (entries[0].isIntersecting) {
+            callback();
+            ob.disconnect();
+          }
+        }, {
+          threshold : [0],
+          rootMargin: (window.innerHeight || document.documentElement.clientHeight) * offsetFactor + 'px'
+        });
+        io.observe(element);
+      } else {
+        var wrapper = Fluid.utils.listenScroll(function() {
+          if (Fluid.utils.elementVisible(element, offsetFactor)) {
+            Fluid.utils.unlistenScroll(wrapper);
+            callback();
+          }
+        });
+      }
+    }
+
+    if (typeof selectorOrElement === 'string') {
+      this.waitElementLoaded(selectorOrElement, function(element) {
+        waitInViewport(element);
+      });
+    } else {
+      waitInViewport(selectorOrElement);
     }
   },
 
-  waitElementLoaded: function(targetId, callback) {
+  waitElementLoaded: function(selector, callback) {
     var runningOnBrowser = typeof window !== 'undefined';
-    var isBot = (runningOnBrowser && !('onscroll' in window)) || (typeof navigator !== 'undefined'
-    && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent));
-
+    var isBot = (runningOnBrowser && !('onscroll' in window))
+      || (typeof navigator !== 'undefined' && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent));
     if (!runningOnBrowser || isBot) {
-      callback && callback();
       return;
     }
 
     if ('MutationObserver' in window) {
       var mo = new MutationObserver(function(records, ob) {
-        var ele = document.getElementById(targetId);
+        var ele = document.querySelector(selector);
         if (ele) {
-          callback && callback();
+          callback(ele);
           ob.disconnect();
         }
       });
       mo.observe(document, { childList: true, subtree: true });
     } else {
       document.addEventListener('DOMContentLoaded', function() {
-        callback && callback();
+        var waitLoop = function() {
+          var ele = document.querySelector(selector);
+          if (ele) {
+            callback(ele);
+          } else {
+            setTimeout(waitLoop, 100);
+          }
+        };
+        waitLoop();
       });
     }
   },
@@ -138,10 +130,9 @@ Fluid.utils = {
         s.onload = onload;
       }
     }
-    var e = document.getElementsByTagName('script')[0]
-    || document.getElementsByTagName('head')[0]
-    || document.head || document.documentElement;
-    e.parentNode.insertBefore(s, e);
+    var ss = document.getElementsByTagName('script');
+    var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+    e.parentNode.insertBefore(s, e.nextSibling);
   },
 
   createCssLink: function(url) {
@@ -155,17 +146,74 @@ Fluid.utils = {
     e.parentNode.insertBefore(l, e);
   },
 
-  lazyComments: function(eleId, loadFunc) {
+  loadComments: function(selector, loadFunc) {
     var ele = document.querySelector('#comments[lazyload]');
     if (ele) {
       var callback = function() {
-        loadFunc && loadFunc();
+        loadFunc();
         ele.removeAttribute('lazyload');
       };
-      this.waitElementVisible(eleId, callback, CONFIG.lazyload.offset_factor);
+      Fluid.utils.waitElementVisible(selector, callback, CONFIG.lazyload.offset_factor);
     } else {
-      loadFunc && loadFunc();
+      loadFunc();
     }
+  },
+
+  getBackgroundLightness(selectorOrElement) {
+    var ele = selectorOrElement;
+    if (typeof selectorOrElement === 'string') {
+      ele = document.querySelector(selectorOrElement);
+    }
+    var view = ele.ownerDocument.defaultView;
+    if (!view) {
+      view = window;
+    }
+    var rgbArr = view.getComputedStyle(ele).backgroundColor.replace(/rgba*\(/, '').replace(')', '').split(/,\s*/);
+    if (rgbArr.length < 3) {
+      return 0;
+    }
+    var colorCast = (0.213 * rgbArr[0]) + (0.715 * rgbArr[1]) + (0.072 * rgbArr[2]);
+    return colorCast === 0 || colorCast > 255 / 2 ? 1 : -1;
   }
 
+};
+
+/**
+ * Handles debouncing of events via requestAnimationFrame
+ * @see http://www.html5rocks.com/en/tutorials/speed/animations/
+ * @param {Function} callback The callback to handle whichever event
+ */
+function Debouncer(callback) {
+  this.callback = callback;
+  this.ticking = false;
+}
+Debouncer.prototype = {
+  constructor: Debouncer,
+
+  /**
+   * dispatches the event to the supplied callback
+   * @private
+   */
+  update: function() {
+    this.callback && this.callback();
+    this.ticking = false;
+  },
+
+  /**
+   * ensures events don't get stacked
+   * @private
+   */
+  requestTick: function() {
+    if (!this.ticking) {
+      requestAnimationFrame(this.rafCallback || (this.rafCallback = this.update.bind(this)));
+      this.ticking = true;
+    }
+  },
+
+  /**
+   * Attach this as the event listeners
+   */
+  handleEvent: function() {
+    this.requestTick();
+  }
 };
