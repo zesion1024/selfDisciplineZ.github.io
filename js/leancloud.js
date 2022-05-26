@@ -68,17 +68,6 @@
     };
   }
 
-  // 校验是否为有效的 Host
-  function validHost() {
-    if (CONFIG.web_analytics.leancloud.ignore_local) {
-      var hostname = window.location.hostname;
-      if (hostname === 'localhost' || hostname === '127.0.0.1') {
-        return false;
-      }
-    }
-    return true;
-  }
-
   // 校验是否为有效的 UV
   function validUV() {
     var key = 'LeanCloud_UV_Flag';
@@ -94,7 +83,7 @@
   }
 
   function addCount(Counter) {
-    var enableIncr = CONFIG.web_analytics.enable && !Fluid.ctx.dnt && validHost();
+    var enableIncr = CONFIG.web_analytics.enable === true;
     var getterArr = [];
     var incrArr = [];
 
@@ -105,8 +94,10 @@
         enableIncr && incrArr.push(buildIncrement(record.objectId));
         var ele = document.querySelector('#leancloud-site-pv');
         if (ele) {
-          ele.innerText = (record.time || 0) + (enableIncr ? 1 : 0);
-          pvCtn.style.display = 'inline';
+          ele.innerText = record.time + 1;
+          if (pvCtn) {
+            pvCtn.style.display = 'inline';
+          }
         }
       });
       getterArr.push(pvGetter);
@@ -116,12 +107,14 @@
     var uvCtn = document.querySelector('#leancloud-site-uv-container');
     if (uvCtn) {
       var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
-        var incrUV = validUV() && enableIncr;
-        incrUV && incrArr.push(buildIncrement(record.objectId));
+        var vuv = validUV();
+        vuv && enableIncr && incrArr.push(buildIncrement(record.objectId));
         var ele = document.querySelector('#leancloud-site-uv');
         if (ele) {
-          ele.innerText = (record.time || 0) + (incrUV ? 1 : 0);
-          uvCtn.style.display = 'inline';
+          ele.innerText = record.time + (vuv ? 1 : 0);
+          if (uvCtn) {
+            uvCtn.style.display = 'inline';
+          }
         }
       });
       getterArr.push(uvGetter);
@@ -130,14 +123,15 @@
     // 如果有页面浏览数节点，则请求浏览数并自增
     var viewCtn = document.querySelector('#leancloud-page-views-container');
     if (viewCtn) {
-      var path = eval(CONFIG.web_analytics.leancloud.path || 'window.location.pathname');
-      var target = decodeURI(path.replace(/\/*(index.html)?$/, '/'));
+      var target = decodeURI(window.location.pathname);
       var viewGetter = getRecord(Counter, target).then((record) => {
         enableIncr && incrArr.push(buildIncrement(record.objectId));
-        var ele = document.querySelector('#leancloud-page-views');
-        if (ele) {
-          ele.innerText = (record.time || 0) + (enableIncr ? 1 : 0);
-          viewCtn.style.display = 'inline';
+        if (viewCtn) {
+          var ele = document.querySelector('#leancloud-page-views');
+          if (ele) {
+            ele.innerText = (record.time || 0) + 1;
+            viewCtn.style.display = 'inline';
+          }
         }
       });
       getterArr.push(viewGetter);
@@ -155,13 +149,6 @@
   var appKey = CONFIG.web_analytics.leancloud.app_key;
   var serverUrl = CONFIG.web_analytics.leancloud.server_url;
 
-  if (!appId) {
-    throw new Error('LeanCloud appId is empty');
-  }
-  if (!appKey) {
-    throw new Error('LeanCloud appKey is empty');
-  }
-
   function fetchData(api_server) {
     var Counter = (method, url, data) => {
       return fetch(`${api_server}/1.1${url}`, {
@@ -178,7 +165,7 @@
     addCount(Counter);
   }
 
-  var apiServer = serverUrl || `https://${appId.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+  var apiServer = appId.slice(-9) !== '-MdYXbMMI' ? serverUrl : `https://${appId.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
 
   if (apiServer) {
     fetchData(apiServer);
