@@ -16,29 +16,28 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Vue_全局事件总线 (1) 使组件间互相通信首先需要一个所有组件能够访问读取到的地方 (vue.VueComponent )。所有组件和vue实例最终都会指向 vue.VueComponent 于是我们可以在 vue 原型链上添加一个所有组件都能访问到的总线 ‘$bus’  使用beforeCreate生命周期钩子函数在 vue 实例初始化时候在其原型链上添加一个 $bus 以供所有组件能够访问">
+    <meta name="description" content="开启云服务器所需端口  telnet IP 端口号 ,测试端口号有没有打开，如果没有则考虑是否是服务器防火墙问题  查看防火墙信息 12systemctl start firewalld			# 开启防火墙firewall-cmd --list-all				# 查询列表信息  ports : 后面显示的为打开的端口    若是ports为空，则自行添加所需要开放的端口（ 例如添加8080端口 ）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue_全局事件总线">
-<meta property="og:url" content="https://czcgx.com/2022/04/28/vue_%E5%85%A8%E5%B1%80%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/index.html">
+<meta property="og:title" content="将vue项目部署到nginx">
+<meta property="og:url" content="https://czcgx.com/2022/09/17/%E5%B0%86vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%88%B0nginx/index.html">
 <meta property="og:site_name" content="Windfall">
-<meta property="og:description" content="Vue_全局事件总线 (1) 使组件间互相通信首先需要一个所有组件能够访问读取到的地方 (vue.VueComponent )。所有组件和vue实例最终都会指向 vue.VueComponent 于是我们可以在 vue 原型链上添加一个所有组件都能访问到的总线 ‘$bus’  使用beforeCreate生命周期钩子函数在 vue 实例初始化时候在其原型链上添加一个 $bus 以供所有组件能够访问">
+<meta property="og:description" content="开启云服务器所需端口  telnet IP 端口号 ,测试端口号有没有打开，如果没有则考虑是否是服务器防火墙问题  查看防火墙信息 12systemctl start firewalld			# 开启防火墙firewall-cmd --list-all				# 查询列表信息  ports : 后面显示的为打开的端口    若是ports为空，则自行添加所需要开放的端口（ 例如添加8080端口 ）">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://img.czcgx.com/picture/202204282218863.png">
-<meta property="og:image" content="http://img.czcgx.com/picture/202204282203957.png">
-<meta property="og:image" content="http://img.czcgx.com/picture/202204282216604.png">
-<meta property="og:image" content="http://img.czcgx.com/picture/202204282218460.png">
-<meta property="article:published_time" content="2022-04-28T12:55:54.000Z">
-<meta property="article:modified_time" content="2022-04-28T16:30:41.565Z">
+<meta property="og:image" content="http://img.czcgx.com/picture/202209171618751.png">
+<meta property="og:image" content="http://img.czcgx.com/picture/202209171625277.png">
+<meta property="og:image" content="http://img.czcgx.com/picture/202209171632071.png">
+<meta property="article:published_time" content="2022-09-17T08:14:36.000Z">
+<meta property="article:modified_time" content="2022-09-17T09:06:06.149Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://img.czcgx.com/picture/202204282218863.png">
+<meta name="twitter:image" content="http://img.czcgx.com/picture/202209171618751.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>vue_全局事件总线 - Windfall</title>
+  <title>将vue项目部署到nginx - Windfall</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="vue_全局事件总线"></span>
+            <span id="subtitle" data-typed-text="将vue项目部署到nginx"></span>
           
         </div>
 
@@ -212,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-04-28 20:55" pubdate>
-          2022年4月28日 晚上
+        <time datetime="2022-09-17 16:14" pubdate>
+          2022年9月17日 下午
         </time>
       </span>
     
@@ -224,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          undefined 字
+          606 字
         
       </span>
     
@@ -235,7 +234,7 @@
         
         
         
-          NaN 分钟
+          6 分钟
         
       </span>
     
@@ -273,23 +272,53 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">vue_全局事件总线</h1>
+            <h1 style="display: none">将vue项目部署到nginx</h1>
             
             <div class="markdown-body">
               
-              <h3 id="Vue-全局事件总线"><a href="#Vue-全局事件总线" class="headerlink" title="Vue_全局事件总线"></a>Vue_全局事件总线</h3><p><img src="http://img.czcgx.com/picture/202204282218863.png" srcset="/img/loading.gif" lazyload></p>
-<p>(1) 使组件间互相通信首先需要一个所有组件能够访问读取到的地方 (vue.VueComponent )。所有组件和vue实例最终都会指向 vue.VueComponent 于是我们可以在 vue 原型链上添加一个所有组件都能访问到的总线 ‘$bus’</p>
+              <h3 id="开启云服务器所需端口"><a href="#开启云服务器所需端口" class="headerlink" title="开启云服务器所需端口"></a>开启云服务器所需端口</h3><p><img src="http://img.czcgx.com/picture/202209171618751.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li><p><code>telnet IP 端口号</code> ,测试端口号有没有打开，如果没有则考虑是否是服务器防火墙问题</p>
+<ol>
+<li><p>查看防火墙信息</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">systemctl <span class="hljs-literal">start</span> firewalld			<span class="hljs-comment"># 开启防火墙</span><br>firewall-cmd --list-all				<span class="hljs-comment"># 查询列表信息  ports : 后面显示的为打开的端口</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="http://img.czcgx.com/picture/202209171625277.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>若是ports为空，则自行添加所需要开放的端口（ 例如添加8080端口 ）</p>
+<ol>
+<li><pre><code class="hljs"># 添加需要开放的端口号
+firewall-cmd --zone=public --add-port=8080/tcp --permanent
+</code></pre>
+<p>参数说明：</p>
 <blockquote>
-<p>使用beforeCreate生命周期钩子函数在 vue 实例初始化时候在其原型链上添加一个 $bus 以供所有组件能够访问到</p>
+<p>–zone # 作用域<br>–add-port=80/tcp # 添加端口，格式为：端口/通讯协议<br>–permanent # 永久生效，没有此参数重启后失效</p>
+<p>其它操作：<br>添加多个端口:<br>firewall-cmd –zone=public –add-port=80-90/tcp –permanent<br>删除<br>firewall-cmd –zone=public –remove-port=80/tcp –permanent</p>
 </blockquote>
-<p><img src="http://img.czcgx.com/picture/202204282203957.png" srcset="/img/loading.gif" lazyload></p>
-<p>(2) 当所有组件都能够访问到 $bus 时就可以往上添加事件</p>
-<blockquote>
-<p>在A组件上往vue原型链上的 $bus 添加一个自定义事件</p>
+</li>
+<li><p>重启防火墙</p>
+<p><code>firewall-cmd --list-all        # 查询防火墙所有信息</code></p>
+</li>
+</ol>
+<p>*** 如果上面所有操作都做了还是无法访问端口号，请删除服务器安全组重新创建即可</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="进入到nginx-conf进行配置"><a href="#进入到nginx-conf进行配置" class="headerlink" title="进入到nginx.conf进行配置"></a>进入到nginx.conf进行配置</h3><ol>
+<li><p>将vue打包生成的dist文件上传到服务器 </p>
+<p><img src="http://img.czcgx.com/picture/202209171632071.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>重启 nginx 基本完成</p>
+<ol>
+<li><code>nginx -s reload</code></li>
+</ol>
+</li>
+<li><blockquote>
+<p>如果出现 500 状态码则将 dist 更换目录如 var (亲测放root下面会500)</p>
 </blockquote>
-<p><img src="http://img.czcgx.com/picture/202204282216604.png" srcset="/img/loading.gif" lazyload></p>
-<p>(3) 触发事件</p>
-<p><img src="http://img.czcgx.com/picture/202204282218460.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+</ol>
 
               
             </div>
@@ -307,7 +336,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Vue/" class="category-chain-item">Vue</a>
+  <a href="/categories/vue/" class="category-chain-item">vue</a>
   
   
 
@@ -322,7 +351,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Vue/">#Vue</a>
+        <a href="/tags/vue/">#vue</a>
       
     </div>
   
@@ -336,9 +365,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/09/17/%E5%B0%86vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%88%B0nginx/" title="将vue项目部署到nginx">
+                      <a href="/2022/09/17/123/" title="123">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">将vue项目部署到nginx</span>
+                        <span class="hidden-mobile">123</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -346,8 +375,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/15/hexo-%E6%9B%B4%E6%8D%A2%E5%9F%9F%E5%90%8D/" title="hexo_更换域名">
-                        <span class="hidden-mobile">hexo_更换域名</span>
+                      <a href="/2022/04/28/vue_%E5%85%A8%E5%B1%80%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/" title="vue_全局事件总线">
+                        <span class="hidden-mobile">vue_全局事件总线</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

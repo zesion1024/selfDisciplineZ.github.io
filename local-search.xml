@@ -4,6 +4,44 @@
   
   
   <entry>
+    <title>123</title>
+    <link href="/2022/09/17/123/"/>
+    <url>/2022/09/17/123/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>将vue项目部署到nginx</title>
+    <link href="/2022/09/17/%E5%B0%86vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%88%B0nginx/"/>
+    <url>/2022/09/17/%E5%B0%86vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%88%B0nginx/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="开启云服务器所需端口"><a href="#开启云服务器所需端口" class="headerlink" title="开启云服务器所需端口"></a>开启云服务器所需端口</h3><p><img src="http://img.czcgx.com/picture/202209171618751.png"></p><ol><li><p><code>telnet IP 端口号</code> ,测试端口号有没有打开，如果没有则考虑是否是服务器防火墙问题</p><ol><li><p>查看防火墙信息</p><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">systemctl <span class="hljs-literal">start</span> firewalld<span class="hljs-comment"># 开启防火墙</span><br>firewall-cmd --list-all<span class="hljs-comment"># 查询列表信息  ports : 后面显示的为打开的端口</span><br></code></pre></td></tr></table></figure><p><img src="http://img.czcgx.com/picture/202209171625277.png"></p></li><li><p>若是ports为空，则自行添加所需要开放的端口（ 例如添加8080端口 ）</p><ol><li><pre><code class="hljs"># 添加需要开放的端口号firewall-cmd --zone=public --add-port=8080/tcp --permanent</code></pre><p>参数说明：</p><blockquote><p>–zone # 作用域<br>–add-port=80/tcp # 添加端口，格式为：端口/通讯协议<br>–permanent # 永久生效，没有此参数重启后失效</p><p>其它操作：<br>添加多个端口:<br>firewall-cmd –zone=public –add-port=80-90/tcp –permanent<br>删除<br>firewall-cmd –zone=public –remove-port=80/tcp –permanent</p></blockquote></li><li><p>重启防火墙</p><p><code>firewall-cmd --list-all        # 查询防火墙所有信息</code></p></li></ol><p>*** 如果上面所有操作都做了还是无法访问端口号，请删除服务器安全组重新创建即可</p></li></ol></li></ol><h3 id="进入到nginx-conf进行配置"><a href="#进入到nginx-conf进行配置" class="headerlink" title="进入到nginx.conf进行配置"></a>进入到nginx.conf进行配置</h3><ol><li><p>将vue打包生成的dist文件上传到服务器 </p><p><img src="http://img.czcgx.com/picture/202209171632071.png"></p></li><li><p>重启 nginx 基本完成</p><ol><li><code>nginx -s reload</code></li></ol></li><li><blockquote><p>如果出现 500 状态码则将 dist 更换目录如 var (亲测放root下面会500)</p></blockquote></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>vue</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>vue_全局事件总线</title>
     <link href="/2022/04/28/vue_%E5%85%A8%E5%B1%80%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/"/>
     <url>/2022/04/28/vue_%E5%85%A8%E5%B1%80%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/</url>
