@@ -19,7 +19,7 @@
     <meta name="description" content="查看 nginx 是否安装 ssl 模块 首先开启服务器443端口 查看 nginx 有没有安装 ssl 模块，基于nginx版本不同所以nginx文件目录也会有所不同 找到nginx的sbin目录 &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F; 如果没有则在此目录下查看： &#x2F;usr&#x2F;sbin&#x2F;   查看有没有安装ssl模块（基于实际sbin目录输入命令） &#x2F;usr&#x2F;sbin&#x2F;nginx -V 出现">
 <meta property="og:type" content="article">
 <meta property="og:title" content="给hexo博客网页配置ssl">
-<meta property="og:url" content="https://czcgx.com/2022/02/22/%E7%BB%99hexo%E5%8D%9A%E5%AE%A2%E7%BD%91%E9%A1%B5%E9%85%8D%E7%BD%AEssl/index.html">
+<meta property="og:url" content="http://zhelloword.com/2022/02/22/%E7%BB%99hexo%E5%8D%9A%E5%AE%A2%E7%BD%91%E9%A1%B5%E9%85%8D%E7%BD%AEssl/index.html">
 <meta property="og:site_name" content="Windfall">
 <meta property="og:description" content="查看 nginx 是否安装 ssl 模块 首先开启服务器443端口 查看 nginx 有没有安装 ssl 模块，基于nginx版本不同所以nginx文件目录也会有所不同 找到nginx的sbin目录 &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F; 如果没有则在此目录下查看： &#x2F;usr&#x2F;sbin&#x2F;   查看有没有安装ssl模块（基于实际sbin目录输入命令） &#x2F;usr&#x2F;sbin&#x2F;nginx -V 出现">
 <meta property="og:locale" content="zh_CN">
@@ -73,7 +73,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"czcgx.com","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"zhelloword.com","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          undefined 字
+          1.3k 字
         
       </span>
     
@@ -232,7 +232,7 @@
         
         
         
-          NaN 分钟
+          12 分钟
         
       </span>
     
@@ -297,7 +297,7 @@
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs awk">http&#123;<br>    <span class="hljs-comment">#http节点中可以添加多个server节点</span><br>    server&#123;<br>        <span class="hljs-comment">#监听443端口</span><br>        listen <span class="hljs-number">443</span>;<br>        server_name 你的域名;<br>        ssl on;<br>        ssl_certificate <span class="hljs-regexp">/etc/</span>ssl/<span class="hljs-number">1</span>.crt.pem; <span class="hljs-comment">#地址修改为pem文件地址</span><br>        ssl_certificate_key <span class="hljs-regexp">/etc/</span>ssl/<span class="hljs-number">1</span>.key; <span class="hljs-comment">#地址修改为key文件地址</span><br>        ssl_session_timeout <span class="hljs-number">5</span>m;<br>        ssl_protocols TLSv1 TLSv1.<span class="hljs-number">1</span> TLSv1.<span class="hljs-number">2</span>;<br>        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;<br>        ssl_prefer_server_ciphers on;<br>        <span class="hljs-comment">#这是我的主页访问地址，因为使用的是静态的html网页，所以直接使用location就可以完成了。</span><br>        location / &#123;<br>                <span class="hljs-comment">#文件夹</span><br>                root <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/service/</span>ROOT;<br>                <span class="hljs-comment">#主页文件</span><br>                index index.html;<br>        &#125;<br>    &#125;<br>    server&#123;<br>        listen <span class="hljs-number">80</span>;<br>        server_name 你的域名;<br>        rewrite ^<span class="hljs-regexp">/(.*)$ https:/</span><span class="hljs-regexp">/你的域名:443/</span><span class="hljs-variable">$1</span> permanent;<br>    &#125;<br>&#125;  <br></code></pre></td></tr></table></figure>
 
 <ol>
-<li>每次更改配置文件都需要重启nginx服务<pre><code> nginx -s reload
+<li>每次更改配置文件都需要重启nginx服务<pre><code class="hljs"> nginx -s reload
 </code></pre>
 </li>
 </ol>
