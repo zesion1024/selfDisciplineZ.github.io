@@ -19,17 +19,18 @@
     <meta name="description" content="语法为：Object.defineProperty(obj,prop,descriptor)参数： obj:要定义属性的对象prop:要定义或修改的属性的名称descriptor:配置项  案例11234567891011&lt;script&gt;    var number &#x3D; 25    var person&#x3D;&amp;#123;        name:&amp;#x27;张三&amp;#x27;,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue_object.definProperty底层原理">
-<meta property="og:url" content="http://zhelloword.com/2021/12/19/vue_object-definProperty%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:url" content="http://zesion.top/2021/12/19/vue_object-definProperty%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="Windfall">
 <meta property="og:description" content="语法为：Object.defineProperty(obj,prop,descriptor)参数： obj:要定义属性的对象prop:要定义或修改的属性的名称descriptor:配置项  案例11234567891011&lt;script&gt;    var number &#x3D; 25    var person&#x3D;&amp;#123;        name:&amp;#x27;张三&amp;#x27;,">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://img.czcgx.com/picture/202204152258066.jpg">
+<meta property="og:image" content="http://img.zesion.top/picture/202203112220146.png">
+<meta property="og:image" content="http://img.zesion.top/picture/202203112220200.png">
 <meta property="article:published_time" content="2021-12-19T15:11:10.000Z">
-<meta property="article:modified_time" content="2022-04-15T14:58:57.053Z">
+<meta property="article:modified_time" content="2023-05-08T12:39:03.594Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://img.czcgx.com/picture/202204152258066.jpg">
+<meta name="twitter:image" content="http://img.zesion.top/picture/202203112220146.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -73,7 +74,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhelloword.com","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"zesion.top","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -192,7 +193,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('http://img.czcgx.com/picture/202204152258066.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -283,14 +284,14 @@
 </blockquote>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs elixir"> Object.defineProperty(person,<span class="hljs-string">&#x27;age&#x27;</span>,&#123;<br>    <span class="hljs-symbol">value:</span><span class="hljs-string">&#x27;18&#x27;</span>,<br>    <span class="hljs-symbol">enumerable:</span><span class="hljs-keyword">true</span>,    <span class="hljs-regexp">//</span>控制属性是否可以被枚举(遍历),默认值 <span class="hljs-keyword">false</span><br>    <span class="hljs-symbol">writable:</span><span class="hljs-keyword">true</span>,      <span class="hljs-regexp">//</span>控制属性是否可以被修改,默认值<span class="hljs-keyword">false</span><br>    <span class="hljs-symbol">configurable:</span><span class="hljs-keyword">true</span>,  <span class="hljs-regexp">//</span>控制属性是否可以被删除,默认值<span class="hljs-keyword">false</span><br>&#125;)<br></code></pre></td></tr></table></figure>
 <blockquote>
-<p><img src="http://img.czcgx.com/picture/202203112220146.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="http://img.zesion.top/picture/202203112220146.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <h4 id="高级配置项-get-set"><a href="#高级配置项-get-set" class="headerlink" title="高级配置项 get,set"></a>高级配置项 get,set</h4><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-keyword">var</span> obj = &#123;<br>       <span class="hljs-built_in">num</span> : <span class="hljs-number">18</span><br>   &#125;<br>       <span class="hljs-keyword">var</span> obj2 = &#123;<br>       age : <span class="hljs-number">20</span><br>   &#125;<br>   <span class="hljs-built_in">Object</span>.defineProperty(obj2,<span class="hljs-string">&#x27;num&#x27;</span>,&#123;<br>   <span class="hljs-comment">// 当访问 obj2.num 时直接返回 obj.num</span><br>       <span class="hljs-keyword">get</span>()&#123;<br>           <span class="hljs-keyword">return</span> obj.<span class="hljs-built_in">num</span><br>       &#125;,<br>   <span class="hljs-comment">// 修改 obj2.num 时 将值赋值给 obj.num</span><br>       <span class="hljs-keyword">set</span>(value)&#123;<br>           obj.<span class="hljs-built_in">num</span> = value<br>       &#125;<br>   &#125;)<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p style="text-indent:2em">get: 当有人读取num时get函数就会被调用且返回一个return值</p>
 <p style="text-indent:2em">set: 当有人修改num属性时set函数就会被调用且会收到修改的具体值</p>
 </blockquote>
-<p><img src="http://img.czcgx.com/picture/202203112220200.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="http://img.zesion.top/picture/202203112220200.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="object-definProperty详细用法"><a href="#object-definProperty详细用法" class="headerlink" title="object.definProperty详细用法"></a>object.definProperty详细用法</h4><blockquote>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">MSD</a><br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Zy4y1K7SH?p=11">B站</a></p>
 </blockquote>

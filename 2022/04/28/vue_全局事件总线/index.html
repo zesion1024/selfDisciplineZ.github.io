@@ -19,20 +19,20 @@
     <meta name="description" content="Vue_全局事件总线 (1) 使组件间互相通信首先需要一个所有组件能够访问读取到的地方 (vue.VueComponent )。所有组件和vue实例最终都会指向 vue.VueComponent 于是我们可以在 vue 原型链上添加一个所有组件都能访问到的总线 ‘$bus’  使用beforeCreate生命周期钩子函数在 vue 实例初始化时候在其原型链上添加一个 $bus 以供所有组件能够访问">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue_全局事件总线">
-<meta property="og:url" content="http://zhelloword.com/2022/04/28/vue_%E5%85%A8%E5%B1%80%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/index.html">
+<meta property="og:url" content="http://zesion.top/2022/04/28/vue_%E5%85%A8%E5%B1%80%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/index.html">
 <meta property="og:site_name" content="Windfall">
 <meta property="og:description" content="Vue_全局事件总线 (1) 使组件间互相通信首先需要一个所有组件能够访问读取到的地方 (vue.VueComponent )。所有组件和vue实例最终都会指向 vue.VueComponent 于是我们可以在 vue 原型链上添加一个所有组件都能访问到的总线 ‘$bus’  使用beforeCreate生命周期钩子函数在 vue 实例初始化时候在其原型链上添加一个 $bus 以供所有组件能够访问">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://img.czcgx.com/picture/202204282218863.png">
-<meta property="og:image" content="http://img.czcgx.com/picture/202204282203957.png">
-<meta property="og:image" content="http://img.czcgx.com/picture/202204282216604.png">
-<meta property="og:image" content="http://img.czcgx.com/picture/202204282218460.png">
+<meta property="og:image" content="http://img.zesion.top/picture/202204282218863.png">
+<meta property="og:image" content="http://img.zesion.top/picture/202204282203957.png">
+<meta property="og:image" content="http://img.zesion.top/picture/202204282216604.png">
+<meta property="og:image" content="http://img.zesion.top/picture/202204282218460.png">
 <meta property="article:published_time" content="2022-04-28T12:55:54.000Z">
-<meta property="article:modified_time" content="2022-04-28T16:30:41.565Z">
+<meta property="article:modified_time" content="2023-05-08T12:38:41.550Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://img.czcgx.com/picture/202204282218863.png">
+<meta name="twitter:image" content="http://img.zesion.top/picture/202204282218863.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhelloword.com","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"zesion.top","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -277,19 +277,19 @@
             
             <div class="markdown-body">
               
-              <h3 id="Vue-全局事件总线"><a href="#Vue-全局事件总线" class="headerlink" title="Vue_全局事件总线"></a>Vue_全局事件总线</h3><p><img src="http://img.czcgx.com/picture/202204282218863.png" srcset="/img/loading.gif" lazyload></p>
+              <h3 id="Vue-全局事件总线"><a href="#Vue-全局事件总线" class="headerlink" title="Vue_全局事件总线"></a>Vue_全局事件总线</h3><p><img src="http://img.zesion.top/picture/202204282218863.png" srcset="/img/loading.gif" lazyload></p>
 <p>(1) 使组件间互相通信首先需要一个所有组件能够访问读取到的地方 (vue.VueComponent )。所有组件和vue实例最终都会指向 vue.VueComponent 于是我们可以在 vue 原型链上添加一个所有组件都能访问到的总线 ‘$bus’</p>
 <blockquote>
 <p>使用beforeCreate生命周期钩子函数在 vue 实例初始化时候在其原型链上添加一个 $bus 以供所有组件能够访问到</p>
 </blockquote>
-<p><img src="http://img.czcgx.com/picture/202204282203957.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="http://img.zesion.top/picture/202204282203957.png" srcset="/img/loading.gif" lazyload></p>
 <p>(2) 当所有组件都能够访问到 $bus 时就可以往上添加事件</p>
 <blockquote>
 <p>在A组件上往vue原型链上的 $bus 添加一个自定义事件</p>
 </blockquote>
-<p><img src="http://img.czcgx.com/picture/202204282216604.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="http://img.zesion.top/picture/202204282216604.png" srcset="/img/loading.gif" lazyload></p>
 <p>(3) 触发事件</p>
-<p><img src="http://img.czcgx.com/picture/202204282218460.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="http://img.zesion.top/picture/202204282218460.png" srcset="/img/loading.gif" lazyload></p>
 
               
             </div>

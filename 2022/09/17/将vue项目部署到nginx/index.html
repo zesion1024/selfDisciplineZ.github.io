@@ -19,19 +19,19 @@
     <meta name="description" content="开启云服务器所需端口  telnet IP 端口号 ,测试端口号有没有打开，如果没有则考虑是否是服务器防火墙问题  查看防火墙信息 12systemctl start firewalld			# 开启防火墙firewall-cmd --list-all				# 查询列表信息  ports : 后面显示的为打开的端口    若是ports为空，则自行添加所需要开放的端口（ 例如添加8080端口 ）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="将vue项目部署到nginx">
-<meta property="og:url" content="http://zhelloword.com/2022/09/17/%E5%B0%86vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%88%B0nginx/index.html">
+<meta property="og:url" content="http://zesion.top/2022/09/17/%E5%B0%86vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%88%B0nginx/index.html">
 <meta property="og:site_name" content="Windfall">
 <meta property="og:description" content="开启云服务器所需端口  telnet IP 端口号 ,测试端口号有没有打开，如果没有则考虑是否是服务器防火墙问题  查看防火墙信息 12systemctl start firewalld			# 开启防火墙firewall-cmd --list-all				# 查询列表信息  ports : 后面显示的为打开的端口    若是ports为空，则自行添加所需要开放的端口（ 例如添加8080端口 ）">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://img.czcgx.com/picture/202209171618751.png">
-<meta property="og:image" content="http://img.czcgx.com/picture/202209171625277.png">
-<meta property="og:image" content="http://img.czcgx.com/picture/202209171632071.png">
+<meta property="og:image" content="http://img.zesion.top/picture/202209171618751.png">
+<meta property="og:image" content="http://img.zesion.top/picture/202209171625277.png">
+<meta property="og:image" content="http://img.zesion.top/picture/202209171632071.png">
 <meta property="article:published_time" content="2022-09-17T08:14:36.000Z">
-<meta property="article:modified_time" content="2022-09-17T09:06:06.149Z">
+<meta property="article:modified_time" content="2023-05-08T12:37:54.610Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://img.czcgx.com/picture/202209171618751.png">
+<meta name="twitter:image" content="http://img.zesion.top/picture/202209171618751.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhelloword.com","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"zesion.top","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -276,14 +276,14 @@
             
             <div class="markdown-body">
               
-              <h3 id="开启云服务器所需端口"><a href="#开启云服务器所需端口" class="headerlink" title="开启云服务器所需端口"></a>开启云服务器所需端口</h3><p><img src="http://img.czcgx.com/picture/202209171618751.png" srcset="/img/loading.gif" lazyload></p>
+              <h3 id="开启云服务器所需端口"><a href="#开启云服务器所需端口" class="headerlink" title="开启云服务器所需端口"></a>开启云服务器所需端口</h3><p><img src="http://img.zesion.top/picture/202209171618751.png" srcset="/img/loading.gif" lazyload></p>
 <ol>
 <li><p><code>telnet IP 端口号</code> ,测试端口号有没有打开，如果没有则考虑是否是服务器防火墙问题</p>
 <ol>
 <li><p>查看防火墙信息</p>
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">systemctl <span class="hljs-literal">start</span> firewalld			<span class="hljs-comment"># 开启防火墙</span><br>firewall-cmd --list-all				<span class="hljs-comment"># 查询列表信息  ports : 后面显示的为打开的端口</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="http://img.czcgx.com/picture/202209171625277.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="http://img.zesion.top/picture/202209171625277.png" srcset="/img/loading.gif" lazyload></p>
 </li>
 <li><p>若是ports为空，则自行添加所需要开放的端口（ 例如添加8080端口 ）</p>
 <ol>
@@ -307,7 +307,7 @@ firewall-cmd --zone=public --add-port=8080/tcp --permanent
 </ol>
 <h3 id="进入到nginx-conf进行配置"><a href="#进入到nginx-conf进行配置" class="headerlink" title="进入到nginx.conf进行配置"></a>进入到nginx.conf进行配置</h3><ol>
 <li><p>将vue打包生成的dist文件上传到服务器 </p>
-<p><img src="http://img.czcgx.com/picture/202209171632071.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="http://img.zesion.top/picture/202209171632071.png" srcset="/img/loading.gif" lazyload></p>
 </li>
 <li><p>重启 nginx 基本完成</p>
 <ol>

@@ -19,17 +19,24 @@
     <meta name="description" content="第一步：github 设置 第二步：进入域名服务商控制台解析域名  第三步：点击添加两个录集，一个A类型，一个CNAME类型。 第四步：添加一个CNAME类型录集主机记录填www，值填 github 仓库名其余默认。 第五步：添加一个A类型的录集主机记录不用填，值填github ipv4地址（ping 仓库名.github.io可查看ip地址）其余默认。 第六步：修改_config文件里的url代">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo_更换域名">
-<meta property="og:url" content="http://zhelloword.com/2022/04/15/hexo-%E6%9B%B4%E6%8D%A2%E5%9F%9F%E5%90%8D/index.html">
+<meta property="og:url" content="http://zesion.top/2022/04/15/hexo-%E6%9B%B4%E6%8D%A2%E5%9F%9F%E5%90%8D/index.html">
 <meta property="og:site_name" content="Windfall">
 <meta property="og:description" content="第一步：github 设置 第二步：进入域名服务商控制台解析域名  第三步：点击添加两个录集，一个A类型，一个CNAME类型。 第四步：添加一个CNAME类型录集主机记录填www，值填 github 仓库名其余默认。 第五步：添加一个A类型的录集主机记录不用填，值填github ipv4地址（ping 仓库名.github.io可查看ip地址）其余默认。 第六步：修改_config文件里的url代">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://img.czcgx.com/picture/202204152239056.jpg">
+<meta property="og:image" content="http://img.zesion.top/picture/202204152224650.jpeg">
+<meta property="og:image" content="http://img.zesion.top/picture/202204152225592.jpg">
+<meta property="og:image" content="http://img.zesion.top/picture/202204152226669.jpg">
+<meta property="og:image" content="http://img.zesion.top/picture/202204152227005.jpg">
+<meta property="og:image" content="http://img.zesion.top/picture/202204152228591.jpg">
+<meta property="og:image" content="http://img.zesion.top/picture/202204152228956.jpg">
+<meta property="og:image" content="http://img.zesion.top/picture/202204152228032.jpg">
+<meta property="og:image" content="http://img.zesion.top/picture/202204152229013.jpg">
 <meta property="article:published_time" content="2022-04-15T14:07:45.000Z">
-<meta property="article:modified_time" content="2022-04-15T14:40:18.580Z">
+<meta property="article:modified_time" content="2023-05-08T12:39:28.856Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://img.czcgx.com/picture/202204152239056.jpg">
+<meta name="twitter:image" content="http://img.zesion.top/picture/202204152224650.jpeg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -73,7 +80,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhelloword.com","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"zesion.top","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -192,7 +199,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('http://img.czcgx.com/picture/202204152239056.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -274,14 +281,14 @@
             
             <div class="markdown-body">
               
-              <h3 id="第一步：github-设置"><a href="#第一步：github-设置" class="headerlink" title="第一步：github 设置"></a>第一步：github 设置</h3><p><img src="http://img.czcgx.com/picture/202204152224650.jpeg" srcset="/img/loading.gif" lazyload></p>
-<h3 id="第二步：进入域名服务商控制台解析域名"><a href="#第二步：进入域名服务商控制台解析域名" class="headerlink" title="第二步：进入域名服务商控制台解析域名"></a>第二步：进入域名服务商控制台解析域名</h3><p> <img src="http://img.czcgx.com/picture/202204152225592.jpg" srcset="/img/loading.gif" lazyload></p>
-<h3 id="第三步：点击添加两个录集，一个A类型，一个CNAME类型。"><a href="#第三步：点击添加两个录集，一个A类型，一个CNAME类型。" class="headerlink" title="第三步：点击添加两个录集，一个A类型，一个CNAME类型。"></a>第三步：点击添加两个录集，一个A类型，一个CNAME类型。</h3><p><img src="http://img.czcgx.com/picture/202204152226669.jpg" srcset="/img/loading.gif" lazyload></p>
-<h3 id="第四步：添加一个CNAME类型录集主机记录填www，值填-github-仓库名其余默认。"><a href="#第四步：添加一个CNAME类型录集主机记录填www，值填-github-仓库名其余默认。" class="headerlink" title="第四步：添加一个CNAME类型录集主机记录填www，值填 github 仓库名其余默认。"></a>第四步：添加一个CNAME类型录集主机记录填www，值填 github 仓库名其余默认。</h3><p><img src="http://img.czcgx.com/picture/202204152227005.jpg" srcset="/img/loading.gif" lazyload></p>
-<h3 id="第五步：添加一个A类型的录集主机记录不用填，值填github-ipv4地址（ping-仓库名-github-io可查看ip地址）其余默认。"><a href="#第五步：添加一个A类型的录集主机记录不用填，值填github-ipv4地址（ping-仓库名-github-io可查看ip地址）其余默认。" class="headerlink" title="第五步：添加一个A类型的录集主机记录不用填，值填github ipv4地址（ping 仓库名.github.io可查看ip地址）其余默认。"></a>第五步：添加一个A类型的录集主机记录不用填，值填github ipv4地址（ping 仓库名.github.io可查看ip地址）其余默认。</h3><p><img src="http://img.czcgx.com/picture/202204152228591.jpg" srcset="/img/loading.gif" lazyload></p>
-<h3 id="第六步：修改-config文件里的url代码"><a href="#第六步：修改-config文件里的url代码" class="headerlink" title="第六步：修改_config文件里的url代码"></a>第六步：修改_config文件里的url代码</h3><p><img src="http://img.czcgx.com/picture/202204152228956.jpg" srcset="/img/loading.gif" lazyload></p>
-<h3 id="如果无法出现问题则新建以下文件帮助解析：找到source文件夹在里面创建一个CNAME-txt文件并删除txt后缀"><a href="#如果无法出现问题则新建以下文件帮助解析：找到source文件夹在里面创建一个CNAME-txt文件并删除txt后缀" class="headerlink" title="如果无法出现问题则新建以下文件帮助解析：找到source文件夹在里面创建一个CNAME.txt文件并删除txt后缀"></a>如果无法出现问题则新建以下文件帮助解析：找到source文件夹在里面创建一个CNAME.txt文件并删除txt后缀</h3><p><img src="http://img.czcgx.com/picture/202204152228032.jpg" srcset="/img/loading.gif" lazyload></p>
-<p><img src="http://img.czcgx.com/picture/202204152229013.jpg" srcset="/img/loading.gif" lazyload></p>
+              <h3 id="第一步：github-设置"><a href="#第一步：github-设置" class="headerlink" title="第一步：github 设置"></a>第一步：github 设置</h3><p><img src="http://img.zesion.top/picture/202204152224650.jpeg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="第二步：进入域名服务商控制台解析域名"><a href="#第二步：进入域名服务商控制台解析域名" class="headerlink" title="第二步：进入域名服务商控制台解析域名"></a>第二步：进入域名服务商控制台解析域名</h3><p> <img src="http://img.zesion.top/picture/202204152225592.jpg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="第三步：点击添加两个录集，一个A类型，一个CNAME类型。"><a href="#第三步：点击添加两个录集，一个A类型，一个CNAME类型。" class="headerlink" title="第三步：点击添加两个录集，一个A类型，一个CNAME类型。"></a>第三步：点击添加两个录集，一个A类型，一个CNAME类型。</h3><p><img src="http://img.zesion.top/picture/202204152226669.jpg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="第四步：添加一个CNAME类型录集主机记录填www，值填-github-仓库名其余默认。"><a href="#第四步：添加一个CNAME类型录集主机记录填www，值填-github-仓库名其余默认。" class="headerlink" title="第四步：添加一个CNAME类型录集主机记录填www，值填 github 仓库名其余默认。"></a>第四步：添加一个CNAME类型录集主机记录填www，值填 github 仓库名其余默认。</h3><p><img src="http://img.zesion.top/picture/202204152227005.jpg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="第五步：添加一个A类型的录集主机记录不用填，值填github-ipv4地址（ping-仓库名-github-io可查看ip地址）其余默认。"><a href="#第五步：添加一个A类型的录集主机记录不用填，值填github-ipv4地址（ping-仓库名-github-io可查看ip地址）其余默认。" class="headerlink" title="第五步：添加一个A类型的录集主机记录不用填，值填github ipv4地址（ping 仓库名.github.io可查看ip地址）其余默认。"></a>第五步：添加一个A类型的录集主机记录不用填，值填github ipv4地址（ping 仓库名.github.io可查看ip地址）其余默认。</h3><p><img src="http://img.zesion.top/picture/202204152228591.jpg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="第六步：修改-config文件里的url代码"><a href="#第六步：修改-config文件里的url代码" class="headerlink" title="第六步：修改_config文件里的url代码"></a>第六步：修改_config文件里的url代码</h3><p><img src="http://img.zesion.top/picture/202204152228956.jpg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="如果无法出现问题则新建以下文件帮助解析：找到source文件夹在里面创建一个CNAME-txt文件并删除txt后缀"><a href="#如果无法出现问题则新建以下文件帮助解析：找到source文件夹在里面创建一个CNAME-txt文件并删除txt后缀" class="headerlink" title="如果无法出现问题则新建以下文件帮助解析：找到source文件夹在里面创建一个CNAME.txt文件并删除txt后缀"></a>如果无法出现问题则新建以下文件帮助解析：找到source文件夹在里面创建一个CNAME.txt文件并删除txt后缀</h3><p><img src="http://img.zesion.top/picture/202204152228032.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><img src="http://img.zesion.top/picture/202204152229013.jpg" srcset="/img/loading.gif" lazyload></p>
 
               
             </div>
