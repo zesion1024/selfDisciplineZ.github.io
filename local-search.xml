@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>nuxt 部署到云服务器</title>
+    <link href="/2023/07/06/nuxt-%E9%83%A8%E7%BD%B2%E5%88%B0%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <url>/2023/07/06/nuxt-%E9%83%A8%E7%BD%B2%E5%88%B0%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><ol><li>开启云服务器端口或者二级域名</li><li>将打包后的 .output 文件上传至服务器</li><li>在服务器全局安装 pm2 插件使 nuxt 项目在关闭后可以自动重启</li></ol><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">npm</span> i -g pm<span class="hljs-number">2</span><br></code></pre></td></tr></table></figure><ol start="4"><li>在nuxt 根目录下创建一个 pm2 的配置文件 ecosystem.config.js  </li></ol><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-comment">// ecosystem.config.js  </span><br>module.exports = &#123;<br><span class="hljs-symbol">  apps:</span> [<br>    &#123;<br><span class="hljs-symbol">      name:</span> <span class="hljs-string">&quot;obase&quot;</span>,<br><span class="hljs-symbol">      exec_mode:</span> <span class="hljs-string">&quot;cluster&quot;</span>,<br><span class="hljs-symbol">      instances:</span> <span class="hljs-string">&quot;1&quot;</span>, <span class="hljs-comment">// Or a number of instances</span><br><span class="hljs-symbol">      script:</span> <span class="hljs-string">&quot;./.output/server/index.mjs&quot;</span>,<br><span class="hljs-symbol">      args:</span> <span class="hljs-string">&quot;start&quot;</span>,<br><span class="hljs-symbol">      env:</span> &#123;<br><span class="hljs-symbol">          PORT:</span> <span class="hljs-number">3001</span>,<br><span class="hljs-symbol">          HOST:</span> <span class="hljs-string">&quot;0.0.0.0&quot;</span><br>      &#125;<br>    &#125;,<br>  ],<br>&#125;;<br><br></code></pre></td></tr></table></figure><p><img src="http://img.zesion.top/picture/image-20230706112746753.png" alt="image-20230706112746753"></p><p>启动 pm2 </p><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">pm2 <span class="hljs-literal">start</span><br></code></pre></td></tr></table></figure><blockquote><p>至此可以通过 ip:端口号 进行访问了</p></blockquote><ol start="5"><li>nginx 代理</li></ol><blockquote><p>如果是通过宝塔安装的 nginx 可以通过以下路径进行配置 </p></blockquote><p><img src="http://img.zesion.top/picture/image-20230706133434906.png" alt="image-20230706133434906"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs server">&#x2F;&#x2F; .conf 配置文件内容<br>server<br>&#123;<br>    listen 80;<br>    server_name obase.zesion.top;<br>    location &#x2F; &#123;<br>        proxy_pass http:&#x2F;&#x2F;127.0.0.1:3001;&#x2F;&#x2F; 端口号与 ecosystem.config.js PORT 配置项相同<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><ol start="6"><li><p>扩展</p><ol><li><p>启动 pm2 </p><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">pm2 <span class="hljs-literal">start</span><br></code></pre></td></tr></table></figure></li><li><p>停止 pm2</p><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">pm2 stop 项目名或<span class="hljs-built_in">id</span><br></code></pre></td></tr></table></figure></li><li><p>删除  pm2 项目</p><figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gml">pm2 <span class="hljs-keyword">delete</span> 项目名或<span class="hljs-symbol">id</span><br></code></pre></td></tr></table></figure></li><li><p>查看  pm2 项目</p><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gcode">p<span class="hljs-name">m2</span> list<br></code></pre></td></tr></table></figure></li><li><p>linux 查看端口命令</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">netstat -ntlp</span><br></code></pre></td></tr></table></figure></li></ol></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>Nuxt3</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Nuxt3</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>将vue项目部署到nginx</title>
     <link href="/2022/09/17/%E5%B0%86vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%88%B0nginx/"/>
     <url>/2022/09/17/%E5%B0%86vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%88%B0nginx/</url>

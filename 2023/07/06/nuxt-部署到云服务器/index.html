@@ -16,28 +16,27 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="开启云服务器所需端口  telnet IP 端口号 ,测试端口号有没有打开，如果没有则考虑是否是服务器防火墙问题  查看防火墙信息 12systemctl start firewalld			# 开启防火墙firewall-cmd --list-all				# 查询列表信息  ports : 后面显示的为打开的端口    若是ports为空，则自行添加所需要开放的端口（ 例如添加8080端口 ）">
+    <meta name="description" content="开启云服务器端口或者二级域名 将打包后的 .output 文件上传至服务器 在服务器全局安装 pm2 插件使 nuxt 项目在关闭后可以自动重启  1npm i -g pm2   在nuxt 根目录下创建一个 pm2 的配置文件 ecosystem.config.js    1234567891011121314151617&#x2F;&#x2F; ecosystem.config.js  module.expor">
 <meta property="og:type" content="article">
-<meta property="og:title" content="将vue项目部署到nginx">
-<meta property="og:url" content="http://zesion.top/2022/09/17/%E5%B0%86vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%88%B0nginx/index.html">
+<meta property="og:title" content="nuxt 部署到云服务器">
+<meta property="og:url" content="http://zesion.top/2023/07/06/nuxt-%E9%83%A8%E7%BD%B2%E5%88%B0%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">
 <meta property="og:site_name" content="Windfall">
-<meta property="og:description" content="开启云服务器所需端口  telnet IP 端口号 ,测试端口号有没有打开，如果没有则考虑是否是服务器防火墙问题  查看防火墙信息 12systemctl start firewalld			# 开启防火墙firewall-cmd --list-all				# 查询列表信息  ports : 后面显示的为打开的端口    若是ports为空，则自行添加所需要开放的端口（ 例如添加8080端口 ）">
+<meta property="og:description" content="开启云服务器端口或者二级域名 将打包后的 .output 文件上传至服务器 在服务器全局安装 pm2 插件使 nuxt 项目在关闭后可以自动重启  1npm i -g pm2   在nuxt 根目录下创建一个 pm2 的配置文件 ecosystem.config.js    1234567891011121314151617&#x2F;&#x2F; ecosystem.config.js  module.expor">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://img.zesion.top/picture/202209171618751.png">
-<meta property="og:image" content="http://img.zesion.top/picture/202209171625277.png">
-<meta property="og:image" content="http://img.zesion.top/picture/202209171632071.png">
-<meta property="article:published_time" content="2022-09-17T08:14:36.000Z">
-<meta property="article:modified_time" content="2023-05-08T12:37:54.610Z">
+<meta property="og:image" content="http://img.zesion.top/picture/image-20230706112746753.png">
+<meta property="og:image" content="http://img.zesion.top/picture/image-20230706133434906.png">
+<meta property="article:published_time" content="2023-07-06T03:18:12.000Z">
+<meta property="article:modified_time" content="2023-07-06T05:46:22.876Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="vue">
+<meta property="article:tag" content="Nuxt3">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://img.zesion.top/picture/202209171618751.png">
+<meta name="twitter:image" content="http://img.zesion.top/picture/image-20230706112746753.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>将vue项目部署到nginx - Windfall</title>
+  <title>nuxt 部署到云服务器 - Windfall</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="将vue项目部署到nginx"></span>
+            <span id="subtitle" data-typed-text="nuxt 部署到云服务器"></span>
           
         </div>
 
@@ -211,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-09-17 16:14" pubdate>
-          2022年9月17日 下午
+        <time datetime="2023-07-06 11:18" pubdate>
+          2023年7月6日 上午
         </time>
       </span>
     
@@ -223,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          606 字
+          788 字
         
       </span>
     
@@ -234,7 +233,7 @@
         
         
         
-          6 分钟
+          7 分钟
         
       </span>
     
@@ -272,51 +271,52 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">将vue项目部署到nginx</h1>
+            <h1 style="display: none">nuxt 部署到云服务器</h1>
             
             <div class="markdown-body">
               
-              <h3 id="开启云服务器所需端口"><a href="#开启云服务器所需端口" class="headerlink" title="开启云服务器所需端口"></a>开启云服务器所需端口</h3><p><img src="http://img.zesion.top/picture/202209171618751.png" srcset="/img/loading.gif" lazyload></p>
-<ol>
-<li><p><code>telnet IP 端口号</code> ,测试端口号有没有打开，如果没有则考虑是否是服务器防火墙问题</p>
-<ol>
-<li><p>查看防火墙信息</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">systemctl <span class="hljs-literal">start</span> firewalld			<span class="hljs-comment"># 开启防火墙</span><br>firewall-cmd --list-all				<span class="hljs-comment"># 查询列表信息  ports : 后面显示的为打开的端口</span><br></code></pre></td></tr></table></figure>
+              <ol>
+<li>开启云服务器端口或者二级域名</li>
+<li>将打包后的 .output 文件上传至服务器</li>
+<li>在服务器全局安装 pm2 插件使 nuxt 项目在关闭后可以自动重启</li>
+</ol>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">npm</span> i -g pm<span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="http://img.zesion.top/picture/202209171625277.png" srcset="/img/loading.gif" lazyload></p>
-</li>
-<li><p>若是ports为空，则自行添加所需要开放的端口（ 例如添加8080端口 ）</p>
-<ol>
-<li><pre><code class="hljs"># 添加需要开放的端口号
-firewall-cmd --zone=public --add-port=8080/tcp --permanent
-</code></pre>
-<p>参数说明：</p>
+<ol start="4">
+<li>在nuxt 根目录下创建一个 pm2 的配置文件 ecosystem.config.js  </li>
+</ol>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-comment">// ecosystem.config.js  </span><br>module.exports = &#123;<br><span class="hljs-symbol">  apps:</span> [<br>    &#123;<br><span class="hljs-symbol">      name:</span> <span class="hljs-string">&quot;obase&quot;</span>,<br><span class="hljs-symbol">      exec_mode:</span> <span class="hljs-string">&quot;cluster&quot;</span>,<br><span class="hljs-symbol">      instances:</span> <span class="hljs-string">&quot;1&quot;</span>, <span class="hljs-comment">// Or a number of instances</span><br><span class="hljs-symbol">      script:</span> <span class="hljs-string">&quot;./.output/server/index.mjs&quot;</span>,<br><span class="hljs-symbol">      args:</span> <span class="hljs-string">&quot;start&quot;</span>,<br><span class="hljs-symbol">      env:</span> &#123;<br><span class="hljs-symbol">          PORT:</span> <span class="hljs-number">3001</span>,<br><span class="hljs-symbol">          HOST:</span> <span class="hljs-string">&quot;0.0.0.0&quot;</span><br>      &#125;<br>    &#125;,<br>  ],<br>&#125;;<br><br></code></pre></td></tr></table></figure>
+
+<p><img src="http://img.zesion.top/picture/image-20230706112746753.png" srcset="/img/loading.gif" lazyload alt="image-20230706112746753"></p>
+<p>启动 pm2 </p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">pm2 <span class="hljs-literal">start</span><br></code></pre></td></tr></table></figure>
+
 <blockquote>
-<p>–zone # 作用域<br>–add-port=80/tcp # 添加端口，格式为：端口/通讯协议<br>–permanent # 永久生效，没有此参数重启后失效</p>
-<p>其它操作：<br>添加多个端口:<br>firewall-cmd –zone=public –add-port=80-90/tcp –permanent<br>删除<br>firewall-cmd –zone=public –remove-port=80/tcp –permanent</p>
+<p>至此可以通过 ip:端口号 进行访问了</p>
 </blockquote>
-</li>
-<li><p>重启防火墙</p>
-<p><code>firewall-cmd --list-all        # 查询防火墙所有信息</code></p>
-</li>
+<ol start="5">
+<li>nginx 代理</li>
 </ol>
-<p>*** 如果上面所有操作都做了还是无法访问端口号，请删除服务器安全组重新创建即可</p>
-</li>
-</ol>
-</li>
-</ol>
-<h3 id="进入到nginx-conf进行配置"><a href="#进入到nginx-conf进行配置" class="headerlink" title="进入到nginx.conf进行配置"></a>进入到nginx.conf进行配置</h3><ol>
-<li><p>将vue打包生成的dist文件上传到服务器 </p>
-<p><img src="http://img.zesion.top/picture/202209171632071.png" srcset="/img/loading.gif" lazyload></p>
-</li>
-<li><p>重启 nginx 基本完成</p>
+<blockquote>
+<p>如果是通过宝塔安装的 nginx 可以通过以下路径进行配置 </p>
+</blockquote>
+<p><img src="http://img.zesion.top/picture/image-20230706133434906.png" srcset="/img/loading.gif" lazyload alt="image-20230706133434906"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs server">&#x2F;&#x2F; .conf 配置文件内容<br>server<br>&#123;<br>    listen 80;<br>    server_name obase.zesion.top;<br>    location &#x2F; &#123;<br>        proxy_pass http:&#x2F;&#x2F;127.0.0.1:3001;	&#x2F;&#x2F; 端口号与 ecosystem.config.js PORT 配置项相同<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="6">
+<li><p>扩展</p>
 <ol>
-<li><code>nginx -s reload</code></li>
+<li><p>启动 pm2 </p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">pm2 <span class="hljs-literal">start</span><br></code></pre></td></tr></table></figure></li>
+<li><p>停止 pm2</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">pm2 stop 项目名或<span class="hljs-built_in">id</span><br></code></pre></td></tr></table></figure></li>
+<li><p>删除  pm2 项目</p>
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gml">pm2 <span class="hljs-keyword">delete</span> 项目名或<span class="hljs-symbol">id</span><br></code></pre></td></tr></table></figure></li>
+<li><p>查看  pm2 项目</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gcode">p<span class="hljs-name">m2</span> list<br></code></pre></td></tr></table></figure></li>
+<li><p>linux 查看端口命令</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">netstat -ntlp</span><br></code></pre></td></tr></table></figure></li>
 </ol>
-</li>
-<li><blockquote>
-<p>如果出现 500 状态码则将 dist 更换目录如 var (亲测放root下面会500)</p>
-</blockquote>
 </li>
 </ol>
 
@@ -336,7 +336,7 @@ firewall-cmd --zone=public --add-port=8080/tcp --permanent
     
       <span class="category-chain">
         
-  <a href="/categories/vue/" class="category-chain-item">vue</a>
+  <a href="/categories/Nuxt3/" class="category-chain-item">Nuxt3</a>
   
   
 
@@ -351,7 +351,7 @@ firewall-cmd --zone=public --add-port=8080/tcp --permanent
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/vue/">#vue</a>
+        <a href="/tags/Nuxt3/">#Nuxt3</a>
       
     </div>
   
@@ -365,18 +365,12 @@ firewall-cmd --zone=public --add-port=8080/tcp --permanent
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/07/06/nuxt-%E9%83%A8%E7%BD%B2%E5%88%B0%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="nuxt 部署到云服务器">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">nuxt 部署到云服务器</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/28/vue_%E5%85%A8%E5%B1%80%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/" title="vue_全局事件总线">
-                        <span class="hidden-mobile">vue_全局事件总线</span>
+                      <a href="/2022/09/17/%E5%B0%86vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%88%B0nginx/" title="将vue项目部署到nginx">
+                        <span class="hidden-mobile">将vue项目部署到nginx</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
