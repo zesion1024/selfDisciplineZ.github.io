@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://img.zesion.top/picture/image-20230706112746753.png">
 <meta property="og:image" content="http://img.zesion.top/picture/image-20230706133434906.png">
 <meta property="article:published_time" content="2023-07-06T03:18:12.000Z">
-<meta property="article:modified_time" content="2023-07-06T05:46:22.876Z">
+<meta property="article:modified_time" content="2023-07-06T06:34:04.327Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Nuxt3">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          788 字
+          786 字
         
       </span>
     
@@ -303,8 +303,6 @@
 <p><img src="http://img.zesion.top/picture/image-20230706133434906.png" srcset="/img/loading.gif" lazyload alt="image-20230706133434906"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs server">&#x2F;&#x2F; .conf 配置文件内容<br>server<br>&#123;<br>    listen 80;<br>    server_name obase.zesion.top;<br>    location &#x2F; &#123;<br>        proxy_pass http:&#x2F;&#x2F;127.0.0.1:3001;	&#x2F;&#x2F; 端口号与 ecosystem.config.js PORT 配置项相同<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<ol start="6">
-<li><p>扩展</p>
 <ol>
 <li><p>启动 pm2 </p>
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">pm2 <span class="hljs-literal">start</span><br></code></pre></td></tr></table></figure></li>
@@ -316,8 +314,6 @@
 <figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gcode">p<span class="hljs-name">m2</span> list<br></code></pre></td></tr></table></figure></li>
 <li><p>linux 查看端口命令</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">netstat -ntlp</span><br></code></pre></td></tr></table></figure></li>
-</ol>
-</li>
 </ol>
 
               
