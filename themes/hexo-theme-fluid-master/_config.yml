@@ -313,9 +313,9 @@ navbar:
     - { key: "home", link: "/", icon: "iconfont icon-home-fill" }
     - { key: "archive", link: "/archives/", icon: "iconfont icon-archive-fill" }
     - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
-    #- { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
+    - { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
     - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
-    #- { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
+    - { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
 
 # 搜索功能，基于 hexo-generator-search 插件，若已安装其他搜索插件请关闭此功能，以避免生成多余的索引文件
 # Search feature, based on hexo-generator-search. If you have installed other search plugins, please disable this feature to avoid generating redundant index files
@@ -391,7 +391,7 @@ footer:
   # 展示网站的 PV、UV 统计数
   # Display website PV and UV statistics
   statistics:
-    enable: false
+    enable: true
 
     # 统计数据来源，如果使用 leancloud 需要设置 `web_analytics: leancloud` 中的参数；如果使用 busuanzi 可能会有请求失败的情况
     # Data source. If use leancloud, you need to set the parameter in `web_analytics: leancloud`
@@ -406,9 +406,9 @@ footer:
   # 国内大陆服务器的备案信息
   # For Chinese mainland website policy, other areas keep disable
   beian:
-    enable: false
+    enable: true  
     # ICP证号
-    icp_text: 京ICP证123456号
+    icp_text: 鄂ICP备2022001993号
     # 公安备案号，不填则只显示ICP
     police_text: 京公网安备12345678号
     # 公安备案的编号，用于URL跳转查询
@@ -424,8 +424,7 @@ footer:
 index:
   # 首页 Banner 头图，可以是相对路径或绝对路径，以下相同
   # Path of Banner image, can be a relative path or an absolute path, the same on other pages
-  banner_img: /img/photo.png
-
+  banner_img: http://img.czcgx.com/picture/202203112204662.jpg
   # 头图高度，屏幕百分比
   # Height ratio of banner image
   # Available: 0 - 100
@@ -487,7 +486,7 @@ index:
   # 文章通过 sticky 排序后，在首页文章标题前显示图标
   # If the posts are sorted by `sticky`, an icon is displayed in front of the post title
   post_sticky:
-    enable: true
+    enable: false
     icon: "iconfont icon-top"
 
 
@@ -633,12 +632,12 @@ post:
   # 评论插件
   # Comment plugin
   comments:
-    enable: true
+    enable: false
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
     Options: utterances
     #| disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo
-    type: utterances
+    type: 
 
 
 #---------------------------
@@ -666,7 +665,7 @@ utterances:
 # Based on third-party service
 # See: https://disqus.com
 disqus:
-  shortname:
+  shortname: 
   # 以下为 Disqusjs 支持, 国内用户如果想使用 Disqus 建议配合使用
   # The following are Disqusjs configurations, please ignore if DisqusJS is not required
   # See: https://github.com/SukkaW/DisqusJS
@@ -700,8 +699,8 @@ gitalk:
 # Based on LeanCloud
 # See: https://valine.js.org/configuration.html
 valine:
-  appid:
-  appkey:
+  appid: Your appId
+  appkey: Your appKey
   placeholder: 说点什么
   path: window.location.pathname
   avatar: retro
@@ -771,7 +770,7 @@ twikoo:
 # Archive Page
 #---------------------------
 archive:
-  banner_img: /img/photo.png
+  banner_img: http://img.czcgx.com/picture/202203112204662.jpg
   banner_img_height: 100
   banner_mask_alpha: 0.3
   subtitle: 
@@ -783,7 +782,7 @@ archive:
 #---------------------------
 category:
   enable: true
-  banner_img: /img/photo.png
+  banner_img: http://img.czcgx.com/picture/202203112204662.jpg
   banner_img_height: 100
   banner_mask_alpha: 0.3
   subtitle:
@@ -813,7 +812,7 @@ category:
 #---------------------------
 tag:
   enable: true
-  banner_img: /img/photo.png
+  banner_img: http://img.czcgx.com/picture/202203112204662.jpg
   banner_img_height: 100
   banner_mask_alpha: 0.3
   subtitle:
@@ -831,7 +830,7 @@ tag:
 #---------------------------
 about:
   enable: true
-  banner_img: /img/photo.png
+  banner_img: http://img.czcgx.com/picture/202203112204662.jpg
   banner_img_height: 70
   banner_mask_alpha: 0.3
   subtitle: 感谢支持
@@ -876,31 +875,31 @@ page404:
 #---------------------------
 links:
   enable: true
-  banner_img: /img/default.png
+  banner_img: http://img.czcgx.com/picture/202203112204662.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
   subtitle:
   # 友链的成员项
   # Member item of page
   items:
-    - {
-      title: "Fluid Blog",
-      intro: "主题博客",
-      link: "https://hexo.fluid-dev.com/",
-      avatar: "/img/favicon.png"
-    }
-    - {
-      title: "Fluid Docs",
-      intro: "主题使用指南",
-      link: "https://hexo.fluid-dev.com/docs/",
-      avatar: "/img/favicon.png"
-    }
-    - {
-      title: "Fluid Repo",
-      intro: "主题 GitHub 仓库",
-      link: "https://github.com/fluid-dev/hexo-theme-fluid",
-      avatar: "/img/favicon.png"
-    }
+    #- {
+    #  title: "Fluid Blog",
+    #  intro: "主题博客",
+    #  link: "https://hexo.fluid-dev.com/",
+    #  avatar: "/img/favicon.png"
+    #}
+    #- {
+    #  title: "Fluid Docs",
+    #  intro: "主题使用指南",
+    #  link: "https://hexo.fluid-dev.com/docs/",
+    #  avatar: "/img/favicon.png"
+    #}
+    #- {
+    #  title: "Fluid Repo",
+    #  intro: "主题 GitHub 仓库",
+    #  link: "https://github.com/fluid-dev/hexo-theme-fluid",
+    #  avatar: "/img/favicon.png"
+    #}
 
   # 当成员头像加载失败时，替换为指定图片
   # When the member avatar fails to load, replace the specified image
@@ -940,44 +939,87 @@ static_prefix:
   internal_css: /css
   internal_img: /img
 
-  anchor: https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/
+  anchor: https://lib.baomitu.com/anchor-js/4.3.1/
 
-  github_markdown: https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/
+  github_markdown: https://lib.baomitu.com/github-markdown-css/4.0.0/
 
-  jquery: https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/
+  jquery: https://lib.baomitu.com/jquery/3.6.0/
 
-  bootstrap: https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/
+  bootstrap: https://lib.baomitu.com/twitter-bootstrap/4.6.1/
 
-  highlightjs: https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/
+  prismjs: https://lib.baomitu.com/prism/1.26.0/
 
-  prismjs: https://cdn.jsdelivr.net/npm/prismjs@1.22.0/
+  tocbot: https://lib.baomitu.com/tocbot/4.18.0/
 
-  tocbot: https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/
+  typed: https://lib.baomitu.com/typed.js/2.0.12/
 
-  typed: https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/
+  fancybox: https://lib.baomitu.com/fancybox/3.5.7/
 
-  fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/
+  nprogress: https://lib.baomitu.com/nprogress/0.2.0/
 
-  nprogress: https://cdn.jsdelivr.net/npm/nprogress@0.2.0/
+  mathjax: https://lib.baomitu.com/mathjax/3.2.0/
 
-  mathjax: https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/
-
-  katex: https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/
+  katex: https://lib.baomitu.com/KaTeX/0.15.2/
 
   busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/
 
-  clipboard: https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/
+  clipboard: https://lib.baomitu.com/clipboard.js/2.0.10/
 
-  mermaid: https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/
+  mermaid: https://lib.baomitu.com/mermaid/8.13.10/
 
-  valine: https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/
+  valine: https://lib.baomitu.com/valine/1.4.16/
 
-  waline: https://cdn.jsdelivr.net/npm/@waline/client@0.14.8/dist/
+  waline: https://lib.baomitu.com/waline/2.3.2/
 
-  gitalk: https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/
+  gitalk: https://lib.baomitu.com/gitalk/1.7.2/
 
-  disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1.0/dist/
+  disqusjs: https://lib.baomitu.com/disqusjs/1.3.0/
 
-  twikoo: https://cdn.jsdelivr.net/npm/twikoo@1.3.0/dist/
+  twikoo: https://lib.baomitu.com/twikoo/1.4.17/
 
-  hint: /lib/hint/
+  hint: https://lib.baomitu.com/hint.css/2.7.0/
+
+
+
+
+  # anchor: https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/
+
+  # github_markdown: https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/
+
+  # jquery: https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/
+
+  # bootstrap: https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/
+
+  # highlightjs: https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/
+
+  # prismjs: https://cdn.jsdelivr.net/npm/prismjs@1.22.0/
+
+  # tocbot: https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/
+
+  # typed: https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/
+
+  # fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/
+
+  # nprogress: https://cdn.jsdelivr.net/npm/nprogress@0.2.0/
+
+  # mathjax: https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/
+
+  # katex: https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/
+
+  # busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/
+
+  # clipboard: https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/
+
+  # mermaid: https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/
+
+  # valine: https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/
+
+  # waline: https://cdn.jsdelivr.net/npm/@waline/client@0.14.8/dist/
+
+  # gitalk: https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/
+
+  # disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1.0/dist/
+
+  # twikoo: https://cdn.jsdelivr.net/npm/twikoo@1.3.0/dist/
+
+  # hint: /lib/hint/

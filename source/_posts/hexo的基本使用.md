@@ -4,7 +4,6 @@ date: 2021-10-14 14:56:10
 tags: [hexo]
 categories: 
 - hexo
-index_img: img/hexo.jpeg
 ---
 ### 新建 hexo 文章
 >* 命令: hexo new "hello world"
